@@ -101,7 +101,7 @@ const Projects = () => {
         
         {/* Proyectos Finalizados */}
         <div className="mb-16">
-          <h3 className="section-subtitle bg-green-100 dark:bg-green-80 inline-block px-6 py-2 rounded-full">
+          <h3 className="section-subtitle bg-emerald-500 dark:bg-emerald-700 inline-block px-6 py-2 rounded-full text-white">
             Finalizado
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
