@@ -1,5 +1,7 @@
 import React from 'react';
 import Timeline from './Timeline';
+import Studies from './Studies';
+import Certifications from './Certifications';
 
 const About = () => {
   return (
@@ -9,7 +11,7 @@ const About = () => {
           Sobre mí
         </h2>
         
-        <div className="flex flex-col md:flex-row gap-12 items-center">
+        <div className="flex flex-col md:flex-row gap-12 items-start">
           <div className="md:w-1/3 flex justify-center">
             <img 
               src="/media/images/diploma.jpg" 
@@ -37,6 +39,14 @@ const About = () => {
             
             <div className="mb-8">
               <Timeline />
+            </div>
+            
+            <div className="mb-8">
+              <Studies />
+            </div>
+            
+            <div className="mb-8">
+              <Certifications />
             </div>
             
             <div>
