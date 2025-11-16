@@ -207,16 +207,16 @@ const Timeline = () => {
           Timeline
         </h2>
         
-        <div className="relative overflow-x-hidden"> {/* Añadido overflow-x-hidden para controlar desbordamiento */}
+        <div className="relative">
           {/* Línea de tiempo horizontal */}
           <div className="absolute left-0 right-0 top-1/2 h-1 bg-gray-300 dark:bg-gray-600 transform -translate-y-1/2 z-0"></div>
           
           {/* Marcadores de años */}
-          <div className="relative flex justify-between items-center h-32 overflow-x-hidden"> {/* Añadido overflow-x-hidden */}
+          <div className="relative flex justify-between items-center h-32 overflow-x-auto pb-4">
             {years.map((year, index) => (
               <div 
                 key={year}
-                className="relative z-10 flex flex-col items-center flex-shrink-0"
+                className="relative z-10 flex flex-col items-center flex-shrink-0 mx-4"
               >
                 {/* Círculo del año */}
                 <div className={`
@@ -231,7 +231,7 @@ const Timeline = () => {
                 <div className="w-0.5 h-8 bg-gray-400 dark:bg-gray-500"></div>
                 
                 {/* Año */}
-                <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 px-2 py-1 rounded mt-1 rotate-[-45deg] origin-center transform -translate-x-2/3">
+                <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 px-2 py-1 rounded mt-1">
                   {year}
                 </div>
               </div>
