@@ -3,12 +3,13 @@ import Timeline from './Timeline';
 import Studies from './Studies';
 import Certifications from './Certifications';
 import Experience from './Experience';
+import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
 
 const About = () => {
   return (
-    <section id="sobre-mi" className="py-20 px-6 bg-gray-100 dark:bg-gray-800">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+    <section id="sobre-mi" className="py-20 px-6 section-bg-light">
+      <div className="container mx-auto fade-in">
+        <h2 className="section-title">
           Sobre mí
         </h2>
         
@@ -17,7 +18,7 @@ const About = () => {
             <img 
               src="/media/images/graduacionDiego.jpg" 
               alt="Diploma de Diego" 
-              className="w-64 h-64 object-cover rounded-xl border-4 border-blue-500 shadow-lg"
+              className="w-64 h-64 img-profile img-rounded"
               onError={(e) => {
                 console.error('Error al cargar la imagen:', e.target.src);
                 e.target.style.display = 'none';
@@ -55,7 +56,7 @@ const About = () => {
                 {['HTML', 'CSS', 'JavaScript', 'React', 'PHP', 'SQL', 'Tailwind CSS', 'Git', 'GitHub'].map((skill) => (
                   <span 
                     key={skill}
-                    className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-80 dark:text-blue-200 rounded-full text-sm"
+                    className="skill-tag"
                   >
                     {skill}
                   </span>
@@ -65,14 +66,22 @@ const About = () => {
             
             <div className="mt-8">
               <h4 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">Conecta conmigo</h4>
-              <a 
-                href="https://www.linkedin.com/in/diego-e-b08910198/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
-              >
-                <i className="fab fa-linkedin text-2xl mr-2"></i> LinkedIn
-              </a>
+              <div className="flex flex-col space-y-4">
+                <a 
+                  href="mailto:dextremiana1998@gmail.com" 
+                  className="inline-flex items-center link"
+                >
+                  <FaEnvelope className="text-2xl mr-2" /> dextremiana1998@gmail.com
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/diego-e-b08910198/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center link"
+                >
+                  <FaLinkedin className="text-2xl mr-2" /> linkedin
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -82,7 +91,6 @@ const About = () => {
         <Timeline />
         <Studies />
         <Certifications />
-        <Experience />
       </div>
     </section>
   );

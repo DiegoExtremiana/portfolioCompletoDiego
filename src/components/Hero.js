@@ -2,8 +2,8 @@ import React from 'react';
 
 const Hero = () => {
   return (
-    <section id="inicio" className="min-h-screen flex items-center justify-center px-6 py-20">
-      <div className="max-w-6xl mx-auto text-center">
+    <section id="inicio" className="min-h-screen flex items-center justify-center px-6 py-20 section-bg-dark">
+      <div className="container mx-auto text-center fade-in">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="md:w-1/2 mb-10 md:mb-0">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-white mb-4">
@@ -26,13 +26,13 @@ const Hero = () => {
             <div className="flex justify-center space-x-4">
               <a 
                 href="#contacto" 
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
+                className="btn-primary"
               >
                 Contáctame
               </a>
               <a 
                 href="#proyectos" 
-                className="px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                className="btn-secondary"
               >
                 Ver Proyectos
               </a>
@@ -43,7 +43,7 @@ const Hero = () => {
               <img 
                 src="/media/images/fotoPerfilDiego.png" 
                 alt="Diego Extremiana - Foto de Perfil" 
-                className="w-full h-full object-cover"
+                className="img-profile"
               />
             </div>
           </div>

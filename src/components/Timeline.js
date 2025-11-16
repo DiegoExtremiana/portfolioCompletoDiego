@@ -29,25 +29,6 @@ const Timeline = () => {
       description: 'Formación técnica en sistemas informáticos y redes, base fundamental para mi carrera en tecnología.',
       category: 'Grado'
     },
-    // Experiencia Laboral
-    {
-      id: 3,
-      type: 'experience',
-      title: 'Programador web',
-      subtitle: 'Wunder control solutions',
-      date: '9/2024 - 1/2025',
-      description: 'Creé una aplicación responsiva de control de presencia con perfil, mensajería, comunicación con la base de datos mediante API, registros y edición usando HTML, CSS, JavaScript, REACT, PHP y SQL.',
-      category: 'Experiencia Laboral'
-    },
-    {
-      id: 4,
-      type: 'experience',
-      title: 'Atención al cliente',
-      subtitle: 'Arsys',
-      date: '3/2021 - 6/2021',
-      description: 'Atención a usuarios y resolución de problemas técnicos relacionados con páginas web y servicios.',
-      category: 'Experiencia Laboral'
-    },
     // Cursos y Certificaciones
     {
       id: 5,
@@ -220,7 +201,7 @@ const Timeline = () => {
   };
 
   return (
-    <section className="py-10 px-6 bg-gray-10 dark:bg-gray-800">
+    <section className="py-10 px-6 section-bg-light">
       <div className="w-4/5 mx-auto"> {/* Cambiado de w-full a w-4/5 para que ocupe el 80% */}
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
           Timeline

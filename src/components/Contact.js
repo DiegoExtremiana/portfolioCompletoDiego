@@ -1,11 +1,11 @@
 import React from 'react';
-import { FaGithub, FaEnvelope, FaMapMarkerAlt, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaEnvelope, FaMapMarkerAlt, FaExternalLinkAlt, FaLinkedin } from 'react-icons/fa';
 
 const Contact = () => {
   return (
-    <section id="contacto" className="py-20 px-6 bg-white dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+    <section id="contacto" className="py-20 px-6 section-bg-light">
+      <div className="container mx-auto fade-in">
+        <h2 className="section-title">
           Contacto
         </h2>
         
@@ -20,7 +20,7 @@ const Contact = () => {
                   <p className="text-gray-600 dark:text-gray-300">Correo electrónico</p>
                   <a 
                     href="mailto:dextremiana1998@gmail.com" 
-                    className="text-lg font-medium text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center"
+                    className="text-lg font-medium link flex items-center"
                   >
                     dextremiana1998@gmail.com
                     <FaExternalLinkAlt className="ml-2 text-sm" />
@@ -44,9 +44,25 @@ const Contact = () => {
                     href="https://github.com/TRdeXtremiana" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-lg font-medium text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center"
+                    className="text-lg font-medium link flex items-center"
                   >
                     TRdeXtremiana
+                    <FaExternalLinkAlt className="ml-2 text-sm" />
+                  </a>
+                </div>
+              </div>
+              
+              <div className="flex items-center">
+                <FaLinkedin className="text-2xl text-blue-600 dark:text-blue-400 mr-4" />
+                <div>
+                  <p className="text-gray-600 dark:text-gray-300">LinkedIn</p>
+                  <a 
+                    href="https://www.linkedin.com/in/diego-e-b08910198/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-lg font-medium link flex items-center"
+                  >
+                    linkedin
                     <FaExternalLinkAlt className="ml-2 text-sm" />
                   </a>
                 </div>
@@ -63,7 +79,7 @@ const Contact = () => {
                 <input
                   type="text"
                   id="name"
-                  className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
+                  className="form-input"
                   placeholder="Tu nombre"
                 />
               </div>
@@ -73,7 +89,7 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
-                  className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
+                  className="form-input"
                   placeholder="Tu correo electrónico"
                 />
               </div>
@@ -83,14 +99,14 @@ const Contact = () => {
                 <textarea
                   id="message"
                   rows="5"
-                  className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
+                  className="form-input"
                   placeholder="Tu mensaje"
                 ></textarea>
               </div>
               
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
+                className="btn-primary w-full"
               >
                 Enviar Mensaje
               </button>

@@ -18,10 +18,10 @@ const Experience = () => {
     }
   ];
 
-  return (
-    <section id="experiencia" className="py-20 px-6 bg-gray-100 dark:bg-gray-800">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+   return (
+    <section id="experiencia" className="py-20 px-6 section-bg-light">
+      <div className="container mx-auto fade-in">
+        <h2 className="section-title">
           Experiencia
         </h2>
         
@@ -29,7 +29,7 @@ const Experience = () => {
           {experiences.map((exp, index) => (
             <div 
               key={index} 
-              className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
+              className="card"
             >
               <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
                 <h3 className="text-xl font-bold text-gray-800 dark:text-white">{exp.position}</h3>
@@ -54,7 +54,7 @@ const Experience = () => {
                 {exp.technologies.map((tech, techIndex) => (
                   <span 
                     key={techIndex}
-                    className="px-3 py-1 bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-full text-sm"
+                    className="tech-tag"
                   >
                     {tech}
                   </span>

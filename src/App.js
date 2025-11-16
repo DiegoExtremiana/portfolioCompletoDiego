@@ -30,7 +30,7 @@ function App() {
   return (
     <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'}`}>
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
-      <main>
+      <main className="fade-in">
         <Hero />
         <About />
         <Experience />
@@ -39,7 +39,7 @@ function App() {
       </main>
       <Footer />
     </div>
-  );
+ );
 }
 
 export default App;

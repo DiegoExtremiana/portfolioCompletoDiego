@@ -93,17 +93,17 @@ const Projects = () => {
  ];
 
   return (
-    <section id="proyectos" className="py-20 px-6 bg-white dark:bg-gray-900">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+    <section id="proyectos" className="py-20 px-6 section-bg-dark">
+      <div className="container mx-auto fade-in">
+        <h2 className="section-title">
           Proyectos
         </h2>
         
         {/* Proyectos Finalizados */}
         <div className="mb-16">
-                  <h3 className="text-2xl font-bold text-center mb-8 text-gray-800 dark:text-white bg-green-100 dark:bg-green-800 inline-block px-6 py-2 rounded-full">
-                    Finalizado
-                  </h3>
+          <h3 className="section-subtitle bg-green-100 dark:bg-green-80 inline-block px-6 py-2 rounded-full">
+            Finalizado
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {finishedProjects.map((project, index) => (
               <div 
@@ -113,18 +113,18 @@ const Projects = () => {
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
                     <h3 className="text-xl font-bold text-gray-800 dark:text-white">{project.title}</h3>
-                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs">
+                    <span className="tech-tag text-xs">
                       {project.type}
                     </span>
                   </div>
                   
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+                  <p className="text-gray-60 dark:text-gray-300 mb-4">{project.description}</p>
                   
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech, techIndex) => (
                       <span 
                         key={techIndex}
-                        className="px-3 py-1 bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-full text-xs"
+                        className="tech-tag text-xs"
                       >
                         {tech}
                       </span>
@@ -139,7 +139,7 @@ const Projects = () => {
                     href={project.link} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="btn-primary inline-flex items-center justify-center w-full px-4 py-2"
                   >
                     Ver Proyecto
                     <FaExternalLinkAlt className="ml-2 text-xs" />
@@ -152,7 +152,7 @@ const Projects = () => {
         
         {/* Proyectos en Desarrollo */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8 text-gray-800 dark:text-white bg-yellow-100 dark:bg-yellow-800 inline-block px-6 py-2 rounded-full">
+          <h3 className="section-subtitle bg-yellow-100 dark:bg-yellow-800 inline-block px-6 py-2 rounded-full">
             En Desarrollo
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -164,7 +164,7 @@ const Projects = () => {
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
                     <h3 className="text-xl font-bold text-gray-800 dark:text-white">{project.title}</h3>
-                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs">
+                    <span className="tech-tag text-xs">
                       {project.type}
                     </span>
                   </div>
@@ -175,7 +175,7 @@ const Projects = () => {
                     {project.technologies.map((tech, techIndex) => (
                       <span 
                         key={techIndex}
-                        className="px-3 py-1 bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-full text-xs"
+                        className="tech-tag text-xs"
                       >
                         {tech}
                       </span>
@@ -186,7 +186,7 @@ const Projects = () => {
                     href={project.link} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="btn-primary inline-flex items-center justify-center w-full px-4 py-2"
                   >
                     Ver Proyecto
                     <FaExternalLinkAlt className="ml-2 text-xs" />
@@ -199,7 +199,7 @@ const Projects = () => {
         
         {/* Proyectos No Funcionales */}
         <div>
-          <h3 className="text-2xl font-bold text-center mb-8 text-gray-800 dark:text-white bg-red-100 dark:bg-red-800 inline-block px-6 py-2 rounded-full">
+          <h3 className="section-subtitle bg-red-100 dark:bg-red-800 inline-block px-6 py-2 rounded-full">
             No Funcional
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -210,8 +210,8 @@ const Projects = () => {
               >
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">{project.title}</h3>
-                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-xs">
+                    <h3 className="text-xl font-bold text-gray-80 dark:text-white">{project.title}</h3>
+                    <span className="tech-tag text-xs">
                       {project.type}
                     </span>
                   </div>
@@ -222,7 +222,7 @@ const Projects = () => {
                     {project.technologies.map((tech, techIndex) => (
                       <span 
                         key={techIndex}
-                        className="px-3 py-1 bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-full text-xs"
+                        className="tech-tag text-xs"
                       >
                         {tech}
                       </span>
@@ -233,7 +233,7 @@ const Projects = () => {
                     href={project.link} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="btn-primary inline-flex items-center justify-center w-full px-4 py-2"
                   >
                     Ver Proyecto
                     <FaExternalLinkAlt className="ml-2 text-xs" />
