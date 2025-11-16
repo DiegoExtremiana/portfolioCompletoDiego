@@ -25,15 +25,15 @@ const Experience = () => {
           Experiencia
         </h2>
         
-        <div className="space-y-8">
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-8">
           {experiences.map((exp, index) => (
             <div 
               key={index} 
               className="card"
             >
               <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white">{exp.position}</h3>
-                <span className="text-lg text-blue-600 dark:text-blue-400 mt-2 md:mt-0">
+                <h3 className="text-lg font-bold text-gray-800 dark:text-white break-words">{exp.position}</h3>
+                <span className="hidden sm:block text-lg text-blue-60 dark:text-blue-400 mt-2 md:mt-0">
                   {exp.company === "Arsys" ? (
                     <a href="https://www.arsys.es/" target="_blank" rel="noopener noreferrer" className="hover:underline">
                       {exp.company}
@@ -48,9 +48,9 @@ const Experience = () => {
                 </span>
               </div>
               
-              <p className="text-gray-600 dark:text-gray-300 mb-4">{exp.description}</p>
+              <p className="hidden sm:block text-gray-600 dark:text-gray-300 mb-4 text-sm">{exp.description}</p>
               
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="hidden sm:flex flex-wrap gap-2 mb-4">
                 {exp.technologies.map((tech, techIndex) => (
                   <span 
                     key={techIndex}
@@ -61,7 +61,7 @@ const Experience = () => {
                 ))}
               </div>
               
-              <p className="text-gray-500 dark:text-gray-400 text-sm">
+              <p className="hidden sm:block text-gray-500 dark:text-gray-400 text-sm">
                 {exp.period}
               </p>
             </div>

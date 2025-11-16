@@ -107,7 +107,7 @@ const Certifications = () => {
           Certificaciones
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {certifications.map((cert) => (
             <div 
               key={cert.id} 
@@ -115,23 +115,23 @@ const Certifications = () => {
             >
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
+                  <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2 break-words">
                     {cert.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-2">
+                  <p className="hidden sm:block text-gray-600 dark:text-gray-300 mb-2 text-sm">
                     {cert.subtitle}
                   </p>
-                  <div className="flex items-center gap-2 mb-3">
+                  <div className="hidden sm:flex items-center gap-2 mb-3">
                     <span className="px-2 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 rounded-full text-xs font-medium">
                       {cert.category}
                     </span>
-                    <span className="text-gray-500 dark:text-gray-400 text-sm">
+                    <span className="text-gray-500 dark:text-gray-400 text-xs">
                       {cert.date}
                     </span>
                   </div>
                 </div>
               </div>
-              <p className="text-gray-700 dark:text-gray-300">
+              <p className="hidden sm:block text-gray-700 dark:text-gray-300 text-sm">
                 {cert.description}
               </p>
             </div>
