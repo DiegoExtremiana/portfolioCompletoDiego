@@ -17,20 +17,20 @@ const Header = ({ darkMode, setDarkMode }) => {
   };
 
   return (
-    <header className="fixed w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm py-4 px-6 shadow-md transition-colors duration-300">
-      <div className="max-w-6xl mx-auto flex justify-between items-center">
+    <header className="fixed w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm py-4 px-4 sm:px-6 shadow-md transition-colors duration-300">
+      <div className="w-full max-w-6xl mx-auto flex justify-between items-center">
         {/* Logo o nombre */}
         <div className="text-xl font-bold text-gray-800 dark:text-white">
           Diego Extremiana
         </div>
 
         {/* Menú para desktop */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex space-x-4 lg:space-x-8">
           {['inicio', 'sobre-mi', 'experiencia', 'proyectos', 'contacto'].map((item) => (
             <button
               key={item}
               onClick={() => scrollToSection(item)}
-              className="nav-link text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors capitalize"
+              className="nav-link text-sm md:text-base text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-40 transition-colors capitalize"
             >
               {item.replace('-', ' ')}
             </button>

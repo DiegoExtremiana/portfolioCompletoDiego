@@ -3,8 +3,8 @@ import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 dark:bg-gray-900 text-white py-12 px-6 transition-colors duration-300">
-      <div className="container mx-auto">
+    <footer className="bg-gray-80 dark:bg-gray-900 text-white py-12 px-4 sm:px-6 transition-colors duration-300">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <h3 className="text-xl font-bold text-white">Diego Extremiana</h3>

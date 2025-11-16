@@ -93,8 +93,8 @@ const Projects = () => {
  ];
 
   return (
-    <section id="proyectos" className="py-20 px-6 section-bg-dark">
-      <div className="container mx-auto fade-in">
+    <section id="proyectos" className="py-20 px-4 sm:px-6 section-bg-dark">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 fade-in">
         <h2 className="section-title">
           Proyectos
         </h2>
@@ -104,7 +104,7 @@ const Projects = () => {
           <h3 className="section-subtitle bg-emerald-500 dark:bg-emerald-700 inline-block px-6 py-2 rounded-full text-white">
             Finalizado
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {finishedProjects.map((project, index) => (
               <div 
                 key={index} 
@@ -155,7 +155,7 @@ const Projects = () => {
           <h3 className="section-subtitle bg-yellow-100 dark:bg-yellow-800 inline-block px-6 py-2 rounded-full">
             En Desarrollo
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {developingProjects.map((project, index) => (
               <div 
                 key={index} 
@@ -202,7 +202,7 @@ const Projects = () => {
           <h3 className="section-subtitle bg-red-100 dark:bg-red-800 inline-block px-6 py-2 rounded-full">
             No Funcional
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {nonFunctionalProjects.map((project, index) => (
               <div 
                 key={index} 

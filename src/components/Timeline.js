@@ -201,27 +201,27 @@ const Timeline = () => {
   };
 
   return (
-    <section className="py-10 px-6 section-bg-light">
-      <div className="w-4/5 mx-auto"> {/* Cambiado de w-full a w-4/5 para que ocupe el 80% */}
+    <section className="py-10 px-4 sm:px-6 section-bg-light">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 overflow-x-hidden"> {/* Añadido overflow-x-hidden para evitar desbordamiento */}
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
           Timeline
         </h2>
         
-        <div className="relative">
+        <div className="relative overflow-x-hidden"> {/* Añadido overflow-x-hidden para controlar desbordamiento */}
           {/* Línea de tiempo horizontal */}
           <div className="absolute left-0 right-0 top-1/2 h-1 bg-gray-300 dark:bg-gray-600 transform -translate-y-1/2 z-0"></div>
           
           {/* Marcadores de años */}
-          <div className="relative flex justify-between items-center h-32">
+          <div className="relative flex justify-between items-center h-32 overflow-x-hidden"> {/* Añadido overflow-x-hidden */}
             {years.map((year, index) => (
               <div 
                 key={year}
-                className="relative z-10 flex flex-col items-center"
+                className="relative z-10 flex flex-col items-center flex-shrink-0"
               >
                 {/* Círculo del año */}
                 <div className={`
                   w-6 h-6 rounded-full border-4 transition-all duration-300
-                  bg-gray-50 border-gray-30
+                  bg-gray-50 border-gray-300
                   ${hoveredYear === year ? 'scale-125 ring-4 ring-opacity-50 ring-gray-500' : ''}
                 `}
                 onMouseEnter={() => handleMouseEnter(year)}
@@ -231,7 +231,7 @@ const Timeline = () => {
                 <div className="w-0.5 h-8 bg-gray-400 dark:bg-gray-500"></div>
                 
                 {/* Año */}
-                <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 px-2 py-1 rounded mt-1 rotate-[-45deg] origin-center">
+                <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 px-2 py-1 rounded mt-1 rotate-[-45deg] origin-center transform -translate-x-2/3">
                   {year}
                 </div>
               </div>
@@ -258,7 +258,7 @@ const Timeline = () => {
                   }
                 })
                 .map((event, index) => (
-                  <div key={`${event.id}-${index}`} className="border-l-4 pl-4 py-2"
+                  <div key={`${event.id}-${index}`} className="border-l-4 pl-4 py-2 ml-1"
                     style={{ 
                       borderLeftColor: event.type === 'education' ? '#3b82f6' : 
                                       event.type === 'experience' ? '#10b981' : '#8b5cf6'

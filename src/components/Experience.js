@@ -19,8 +19,8 @@ const Experience = () => {
   ];
 
    return (
-    <section id="experiencia" className="py-20 px-6 section-bg-light">
-      <div className="container mx-auto fade-in">
+    <section id="experiencia" className="py-20 px-4 sm:px-6 section-bg-light">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 fade-in">
         <h2 className="section-title">
           Experiencia
         </h2>

@@ -12,6 +12,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* Estilos para el modo claro y oscuro */
@@ -46,11 +48,11 @@ section {
 
 /* Estilos para botones */
 .btn-primary {
-  @apply px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-lg;
+  @apply px-4 py-2 sm:px-6 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-lg text-sm sm:text-base;
 }
 
 .btn-secondary {
-  @apply px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors;
+  @apply px-4 py-2 sm:px-6 sm:py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm sm:text-base;
 }
 
 /* Estilos para tarjetas */
@@ -69,12 +71,12 @@ section {
 
 /* Estilos para encabezados de sección */
 .section-title {
-  @apply text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white;
+  @apply text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-800 dark:text-white;
 }
 
 /* Estilos para subtítulos de sección */
 .section-subtitle {
-  @apply text-2xl font-bold text-center mb-8 text-gray-800 dark:text-white;
+  @apply text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 text-gray-800 dark:text-white;
 }
 
 /* Estilos para enlaces */
