@@ -20,7 +20,7 @@ const Header = ({ darkMode, setDarkMode }) => {
     <header className="fixed w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm py-4 px-6 shadow-md">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* Logo o nombre */}
-        <div className="text-xl font-bold text-gray-800 dark:text-white">
+        <div className="text-xl font-bold text-gray-80 dark:text-white">
           Diego Extremiana
         </div>
 
@@ -30,7 +30,7 @@ const Header = ({ darkMode, setDarkMode }) => {
             <button
               key={item}
               onClick={() => scrollToSection(item)}
-              className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors capitalize"
+              className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-40 transition-colors capitalize"
             >
               {item.replace('-', ' ')}
             </button>
@@ -49,7 +49,7 @@ const Header = ({ darkMode, setDarkMode }) => {
 
           {/* Menú hamburguesa para móvil */}
           <button
-            className="md:hidden p-2 text-gray-700 dark:text-white"
+            className="md:hidden p-2 text-gray-70 dark:text-white"
             onClick={toggleMenu}
             aria-label="Abrir menú"
           >
@@ -66,7 +66,7 @@ const Header = ({ darkMode, setDarkMode }) => {
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="text-left py-2 text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors capitalize"
+                className="text-left py-2 text-gray-60 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors capitalize"
               >
                 {item.replace('-', ' ')}
               </button>

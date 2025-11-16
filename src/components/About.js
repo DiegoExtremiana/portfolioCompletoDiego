@@ -13,16 +13,26 @@ const About = () => {
         </h2>
         
         <div className="flex flex-col md:flex-row gap-12 items-start">
-          <div className="md:w-1/3 flex justify-center">
+          <div className="md:w-1/3 flex justify-center items-start pt-8">
             <img 
               src="/media/images/graduacionDiego.jpg" 
               alt="Diploma de Diego" 
-              className="w-64 h-64 object-cover rounded-xl border-2 border-gray-200"
+              className="w-64 h-64 object-cover rounded-xl border-4 border-blue-500 shadow-lg"
+              onError={(e) => {
+                console.error('Error al cargar la imagen:', e.target.src);
+                e.target.style.display = 'none';
+                // Intentar cargar la imagen desde la carpeta pública como fallback
+                e.target.src = '/media/images/graduacionDiego.jpg';
+              }}
+              onLoad={(e) => {
+                console.log('Imagen cargada correctamente:', e.target.src);
+                e.target.style.display = 'block';
+              }}
             />
           </div>
           
           <div className="md:w-2/3">
-            <h3 className="text-2xl font-semibold text-gray-80 dark:text-white mb-4">
+            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">
               Diego Extremiana - Desarrollador Web
             </h3>
             
