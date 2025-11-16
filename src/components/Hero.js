@@ -12,10 +12,17 @@ const Hero = () => {
             <h2 className="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-6">
               Desarrollador Web Full Stack
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-              Vivo en Nájera, La Rioja. Me especializo en crear aplicaciones web responsivas y modernas 
-              utilizando tecnologías como React, JavaScript, HTML, CSS y PHP.
-            </p>
+            <div className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto space-y-4">
+              <p>
+                Soy desarrollador web especializado en React y en la creación de aplicaciones que realmente sirven para algo: herramientas que ayudan a las personas a organizarse, disfrutar y alcanzar sus objetivos. Me gusta combinar una buena experiencia de usuario con un código limpio y funcional, siempre buscando que cada proyecto tenga un impacto real.
+              </p>
+              <p>
+                Tengo experiencia construyendo aplicaciones completas con HTML, CSS, JavaScript, React y PHP, integrando bases de datos y APIs, y trabajando con metodologías ágiles y control de versiones. Además, soy creador de contenido, lo que me ha enseñado a comunicar, analizar feedback rápido y diseñar interfaces atractivas para el público.
+              </p>
+              <p>
+                Si buscas a alguien resolutivo, creativo y con ganas de seguir creciendo mientras construye proyectos sólidos, estás en el sitio adecuado.
+              </p>
+            </div>
             <div className="flex justify-center space-x-4">
               <a 
                 href="#contacto" 
