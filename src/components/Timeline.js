@@ -6,7 +6,7 @@ const Timeline = () => {
   const years = [];
   for (let year = 2016; year <= currentYear; year++) {
     years.push(year);
-  }
+ }
 
   // Datos combinados de experiencia y educación
   const timelineEvents = [
@@ -18,7 +18,7 @@ const Timeline = () => {
       subtitle: 'FPD Rioja - Logroño (a distancia)',
       date: '2022-2025',
       description: 'Cursando Grado Superior en Desarrollo de Aplicaciones Web, formación técnica avanzada en desarrollo web y aplicaciones.',
-      category: 'Grado Oficial'
+      category: 'Grado'
     },
     {
       id: 2,
@@ -27,7 +27,7 @@ const Timeline = () => {
       subtitle: 'IES Comercio - Logroño',
       date: '2019-2021',
       description: 'Formación técnica en sistemas informáticos y redes, base fundamental para mi carrera en tecnología.',
-      category: 'Grado Oficial'
+      category: 'Grado'
     },
     // Experiencia Laboral
     {
@@ -55,7 +55,7 @@ const Timeline = () => {
       title: 'Introducción al Desarrollo Web: HTML y CSS (1/2)',
       subtitle: 'Google Actívate',
       date: 'feb. 2021',
-      description: 'Formación en fundamentos de desarrollo web con HTML y CSS, primera parte del curso de Google Actívate.',
+      description: 'Formación en fundamentos desarrollo web con HTML y CSS, primera parte del curso de Google Actívate.',
       category: 'Certificación'
     },
     {
@@ -157,7 +157,7 @@ const Timeline = () => {
       description: 'Formación específica en prevención de riesgos eléctricos en el entorno laboral.',
       category: 'Certificación'
     }
-  ];
+ ];
 
   // Ordenar eventos por fecha
   const sortedEvents = [...timelineEvents].sort((a, b) => {
@@ -220,8 +220,8 @@ const Timeline = () => {
   };
 
   return (
-    <section className="py-10 px-6 bg-gray-100 dark:bg-gray-800">
-      <div className="w-full max-w-screen-xl mx-auto">
+    <section className="py-10 px-6 bg-gray-10 dark:bg-gray-800">
+      <div className="w-4/5 mx-auto"> {/* Cambiado de w-full a w-4/5 para que ocupe el 80% */}
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
           Timeline
         </h2>
@@ -240,7 +240,7 @@ const Timeline = () => {
                 {/* Círculo del año */}
                 <div className={`
                   w-6 h-6 rounded-full border-4 transition-all duration-300
-                  bg-gray-500 border-gray-300
+                  bg-gray-50 border-gray-30
                   ${hoveredYear === year ? 'scale-125 ring-4 ring-opacity-50 ring-gray-500' : ''}
                 `}
                 onMouseEnter={() => handleMouseEnter(year)}
@@ -261,7 +261,7 @@ const Timeline = () => {
         {/* Información de eventos del año al pasar el mouse */}
         {hoveredYear && (
           <div className="mt-8 p-6 bg-white dark:bg-gray-700 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600 transition-opacity duration-300">
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Eventos en {hoveredYear}</h3>
+            <h3 className="text-2xl font-bold text-gray-80 dark:text-white mb-4">Eventos en {hoveredYear}</h3>
             <div className="space-y-4">
               {sortedEvents
                 .filter(event => {
@@ -295,7 +295,7 @@ const Timeline = () => {
                             px-2 py-1 rounded-full text-xs font-medium
                             ${event.type === 'education' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-20' : 
                               event.type === 'experience' ? 'bg-green-100 text-green-800 dark:bg-green-90 dark:text-green-20' : 
-                              'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200'}
+                              'bg-purple-100 text-purple-80 dark:bg-purple-900 dark:text-purple-20'}
                           `}>
                             {event.category}
                           </span>

@@ -2,6 +2,7 @@ import React from 'react';
 import Timeline from './Timeline';
 import Studies from './Studies';
 import Certifications from './Certifications';
+import Experience from './Experience';
 
 const About = () => {
   return (
@@ -14,7 +15,7 @@ const About = () => {
         <div className="flex flex-col md:flex-row gap-12 items-start">
           <div className="md:w-1/3 flex justify-center">
             <img 
-              src="/media/images/diploma.jpg" 
+              src="/media/images/graduacionDiego.jpg" 
               alt="Diploma de Diego" 
               className="w-64 h-64 object-cover rounded-xl border-2 border-gray-200"
             />
@@ -37,17 +38,6 @@ const About = () => {
               </p>
             </div>
             
-            <div className="mb-8">
-              <Timeline />
-            </div>
-            
-            <div className="mb-8">
-              <Studies />
-            </div>
-            
-            <div className="mb-8">
-              <Certifications />
-            </div>
             
             <div>
               <h4 className="text-xl font-semibold text-gray-80 dark:text-white mb-4">Habilidades</h4>
@@ -76,6 +66,13 @@ const About = () => {
             </div>
           </div>
         </div>
+      </div>
+      
+      <div className="mt-20">
+        <Timeline />
+        <Studies />
+        <Certifications />
+        <Experience />
       </div>
     </section>
   );
