@@ -26,7 +26,7 @@ const Header = ({ darkMode, setDarkMode }) => {
 
         {/* Menú para desktop */}
         <nav className="hidden md:flex space-x-8">
-          {['inicio', 'sobre-mi', 'proyectos', 'experiencia', 'contacto'].map((item) => (
+          {['inicio', 'sobre-mi', 'experiencia', 'proyectos', 'contacto'].map((item) => (
             <button
               key={item}
               onClick={() => scrollToSection(item)}
@@ -62,15 +62,15 @@ const Header = ({ darkMode, setDarkMode }) => {
       {menuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-800 py-4 px-6 shadow-lg">
           <div className="flex flex-col space-y-4">
-            {['inicio', 'sobre-mi', 'proyectos', 'experiencia', 'contacto'].map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollToSection(item)}
-                className="text-left py-2 text-gray-60 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors capitalize"
-              >
-                {item.replace('-', ' ')}
-              </button>
-            ))}
+          {['inicio', 'sobre-mi', 'experiencia', 'proyectos', 'contacto'].map((item) => (
+            <button
+              key={item}
+              onClick={() => scrollToSection(item)}
+              className="text-left py-2 text-gray-60 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors capitalize"
+            >
+              {item.replace('-', ' ')}
+            </button>
+          ))}
           </div>
         </div>
       )}
