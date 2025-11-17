@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 section-bg-dark">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 text-center fade-in">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-12">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 lg:gap-12">
           <div className="md:w-1/2 text-center md:text-left">
             <div className="mb-8 md:mb-10 lg:mb-10">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--text-primary)] mb-4 px-4 md:px-0 lg:px-0">
