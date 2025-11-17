@@ -54,11 +54,11 @@ const Studies = () => {
           Estudios
         </h2>
         
-        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-6 xs:gap-8">
           {sortedStudies.map((study) => (
             <div 
               key={study.id} 
-              className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300"
+              className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-4 xs:p-5 sm:p-6 border-gray-20 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300 min-h-[220px] xs:min-h-[240px] w-full max-w-full"
             >
               <div className="flex justify-between items-start mb-4">
                 <div>

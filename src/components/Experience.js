@@ -44,11 +44,11 @@ const Experience = () => {
           Experiencia
         </h2>
         
-        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-6 xs:gap-8">
           {sortedExperiences.map((exp, index) => (
             <div 
               key={index} 
-              className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300"
+              className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-4 xs:p-5 sm:p-6 border-gray-20 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300 min-h-[220px] xs:min-h-[240px] w-full max-w-full"
             >
               <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
 <h3 className="text-lg font-bold text-gray-800 dark:text-white break-all xs:text-sm text-prevent-overflow">{exp.position}{exp.note ? <span className="block text-sm crimson-red xs:text-xs text-prevent-overflow">{exp.note}</span> : null}</h3>

@@ -302,9 +302,9 @@ const Timeline = () => {
                         <div className="flex items-center gap-2 mb-2">
                           <span className={`
                             px-2 py-1 rounded-full text-xs font-medium
-                            ${event.type === 'education' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-20' : 
+                            ${event.type === 'education' ? 'bg-blue-600 text-white dark:bg-blue-600 dark:text-white xs:text-[0.6rem] text-prevent-overflow' : 
                               event.type === 'experience' ? 'bg-green-100 text-green-800 dark:bg-green-90 dark:text-green-20' : 
-                              'bg-purple-100 text-purple-80 dark:bg-purple-900 dark:text-purple-20'}
+                              'bg-purple-600 text-white dark:bg-purple-600 dark:text-white xs:text-[0.6rem] text-prevent-overflow'}
                           `}>
                             {event.category}
                           </span>
