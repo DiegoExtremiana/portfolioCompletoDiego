@@ -62,23 +62,23 @@ const Studies = () => {
             >
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2 break-words">
+                  <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2 break-all xs:text-sm">
                     {study.title}
                   </h3>
-                  <p className="hidden sm:block text-gray-600 dark:text-gray-300 mb-2 text-sm">
+                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-sm xs:text-xs sm:block">
                     {study.subtitle}
                   </p>
-                  <div className="hidden sm:flex items-center gap-2 mb-3">
-                    <span className="px-2 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full text-xs font-medium">
+                  <div className="hidden sm:flex items-center gap-2 mb-3 xs:gap-1">
+                    <span className="px-2 py-1 bg-blue-100 text-blue-800 dark:bg-blue-90 dark:text-blue-200 rounded-full text-xs xs:text-[0.6rem] font-medium">
                       {study.category}
                     </span>
-                    <span className="text-gray-500 dark:text-gray-400 text-xs">
+                    <span className="text-gray-500 dark:text-gray-400 text-xs xs:text-[0.6rem]">
                       {study.date}
                     </span>
                   </div>
                 </div>
               </div>
-              <p className="hidden sm:block text-gray-700 dark:text-gray-300 text-sm">
+              <p className="text-gray-700 dark:text-gray-300 text-sm xs:text-xs sm:block">
                 {study.description}
               </p>
             </div>

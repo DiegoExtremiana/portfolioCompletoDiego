@@ -51,8 +51,8 @@ const Experience = () => {
               className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300"
             >
               <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-<h3 className="text-lg font-bold text-gray-800 dark:text-white break-words">{exp.position}{exp.note ? <span className="block text-sm crimson-red">{exp.note}</span> : null}</h3>
-                <span className="hidden sm:block text-lg text-blue-60 dark:text-blue-400 mt-2 md:mt-0">
+<h3 className="text-lg font-bold text-gray-800 dark:text-white break-all xs:text-sm">{exp.position}{exp.note ? <span className="block text-sm crimson-red xs:text-xs">{exp.note}</span> : null}</h3>
+                <span className="text-lg text-blue-60 dark:text-blue-40 mt-2 md:mt-0 xs:text-base sm:block">
                   {exp.url ? (
                     <a href={exp.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
                       {exp.company}
@@ -71,20 +71,20 @@ const Experience = () => {
                 </span>
               </div>
               
-              <p className="hidden sm:block text-gray-600 dark:text-gray-300 mb-4 text-sm">{exp.description}</p>
+              <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm xs:text-xs sm:block">{exp.description}</p>
               
-              <div className="hidden sm:flex flex-wrap gap-2 mb-4">
+              <div className="hidden sm:flex flex-wrap gap-2 mb-4 xs:gap-1">
                 {exp.technologies.map((tech, techIndex) => (
                   <span 
                     key={techIndex}
-                    className="tech-tag"
+                    className="tech-tag text-xs xs:text-[0.6rem]"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
               
-              <p className="hidden sm:block text-gray-500 dark:text-gray-400 text-sm">
+              <p className="text-gray-500 dark:text-gray-400 text-sm xs:text-xs">
                 {exp.period}
               </p>
             </div>
