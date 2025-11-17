@@ -64,7 +64,7 @@ const Contact = () => {
     setSubmitMessage('');
 
     try {
-      const response = await fetch('/src/sendEmail.php', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -85,8 +85,14 @@ const Contact = () => {
           setSubmitMessage(data.error || 'Error al enviar el mensaje.');
         }
       } else {
-        const errorData = await response.json();
-        setSubmitMessage(errorData.error || 'Error al enviar el mensaje. Por favor, inténtelo de nuevo.');
+        const errorData = await response.text(); // Cambiado de response.json() a response.text()
+        try {
+          const errorJson = JSON.parse(errorData);
+          setSubmitMessage(errorJson.error || 'Error al enviar el mensaje. Por favor, inténtelo de nuevo.');
+        } catch (e) {
+          // Si no se puede parsear como JSON, mostrar el texto directamente
+          setSubmitMessage('Error al enviar el mensaje. Por favor, inténtelo de nuevo.');
+        }
       }
     } catch (error) {
       console.error('Error:', error);
@@ -125,8 +131,8 @@ const Contact = () => {
               <div className="flex items-center">
                 <FaMapMarkerAlt className="text-2xl text-blue-600 dark:text-blue-400 mr-4" />
                 <div>
-                  <p className="text-gray-600 dark:text-gray-300">Ubicación</p>
-                  <p className="text-lg font-medium text-gray-800 dark:text-white">Nájera, La Rioja</p>
+                  <p className="text-[var(--text-secondary)]">Ubicación</p>
+                  <p className="text-lg font-medium text-[var(--text-primary)]">Nájera, La Rioja</p>
                 </div>
               </div>
               
@@ -169,7 +175,7 @@ const Contact = () => {
             
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
-                <label htmlFor="name" className="block text-gray-70 dark:text-gray-300 mb-2">Nombre</label>
+                <label htmlFor="name" className="block text-[var(--text-primary)] mb-2">Nombre</label>
                 <input
                   type="text"
                   id="name"
@@ -195,7 +201,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-gray-700 dark:text-gray-300 mb-2">Mensaje</label>
+                <label htmlFor="message" className="block text-[var(--text-primary)] mb-2">Mensaje</label>
                 <textarea
                   id="message"
                   rows="5"

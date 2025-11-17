@@ -52,21 +52,21 @@ section {
 }
 
 .btn-secondary {
-  @apply px-4 py-2 sm:px-6 sm:py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm sm:text-base;
+  @apply px-4 py-2 sm:px-6 sm:py-3 bg-[var(--bg-secondary)] text-[var(--text-primary)] rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm sm:text-base;
 }
 
 /* Estilos para tarjetas */
 .card {
-  @apply bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow;
+  @apply bg-[var(--card-bg)] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow;
 }
 
 /* Estilos para etiquetas de habilidades */
 .skill-tag {
-  @apply px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm;
+  @apply px-4 py-2 bg-blue-100 dark:bg-blue-900 text-[var(--text-primary)] rounded-full text-sm;
 }
 
 .tech-tag {
-  @apply px-3 py-1 bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 rounded-full text-sm;
+  @apply px-3 py-1 bg-gray-200 dark:bg-gray-600 text-[var(--text-primary)] rounded-full text-sm;
 }
 
 /* Estilo para texto en rojo carmesí */
@@ -76,12 +76,12 @@ section {
 
 /* Estilos para encabezados de sección */
 .section-title {
-  @apply text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-800 dark:text-white;
+  @apply text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-[var(--text-primary)];
 }
 
 /* Estilos para subtítulos de sección */
 .section-subtitle {
-  @apply text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 text-gray-800 dark:text-white;
+  @apply text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 text-[var(--text-primary)];
 }
 
 /* Estilos para enlaces */
@@ -91,7 +91,7 @@ section {
 
 /* Estilos para formularios */
 .form-input {
-  @apply w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white;
+  @apply w-full px-4 py-3 bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-[var(--text-primary)];
 }
 
 /* Estilos para listas */
@@ -115,11 +115,11 @@ section {
 
 /* Estilos para secciones con fondo */
 .section-bg-light {
-  @apply bg-gray-100 dark:bg-gray-800;
+  @apply bg-[var(--bg-secondary)];
 }
 
 .section-bg-dark {
-  @apply bg-white dark:bg-gray-900;
+  @apply bg-[var(--bg-primary)];
 }
 
 /* Estilos para animaciones */
@@ -134,7 +134,7 @@ section {
 
 /* Estilos para elementos de navegación */
 .nav-link {
-  @apply text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors capitalize;
+  @apply text-[var(--text-secondary)] hover:text-blue-600 dark:hover:text-blue-400 transition-colors capitalize;
 }
 
 /* Estilos para el modo oscuro */
