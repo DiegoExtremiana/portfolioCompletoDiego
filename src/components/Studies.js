@@ -69,7 +69,7 @@ const Studies = () => {
                     {study.subtitle}
                   </p>
                   <div className="hidden sm:flex items-center gap-2 mb-3 xs:gap-1">
-                    <span className="px-2 py-1 bg-blue-100 text-blue-800 dark:bg-blue-90 dark:text-blue-200 rounded-full text-xs xs:text-[0.6rem] font-medium">
+                    <span className="px-2 py-1 bg-blue-600 text-white dark:bg-blue-600 dark:text-white rounded-full text-xs xs:text-[0.6rem] font-medium">
                       {study.category}
                     </span>
                     <span className="text-gray-500 dark:text-gray-400 text-xs xs:text-[0.6rem]">

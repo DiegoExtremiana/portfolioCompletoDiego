@@ -198,7 +198,7 @@ const Certifications = () => {
                     {cert.subtitle}
                   </p>
                   <div className="hidden sm:flex items-center gap-2 mb-3 xs:gap-1">
-                    <span className="px-2 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-20 rounded-full text-xs xs:text-[0.6rem] font-medium">
+                    <span className="px-2 py-1 bg-purple-600 text-white dark:bg-purple-600 dark:text-white rounded-full text-xs xs:text-[0.6rem] font-medium">
                       {cert.category}
                     </span>
                     <span className="text-gray-500 dark:text-gray-400 text-xs xs:text-[0.6rem]">
