@@ -10,6 +10,34 @@ const Timeline = () => {
 
   // Datos combinados de experiencia y educación
   const timelineEvents = [
+    // Experiencias Profesionales
+    {
+      id: 17,
+      type: 'experience',
+      title: 'Programador web',
+      subtitle: 'Wunder control solutions',
+      date: '9/2024 - 1/2025',
+      description: 'Creé una aplicación responsiva de control de presencia con perfil, mensajería, comunicación con la base de datos mediante API, registros y edición usando HTML, CSS, JavaScript, REACT, PHP y SQL.',
+      category: 'Experiencia Laboral'
+    },
+    {
+      id: 18,
+      type: 'experience',
+      title: 'Programador FullStack',
+      subtitle: 'Logroño diseño web',
+      date: '1/2019 - 2/2021',
+      description: 'Desarrollador Web FullStack, creación a medida con código nativo. Desarrollo en Angular y Firebase.',
+      category: 'Experiencia Laboral'
+    },
+    {
+      id: 19,
+      type: 'experience',
+      title: 'Atención al cliente',
+      subtitle: 'Arsys',
+      date: '3/2021 - 6/2021',
+      description: 'Responder a las preguntas y ayudar a los usuarios con sus problemas en páginas web.',
+      category: 'Experiencia Laboral'
+    },
     // Educación: Grados Oficiales
     {
       id: 1,
@@ -312,6 +340,10 @@ const Timeline = () => {
         
         {/* Leyenda */}
         <div className="mt-8 flex flex-wrap justify-center gap-4">
+                    <div className="flex items-center">
+            <div className="w-4 h-4 rounded-full bg-purple-500 mr-2"></div>
+            <span className="text-gray-700 dark:text-gray-300 text-sm">Certificaciones</span>
+          </div>
           <div className="flex items-center">
             <div className="w-4 h-4 rounded-full bg-blue-500 mr-2"></div>
             <span className="text-gray-70 dark:text-gray-300 text-sm">Educación</span>
@@ -319,10 +351,6 @@ const Timeline = () => {
           <div className="flex items-center">
             <div className="w-4 h-4 rounded-full bg-green-500 mr-2"></div>
             <span className="text-gray-70 dark:text-gray-300 text-sm">Experiencia Laboral</span>
-          </div>
-          <div className="flex items-center">
-            <div className="w-4 h-4 rounded-full bg-purple-500 mr-2"></div>
-            <span className="text-gray-700 dark:text-gray-300 text-sm">Certificaciones</span>
           </div>
         </div>
       </div>
