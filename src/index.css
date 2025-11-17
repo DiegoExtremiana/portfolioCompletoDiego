@@ -74,6 +74,33 @@ section {
   color: #dc143c;
 }
 
+/* Estilos para manejar texto largo en móviles */
+.text-prevent-overflow {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  hyphens: none;
+  min-width: 0; /* Permite que el contenedor se reduzca */
+}
+
+.text-prevent-overflow * {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+/* Clase para texto que se ajusta dinámicamente en tamaño si no cabe */
+.text-fit {
+  font-size: clamp(0.5rem, 2.5vw, 1rem); /* Tamaño de fuente adaptable */
+}
+
+.text-fit-sm {
+  font-size: clamp(0.4rem, 2vw, 0.875rem); /* Para textos más pequeños */
+}
+
+.text-fit-xs {
+  font-size: clamp(0.3rem, 1.5vw, 0.75rem); /* Para textos aún más pequeños */
+}
+
 /* Estilos para encabezados de sección */
 .section-title {
   @apply text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-[var(--text-primary)];
