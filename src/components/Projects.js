@@ -146,6 +146,10 @@ const Projects = () => {
                     ))}
                   </div>
                   
+                  {project.languagePercentages && project.languagePercentages.length > 0 && (
+                    <LanguageProgressBar percentages={project.languagePercentages} />
+                  )}
+                  
                   <a 
                     href={project.link} 
                     target="_blank" 
