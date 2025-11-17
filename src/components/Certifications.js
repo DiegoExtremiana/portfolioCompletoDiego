@@ -100,6 +100,22 @@ const Certifications = () => {
     }
  ];
 
+  // Definir los títulos de los certificados que deben ocultarse
+  const certificatesToHide = [
+    'Riesgo eléctrico',
+    'Primeros auxilios',
+    'Coordinación de actividades empresariales en construcción',
+    'Prevención de riesgos laborales',
+    'Manipulador de alimentos (Alto riesgo)',
+    'Monitor de ocio y tiempo libre',
+    'Uso y Manejo en Desfibrilación Externo Automatizada (DEA)',
+    'Socorrista en Instalaciones Acuáticas (SIA)',
+    'Monitor de Actividades Acuáticas (MAA)'
+  ];
+
+  // Filtrar los certificados para excluir los que deben ocultarse
+  const visibleCertifications = certifications.filter(cert => !certificatesToHide.includes(cert.title));
+
   return (
     <section className="py-10 px-4 sm:px-6 section-bg-light">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
@@ -108,7 +124,7 @@ const Certifications = () => {
         </h2>
         
         <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {certifications.map((cert) => (
+          {visibleCertifications.map((cert) => (
             <div 
               key={cert.id} 
               className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300"
