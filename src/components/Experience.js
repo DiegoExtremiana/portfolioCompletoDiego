@@ -10,6 +10,15 @@ const Experience = () => {
       technologies: ["HTML", "CSS", "JavaScript", "REACT", "PHP", "SQL", "API"]
     },
     {
+      position: "Programador FrontEnd",
+      company: "Logroño diseño web",
+      period: "1/2019 - 2/2021",
+      description: "Desarrollador Web FullStack, creación a medida con código nativo. Desarrollo en Angular y Firebase. (www.logroñodiseñoweb.es)",
+      technologies: ["HTML", "CSS", "JavaScript", "Angular", "PHP", "SQL", "API"],
+      url: "http://www.xn--logroodiseoweb-unbf.es/",
+      note: "(página web obsoleta)"
+    },
+    {
       position: "Atención al cliente",
       company: "Arsys",
       period: "3/2021 - 6/2021",
@@ -18,23 +27,37 @@ const Experience = () => {
     }
   ];
 
+  // Función para extraer el año de inicio del periodo
+  const getStartYear = (period) => {
+    // Extraer el año de inicio del periodo (antes del guión)
+    const match = period.match(/\d{1,2}\/(\d{4})/);
+    return match ? parseInt(match[1]) : 0;
+  };
+
+  // Ordenar experiencias por año de inicio (más antiguo a más nuevo)
+  const sortedExperiences = [...experiences].sort((a, b) => getStartYear(a.period) - getStartYear(b.period));
+
    return (
-    <section id="experiencia" className="py-20 px-4 sm:px-6 section-bg-light">
+    <section id="experiencia" className="py-10 px-4 sm:px-6 section-bg-light">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 fade-in">
         <h2 className="section-title">
           Experiencia
         </h2>
         
         <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-8">
-          {experiences.map((exp, index) => (
+          {sortedExperiences.map((exp, index) => (
             <div 
               key={index} 
               className="card"
             >
               <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                <h3 className="text-lg font-bold text-gray-800 dark:text-white break-words">{exp.position}</h3>
+<h3 className="text-lg font-bold text-gray-800 dark:text-white break-words">{exp.position}{exp.note ? <span className="block text-sm crimson-red">{exp.note}</span> : null}</h3>
                 <span className="hidden sm:block text-lg text-blue-60 dark:text-blue-400 mt-2 md:mt-0">
-                  {exp.company === "Arsys" ? (
+                  {exp.url ? (
+                    <a href={exp.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                      {exp.company}
+                    </a>
+                  ) : exp.company === "Arsys" ? (
                     <a href="https://www.arsys.es/" target="_blank" rel="noopener noreferrer" className="hover:underline">
                       {exp.company}
                     </a>

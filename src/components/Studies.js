@@ -5,20 +5,47 @@ const Studies = () => {
     {
       id: 1,
       title: 'Grado Superior en Desarrollo de Aplicaciones Web',
-      subtitle: 'FPD Rioja - Logroño (a distancia)',
+      subtitle: (
+        <a 
+          href="https://fpdrioja.es/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
+        >
+          FPD Rioja - Logroño (a distancia)
+        </a>
+      ),
       date: '2022-2025',
-      description: 'Cursando Grado Superior en Desarrollo de Aplicaciones Web, formación técnica avanzada en desarrollo web y aplicaciones.',
+      description: 'Formación técnica avanzada en desarrollo web y aplicaciones.',
       category: 'Grado'
     },
     {
       id: 2,
       title: 'Grado Medio en Sistemas Microinformáticos y Redes',
-      subtitle: 'IES Comercio - Logroño',
+      subtitle: (
+        <a 
+          href="https://iescomercio.com/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
+        >
+          IES Comercio - Logroño
+        </a>
+      ),
       date: '2019-2021',
       description: 'Formación técnica en sistemas informáticos y redes, base fundamental para mi carrera en tecnología.',
       category: 'Grado'
     }
   ];
+
+  // Función para extraer el año de inicio de la fecha
+  const getStartDate = (dateStr) => {
+    const startYear = dateStr.split('-')[0];
+    return parseInt(startYear);
+  };
+
+  // Ordenar estudios por fecha de inicio (más antiguo a más nuevo)
+  const sortedStudies = [...studies].sort((a, b) => getStartDate(a.date) - getStartDate(b.date));
 
   return (
     <section className="py-10 px-4 sm:px-6 section-bg-light">
@@ -28,7 +55,7 @@ const Studies = () => {
         </h2>
         
         <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-8">
-          {studies.map((study) => (
+          {sortedStudies.map((study) => (
             <div 
               key={study.id} 
               className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300"

@@ -87,10 +87,11 @@ const About = () => {
         </div>
       </div>
       
-      <div className="mt-20">
+      <div className="mt-0">
         <Timeline />
         <Studies />
         <Certifications />
+        <Experience />
       </div>
     </section>
   );

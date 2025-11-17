@@ -17,7 +17,7 @@ const Timeline = () => {
       title: 'Grado Superior en Desarrollo de Aplicaciones Web',
       subtitle: 'FPD Rioja - Logroño (a distancia)',
       date: '2022-2025',
-      description: 'Cursando Grado Superior en Desarrollo de Aplicaciones Web, formación técnica avanzada en desarrollo web y aplicaciones.',
+      description: 'Formación técnica avanzada en desarrollo web y aplicaciones.',
       category: 'Grado'
     },
     {
