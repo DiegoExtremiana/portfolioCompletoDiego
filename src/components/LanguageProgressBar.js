@@ -1,14 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { LANGUAGE_COLORS } from '../constants/skills';
 
 const LanguageProgressBar = ({ percentages }) => {
-  // Definir colores para cada lenguaje
-  const languageColors = {
-    'Angular': '#dc2626', // rojo escarlata
-    'React': '#60a5fa',   // azul claro
-    'JavaScript': '#fbbf24', // amarillo
-    'CSS': '#a855f7',     // morado
-    'HTML': '#f97316'     // naranja
-  };
 
   const [animatedPercentages, setAnimatedPercentages] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
@@ -87,7 +80,7 @@ const LanguageProgressBar = ({ percentages }) => {
               className="h-full flex items-center justify-center text-xs text-white font-bold transition-all duration-300 ease-out"
               style={{
                 width: `${animatedPercentages[index]}%`,
-                backgroundColor: languageColors[item.language] || '#888',
+                backgroundColor: LANGUAGE_COLORS[item.language] || '#888',
                 minWidth: '30px' // Mínimo para que se vea el texto
               }}
           >

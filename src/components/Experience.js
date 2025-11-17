@@ -1,41 +1,10 @@
 import React from 'react';
+import { EXPERIENCES } from '../constants/experience';
+import { getStartYear } from '../utils/dateUtils';
 
 const Experience = () => {
-  const experiences = [
-    {
-      position: "Programador web FullStack",
-      company: "Wunder control solutions",
-      period: "9/2024 - 1/2025",
-      description: "Creé una aplicación responsiva de control de presencia con perfil, mensajería, comunicación con la base de datos mediante API, registros y edición usando HTML, CSS, JavaScript, REACT, PHP y SQL.",
-      technologies: ["HTML", "CSS", "JavaScript", "REACT", "PHP", "SQL", "API"]
-    },
-    {
-      position: "Programador web FullStack",
-      company: "Logroño diseño web",
-      period: "1/2019 - 2/2021",
-      description: "Desarrollador Web FullStack, creación a medida con código nativo. Desarrollo en Angular y Firebase. (www.logroñodiseñoweb.es)",
-      technologies: ["HTML", "CSS", "JavaScript", "Angular", "PHP", "SQL", "API"],
-      url: "http://www.xn--logroodiseoweb-unbf.es/",
-      note: "(página web obsoleta)"
-    },
-    {
-      position: "Atención al cliente",
-      company: "Arsys",
-      period: "3/2021 - 6/2021",
-      description: "Responder a las preguntas y ayudar a los usuarios con sus problemas en páginas web.",
-      technologies: ["Atención al cliente", "Soporte técnico", "Resolución de problemas"]
-    }
-  ];
-
-  // Función para extraer el año de inicio del periodo
-  const getStartYear = (period) => {
-    // Extraer el año de inicio del periodo (antes del guión)
-    const match = period.match(/\d{1,2}\/(\d{4})/);
-    return match ? parseInt(match[1]) : 0;
-  };
-
   // Ordenar experiencias por año de inicio (más antiguo a más nuevo)
-  const sortedExperiences = [...experiences].sort((a, b) => getStartYear(a.period) - getStartYear(b.period));
+  const sortedExperiences = [...EXPERIENCES].sort((a, b) => getStartYear(a.period) - getStartYear(b.period));
 
    return (
     <section id="experiencia" className="py-10 px-4 sm:px-6 section-bg-light">

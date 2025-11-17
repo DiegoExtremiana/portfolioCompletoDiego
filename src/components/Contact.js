@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { FaGithub, FaEnvelope, FaMapMarkerAlt, FaExternalLinkAlt, FaLinkedin } from 'react-icons/fa';
+import { SOCIAL_LINKS } from '../constants/navigation';
+import { validateContactForm } from '../utils/validationUtils';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -12,29 +14,9 @@ const Contact = () => {
   const [submitMessage, setSubmitMessage] = useState('');
 
   const validateForm = () => {
-    const newErrors = {};
-
-    // Validación del nombre
-    if (!formData.name.trim()) {
-      newErrors.name = 'El nombre es obligatorio';
-    }
-
-    // Validación del email
-    if (!formData.email.trim()) {
-      newErrors.email = 'El correo electrónico es obligatorio';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'El formato del correo electrónico no es válido';
-    }
-
-    // Validación del mensaje
-    if (!formData.message.trim()) {
-      newErrors.message = 'El mensaje es obligatorio';
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'El mensaje debe tener al menos 10 caracteres';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    const { errors, isValid } = validateContactForm(formData);
+    setErrors(errors);
+    return isValid;
   };
 
   const handleChange = (e) => {
@@ -115,14 +97,14 @@ const Contact = () => {
             
             <div className="space-y-6">
               <div className="flex items-center">
-                <FaEnvelope className="text-2xl text-blue-60 dark:text-blue-400 mr-4" />
+                <FaEnvelope className="text-2xl text-blue-600 dark:text-blue-400 mr-4" />
                 <div>
                   <p className="text-gray-600 dark:text-gray-300">Correo electrónico</p>
                   <a 
-                    href="mailto:dextremiana1998@gmail.com" 
+                    href={`mailto:${SOCIAL_LINKS.email}`} 
                     className="text-lg font-medium link flex items-center"
                   >
-                    dextremiana1998@gmail.com
+                    {SOCIAL_LINKS.email}
                     <FaExternalLinkAlt className="ml-2 text-sm" />
                   </a>
                 </div>
@@ -153,11 +135,11 @@ const Contact = () => {
               </div>
               
               <div className="flex items-center">
-                <FaLinkedin className="text-2xl text-blue-600 dark:text-blue-400 mr-4" />
+                <FaLinkedin className="text-2xl text-blue-60 dark:text-blue-400 mr-4" />
                 <div>
                   <p className="text-gray-600 dark:text-gray-300">LinkedIn</p>
                   <a 
-                    href="https://www.linkedin.com/in/diego-e-b08910198/" 
+                    href={SOCIAL_LINKS.linkedin} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-lg font-medium link flex items-center"

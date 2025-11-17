@@ -1,25 +1,26 @@
 import React from 'react';
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { SOCIAL_LINKS } from '../constants/navigation';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-80 dark:bg-gray-900 text-white py-12 px-4 sm:px-6 transition-colors duration-300">
+    <footer className="bg-gray-800 dark:bg-gray-900 text-white py-12 px-4 sm:px-6 transition-colors duration-300">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <h3 className="text-xl font-bold text-white">Diego Extremiana</h3>
-            <p className="text-gray-400 mt-2">Desarrollador Web Full Stack</p>
+            <p className="text-gray-40 mt-2">Desarrollador Web Full Stack</p>
           </div>
           
           <div className="flex space-x-6">
             <a 
-              href="mailto:dextremiana1998@gmail.com" 
+              href={`mailto:${SOCIAL_LINKS.email}`} 
               className="text-white hover:text-gray-300 transition-colors duration-300"
             >
               <FaEnvelope size={24} />
             </a>
             <a 
-              href="https://www.linkedin.com/in/diego-e-b08910198/" 
+              href={SOCIAL_LINKS.linkedin} 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-white hover:text-blue-500 transition-colors duration-300"

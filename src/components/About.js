@@ -3,9 +3,19 @@ import Timeline from './Timeline';
 import Studies from './Studies';
 import Certifications from './Certifications';
 import Experience from './Experience';
+import LanguageProgressBar from './LanguageProgressBar';
 import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
+import { SKILLS } from '../constants/skills';
+import { SOCIAL_LINKS } from '../constants/navigation';
 
 const About = () => {
+  const languagePercentages = [
+    { language: 'JavaScript', percentage: 70.6 },
+    { language: 'PHP', percentage: 21.3 },
+    { language: 'CSS', percentage: 4.0 },
+    { language: 'HTML', percentage: 4.1 }
+  ];
+
   return (
     <section id="sobre-mi" className="py-20 px-4 sm:px-6 section-bg-light">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 fade-in">
@@ -38,11 +48,10 @@ const About = () => {
               </p>
             </div>
             
-            
-            <div className="px-4">
+            <div className="px-4 mt-8">
               <h4 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-4 text-center sm:text-left">Habilidades</h4>
               <div className="flex flex-wrap justify-center sm:justify-start gap-2">
-                {['HTML', 'CSS', 'JavaScript', 'React', 'PHP', 'SQL', 'Tailwind CSS', 'Git', 'GitHub'].map((skill) => (
+                {SKILLS.map((skill) => (
                   <span 
                     key={skill}
                     className="skill-tag text-sm"
@@ -57,13 +66,13 @@ const About = () => {
               <h4 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-4 text-center sm:text-left">Conecta conmigo</h4>
               <div className="flex flex-col items-center sm:items-start space-y-4">
                 <a 
-                  href="mailto:dextremiana1998@gmail.com" 
+                  href={`mailto:${SOCIAL_LINKS.email}`} 
                   className="inline-flex items-center link"
                 >
-                  <FaEnvelope className="text-xl sm:text-2xl mr-2" /> dextremiana1998@gmail.com
+                  <FaEnvelope className="text-xl sm:text-2xl mr-2" /> {SOCIAL_LINKS.email}
                 </a>
                 <a 
-                  href="https://www.linkedin.com/in/diego-e-b08910198/" 
+                  href={SOCIAL_LINKS.linkedin} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center link"
