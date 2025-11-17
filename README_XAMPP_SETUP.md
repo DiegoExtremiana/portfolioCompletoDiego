@@ -4,13 +4,13 @@ Para que la funcionalidad de contacto funcione correctamente con XAMPP, sigue es
 
 ## 1. Colocar el archivo PHP en la carpeta htdocs de XAMPP
 
-Copia el archivo `sendEmail_for_htdocs.php` a la carpeta `htdocs` de XAMPP y renómbralo a `sendEmail.php`:
+Copia el archivo `sendEmail.php` a la carpeta `htdocs` de XAMPP:
 
 ```
 C:\xampp\htdocs\sendEmail.php
 ```
 
-También copia la carpeta de configuración desde el proyecto:
+También copia la carpeta de configuración desde el proyecto si no existe:
 
 ```
 C:\xampp\htdocs\config\emailConfig.php
@@ -67,4 +67,4 @@ Inicia la aplicación React con `npm start` y el formulario de contacto debería
 
 Debido a que React normalmente se ejecuta en el puerto 3000 y XAMPP en el puerto 80, es necesario el proxy para permitir la comunicación entre ambos servidores.
 
-El archivo `sendEmail_for_htdocs.php` está optimizado para funcionar en la carpeta htdocs y buscará Composer en varias ubicaciones posibles.
+El archivo `sendEmail.php` está optimizado para funcionar en la carpeta htdocs y buscará Composer en varias ubicaciones posibles.
