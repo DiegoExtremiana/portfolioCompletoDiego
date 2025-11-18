@@ -1,6 +1,16 @@
 import React from 'react';
 
 const Hero = () => {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+ };
+
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 section-bg-dark">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 text-center fade-in">
@@ -28,18 +38,18 @@ const Hero = () => {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start lg:justify-start items-center space-y-4 sm:space-y-0 sm:space-x-4 px-4 md:px-0 lg:px-0">
-              <a 
-                href="#contacto" 
+              <button 
+                onClick={() => scrollToSection('contacto')}
                 className="btn-primary w-full sm:w-auto px-6 py-3 text-center"
               >
                 Contáctame
-              </a>
-              <a 
-                href="#proyectos" 
+              </button>
+              <button 
+                onClick={() => scrollToSection('proyectos')}
                 className="btn-secondary w-full sm:w-auto px-6 py-3 text-center"
               >
                 Ver Proyectos
-              </a>
+              </button>
             </div>
           </div>
           <div className="md:w-1/2 flex justify-center items-center px-4 md:px-0 lg:px-0">
@@ -54,7 +64,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
-  );
+ );
 };
 
 export default Hero;
