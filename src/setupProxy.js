@@ -1,14 +1,2 @@
-const { createProxyMiddleware } = require('http-proxy-middleware');
-
-module.exports = function(app) {
-  app.use(
-    '/api/contact',
-    createProxyMiddleware({
-      target: 'http://localhost',
-      changeOrigin: true,
-      pathRewrite: {
-        '^/api/contact': '/portfolio/sendEmail.php', // Ajusta la ruta según la estructura de tu servidor
-      },
-    })
-  );
-};
+// Este archivo está vacío para evitar conflictos con la nueva configuración directa
+// La solicitud se realiza directamente a la URL absoluta en Contact.js

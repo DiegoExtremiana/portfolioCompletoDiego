@@ -1,16 +1,5 @@
 RewriteEngine On
 
-# Manejar solicitudes CORS
-RewriteCond %{REQUEST_METHOD} OPTIONS
-RewriteRule ^(.*)$ - [R=200,L,E=HTTP_ORIGIN:%{HTTP:Origin}]
-
 # Regla para redirigir la API de contacto a sendEmail.php
 RewriteCond %{REQUEST_URI} ^/api/contact$
 RewriteRule ^.*$ /sendEmail.php [QSA,L]
-
-# Encabezados CORS
-<IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "http://localhost:3000"
-    Header set Access-Control-Allow-Methods "POST, GET, OPTIONS"
-    Header set Access-Control-Allow-Headers "Content-Type, X-Requested-With"
-</IfModule>

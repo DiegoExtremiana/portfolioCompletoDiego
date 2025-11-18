@@ -47,7 +47,7 @@ const Contact = () => {
     setSubmitMessage('');
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('http://localhost/portfolio/sendEmail.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

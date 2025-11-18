@@ -1,4 +1,21 @@
 <?php
+// Manejar solicitud OPTIONS (preflight) primero, antes de cualquier otra lógica
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    // Configurar cabeceras CORS para solicitudes preflight
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+    header('Access-Control-Allow-Headers: Content-Type, X-Requested-With, Authorization');
+    header('Access-Control-Allow-Credentials: true');
+    http_response_code(200);
+    exit();
+}
+
+// Configurar cabeceras CORS para todas las demás solicitudes
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, X-Requested-With, Authorization');
+header('Access-Control-Allow-Credentials: true');
+
 // Verificar si Composer está disponible en diferentes ubicaciones posibles
 $composerAutoloadPaths = [
     __DIR__ . '/vendor/autoload.php',           // En la misma carpeta
@@ -18,8 +35,8 @@ foreach ($composerAutoloadPaths as $path) {
 
 if (!$autoloadLoaded) {
     // Si no se puede encontrar Composer, mostrar error
-    header('Content-Type: application/json');
     http_response_code(500);
+    header('Content-Type: application/json');
     echo json_encode(['error' => 'No se pudo encontrar PHPMailer. Asegúrate de instalar Composer y ejecutar "composer install" en el directorio raíz de XAMPP.']);
     exit;
 }
@@ -32,7 +49,7 @@ use PHPMailer\PHPMailer\Exception;
 $emailConfig = [
     'smtp_host' => 'smtp.gmail.com',           // Servidor SMTP de Gmail
     'smtp_username' => 'dextremiana1998@gmail.com', // Tu dirección de correo
-    'smtp_password' => 'TU_CONTRASENA_APP',    // Contraseña de aplicación de Gmail - Reemplaza con tu contraseña de aplicación real
+    'smtp_password' => 'wcxj qnbk xcat quwv',    // Contraseña de aplicación de Gmail - Reemplaza con tu contraseña de aplicación real
     'smtp_port' => 587,                        // Puerto SMTP
     'smtp_secure' => 'tls',                    // Tipo de encriptación
     'from_email' => 'dextremiana1998@gmail.com', // Correo desde el que se envía
@@ -46,17 +63,8 @@ if (file_exists($configFile)) {
     $emailConfig = require_once $configFile;
 }
 
+// Configurar Content-Type para todas las solicitudes
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: http://localhost:3000'); // Permitir solo desde el frontend en desarrollo
-header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, X-Requested-With');
-header('Access-Control-Allow-Credentials: true');
-
-// Manejar solicitud OPTIONS (preflight)
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
-    exit();
-}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $json = file_get_contents('php://input');
@@ -64,10 +72,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $name = isset($data['name']) ? trim($data['name']) : '';
     $email = isset($data['email']) ? trim($data['email']) : '';
+    $subject = isset($data['subject']) ? trim($data['subject']) : '';
     $message = isset($data['message']) ? trim($data['message']) : '';
 
     // Validar que todos los campos estén presentes
-    if (empty($name) || empty($email) || empty($message)) {
+    if (empty($name) || empty($email) || empty($subject) || empty($message)) {
         http_response_code(400);
         echo json_encode(['error' => 'Todos los campos son obligatorios']);
         exit;
@@ -100,9 +109,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Contenido del correo
         $mail->isHTML(false); // Formato de texto plano
-        $mail->Subject = 'Nuevo mensaje de contacto desde el portfolio';
+        $mail->Subject = $subject;
         $mail->Body = "Nombre: " . $name . "\n" .
-            "Email: " . $email . "\n\n" .
+            "Email: " . $email . "\n" .
+            "Asunto: " . $subject . "\n\n" .
             "Mensaje: " . $message;
 
         // Enviar el correo
