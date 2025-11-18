@@ -41,7 +41,7 @@ const About = () => {
                 Siempre he sido una persona curiosa y muy de "trastear". Ese impulso me llevó al desarrollo web, donde disfruto transformando ideas en algo tangible que funciona y ayuda a la gente. Me gusta entender el por qué de cada cosa, cuidar los detalles y crear experiencias que sean agradables tanto por dentro (el código) como por fuera (la interfaz).
               </p>
               <p className="text-[var(--text-secondary)] text-left">
-                Trabajo con tecnologías como React, JavaScript, PHP y bases de datos, y me siento cómodo tanto creando interfaces dinámicas como montando la lógica que hay detrás. También soy streamer, algo que complementa mi faceta técnica porque me mantiene conectado con la gente, con el ritmo de la comunicación y con el diseño visual.
+                Trabajo con tecnologías como React, Angular, JavaScript, PHP y bases de datos, y me siento cómodo tanto creando interfaces dinámicas como montando la lógica que hay detrás. También soy streamer, algo que complementa mi faceta técnica porque me mantiene conectado con la gente, con el ritmo de la comunicación y con el diseño visual.
               </p>
               <p className="text-[var(--text-secondary)] text-left">
                 Soy alguien constante, responsable y con ganas de seguir mejorando. Me motiva aprender, colaborar y construir proyectos que tengan un propósito claro.

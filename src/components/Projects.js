@@ -1,5 +1,5 @@
-import React from 'react';
-import { FaExternalLinkAlt } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaExternalLinkAlt, FaSearch } from 'react-icons/fa';
 import LanguageProgressBar from './LanguageProgressBar';
 import { FINISHED_PROJECTS, DEVELOPING_PROJECTS, NON_FUNCTIONAL_PROJECTS } from '../constants/projects';
 
@@ -46,13 +46,49 @@ const sortTechnologiesByPriority = (technologies) => {
 };
 
 const Projects = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  // Función para filtrar proyectos según el término de búsqueda
+  const filterProjects = (projects, term) => {
+    if (!term.trim()) return projects;
+    
+    const lowerTerm = term.toLowerCase();
+    return projects.filter(project => {
+      // Buscar en el título del proyecto
+      const matchesTitle = project.title.toLowerCase().includes(lowerTerm);
+      // Buscar en las tecnologías del proyecto
+      const matchesTechnology = project.technologies.some(tech => 
+        tech.toLowerCase().includes(lowerTerm)
+      );
+      // Buscar en la descripción del proyecto
+      const matchesDescription = project.description.toLowerCase().includes(lowerTerm);
+      // Buscar en el tipo del proyecto
+      const matchesType = project.type.toLowerCase().includes(lowerTerm);
+      
+      return matchesTitle || matchesTechnology || matchesDescription || matchesType;
+    });
+  };
+
+  const filteredFinishedProjects = filterProjects(FINISHED_PROJECTS, searchTerm);
+  const filteredDevelopingProjects = filterProjects(DEVELOPING_PROJECTS, searchTerm);
+  const filteredNonFunctionalProjects = filterProjects(NON_FUNCTIONAL_PROJECTS, searchTerm);
 
   return (
     <section id="proyectos" className="py-20 px-4 sm:px-6 section-bg-dark">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 fade-in">
-        <h2 className="section-title">
-          Proyectos
-        </h2>
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="section-title">Proyectos</h2>
+          <div className="relative ml-4 flex-1 max-w-md">
+            <input
+              type="text"
+              placeholder="Buscar proyectos por nombre o tecnología..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full px-4 py-2 pl-10 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+          </div>
+        </div>
         
         {/* Proyectos Finalizados */}
         <div className="mb-16">
@@ -60,7 +96,7 @@ const Projects = () => {
             Finalizado
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {FINISHED_PROJECTS.map((project, index) => (
+            {filteredFinishedProjects.map((project, index) => (
               <div 
                 key={index} 
                 className="bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
@@ -94,6 +130,11 @@ const Projects = () => {
                 </div>
               </div>
             ))}
+            {searchTerm && filteredFinishedProjects.length === 0 && (
+              <div className="col-span-full text-center py-8 text-gray-500 dark:text-gray-400">
+                No se encontraron proyectos finalizados que coincidan con la búsqueda
+              </div>
+            )}
           </div>
         </div>
         
@@ -103,7 +144,7 @@ const Projects = () => {
             En Desarrollo
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {DEVELOPING_PROJECTS.map((project, index) => (
+            {filteredDevelopingProjects.map((project, index) => (
               <div 
                 key={index} 
                 className="bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
@@ -137,6 +178,11 @@ const Projects = () => {
                 </div>
               </div>
             ))}
+            {searchTerm && filteredDevelopingProjects.length === 0 && (
+              <div className="col-span-full text-center py-8 text-gray-500 dark:text-gray-400">
+                No se encontraron proyectos en desarrollo que coincidan con la búsqueda
+              </div>
+            )}
           </div>
         </div>
         
@@ -146,7 +192,7 @@ const Projects = () => {
             No Funcional
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {NON_FUNCTIONAL_PROJECTS.map((project, index) => (
+            {filteredNonFunctionalProjects.map((project, index) => (
               <div 
                 key={index} 
                 className="bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
@@ -180,6 +226,11 @@ const Projects = () => {
                 </div>
               </div>
             ))}
+            {searchTerm && filteredNonFunctionalProjects.length === 0 && (
+              <div className="col-span-full text-center py-8 text-gray-500 dark:text-gray-400">
+                No se encontraron proyectos no funcionales que coincidan con la búsqueda
+              </div>
+            )}
           </div>
         </div>
       </div>

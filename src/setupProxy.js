@@ -4,10 +4,10 @@ module.exports = function(app) {
   app.use(
     '/api/contact',
     createProxyMiddleware({
-      target: 'http://localhost:80',
+      target: 'http://localhost',
       changeOrigin: true,
       pathRewrite: {
-        '^/api/contact': '/sendEmail.php',
+        '^/api/contact': '/portfolio/sendEmail.php', // Ajusta la ruta según la estructura de tu servidor
       },
     })
   );

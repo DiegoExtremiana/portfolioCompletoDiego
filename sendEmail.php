@@ -32,11 +32,11 @@ use PHPMailer\PHPMailer\Exception;
 $emailConfig = [
     'smtp_host' => 'smtp.gmail.com',           // Servidor SMTP de Gmail
     'smtp_username' => 'dextremiana1998@gmail.com', // Tu dirección de correo
-    'smtp_password' => 'TU_CONTRASENA_APP',    // Contraseña de aplicación de Gmail
+    'smtp_password' => 'TU_CONTRASENA_APP',    // Contraseña de aplicación de Gmail - Reemplaza con tu contraseña de aplicación real
     'smtp_port' => 587,                        // Puerto SMTP
     'smtp_secure' => 'tls',                    // Tipo de encriptación
     'from_email' => 'dextremiana1998@gmail.com', // Correo desde el que se envía
-    'from_name' => 'Formulario de Contacto',   // Nombre que aparece como remitente
+    'from_name' => 'Formulario de Contacto Portfolio',   // Nombre que aparece como remitente
     'to_email' => 'dextremiana1998@gmail.com'  // Correo al que se envían los mensajes
 ];
 
@@ -47,9 +47,16 @@ if (file_exists($configFile)) {
 }
 
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Origin: http://localhost:3000'); // Permitir solo desde el frontend en desarrollo
+header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, X-Requested-With');
+header('Access-Control-Allow-Credentials: true');
+
+// Manejar solicitud OPTIONS (preflight)
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $json = file_get_contents('php://input');

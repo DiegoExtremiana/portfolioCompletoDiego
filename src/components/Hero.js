@@ -27,10 +27,10 @@ const Hero = () => {
             <div className="max-w-3xl mb-8 md:mb-12 lg:mb-12 px-4 md:px-0 lg:px-0">
               <div className="text-base sm:text-lg text-[var(--text-secondary)] max-w-2xl mx-auto md:mx-0 lg:mx-0 space-y-4 md:text-left lg:text-left">
                 <p>
-                  Soy desarrollador web especializado en React y en la creación de aplicaciones que realmente sirven para algo: herramientas que ayudan a las personas a organizarse, disfrutar y alcanzar sus objetivos. Me gusta combinar una buena experiencia de usuario con un código limpio y funcional, siempre buscando que cada proyecto tenga un impacto real.
+                  Desarrollador web especializado en Front y en la creación de aplicaciones que realmente sirven para algo: herramientas que ayudan a las personas a organizarse, disfrutar y alcanzar sus objetivos. Me gusta combinar una buena experiencia de usuario con un código limpio y funcional, siempre buscando que cada proyecto tenga un impacto real.
                 </p>
                 <p>
-                  Tengo experiencia construyendo aplicaciones completas con HTML, CSS, JavaScript, React y PHP, integrando bases de datos y APIs, y trabajando con metodologías ágiles y control de versiones. Además, soy creador de contenido, lo que me ha enseñado a comunicar, analizar feedback rápido y diseñar interfaces atractivas para el público.
+                  Tengo experiencia construyendo aplicaciones completas con HTML, CSS, JavaScript, TypeScript y PHP, integrando bases de datos y APIs, y trabajando con metodologías ágiles y control de versiones. Además, soy creador de contenido, lo que me ha enseñado a comunicar, analizar feedback rápido y diseñar interfaces atractivas para el público.
                 </p>
                 <p>
                   Si buscas a alguien resolutivo, creativo y con ganas de seguir creciendo mientras construye proyectos sólidos, estás en el sitio adecuado.
