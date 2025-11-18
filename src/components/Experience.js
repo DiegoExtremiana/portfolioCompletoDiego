@@ -20,28 +20,19 @@ const Experience = () => {
               className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-4 xs:p-5 sm:p-6 border-gray-20 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300 min-h-[220px] xs:min-h-[240px] w-full max-w-full"
             >
               <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 mb-4">
-                <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 dark:bg-gray-600 rounded-lg p-1 sm:p-2">
-                  {exp.company === "Arsys" && (
-                    <a href="https://www.arsys.es/" target="_blank" rel="noopener noreferrer">
-                      <img src="/media/images/arsys.png" alt="Arsys" className="h-8 sm:h-12 w-auto object-contain rounded" />
-                    </a>
-                  )}
-                  {exp.company === "Wunder control solutions" && (
-                    <a href="https://wundersolutions.es/" target="_blank" rel="noopener noreferrer">
-                      <img src="/media/images/wunder.png" alt="Wunder control solutions" className="h-8 sm:h-12 w-auto object-contain rounded" />
-                    </a>
-                  )}
-                  {exp.company !== "Arsys" && exp.company !== "Wunder control solutions" && exp.url && (
-                    <a href={exp.url} target="_blank" rel="noopener noreferrer">
-                      <img src="/media/images/default-company-logo.png" alt={exp.company} className="h-8 sm:h-12 w-auto object-contain rounded" />
-                    </a>
-                  )}
-                  {exp.company !== "Arsys" && exp.company !== "Wunder control solutions" && !exp.url && (
-                    <div className="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center text-gray-400">
-                      <span className="text-lg">💼</span>
-                    </div>
-                  )}
-                </div>
+                {(exp.company === "Arsys" || exp.company === "Wunder control solutions") && (
+                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 dark:bg-gray-600 rounded-lg p-1 sm:p-2">
+                    {exp.company === "Arsys" ? (
+                      <a href="https://www.arsys.es/" target="_blank" rel="noopener noreferrer">
+                        <img src="/media/images/arsys.png" alt="Arsys" className="h-8 sm:h-12 w-auto object-contain rounded" />
+                      </a>
+                    ) : (
+                      <a href="https://wundersolutions.es/" target="_blank" rel="noopener noreferrer">
+                        <img src="/media/images/wunder.png" alt="Wunder control solutions" className="h-8 sm:h-12 w-auto object-contain rounded" />
+                      </a>
+                    )}
+                  </div>
+                )}
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start">
                     <div className="flex flex-col">
