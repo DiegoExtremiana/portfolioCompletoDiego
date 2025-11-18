@@ -34,10 +34,11 @@ const Timeline = () => {
   }));
 
   // Combinar todos los eventos, evitando duplicados
+  // Primero combinamos estudios y certificaciones con TIMELINE_EVENTS, pero evitando duplicados explícitos
   const allEvents = [
     ...TIMELINE_EVENTS, // Experiencias y estudios existentes
-    ...studiesEvents,   // Estudios adicionales
-    ...certificationEvents // Certificaciones
+    ...studiesEvents.filter(study => !TIMELINE_EVENTS.some(timelineEvent => timelineEvent.title === study.title)),   // Estudios adicionales que no estén ya en TIMELINE_EVENTS
+    ...certificationEvents.filter(cert => !TIMELINE_EVENTS.some(timelineEvent => timelineEvent.title === cert.title)) // Certificaciones que no estén ya en TIMELINE_EVENTS
   ];
 
   // Función para normalizar fechas para la comparación de duplicados
@@ -61,6 +62,19 @@ const Timeline = () => {
     // Si es un rango como "2022-2025", mantenerlo tal cual
     else if (/^\d{4}-\d{4}$/.test(dateStr)) {
       return dateStr;
+    }
+    // Si es un formato como "ene. 2021" o "feb. 2021", convertimos mes abreviado a número
+    else if (dateStr.includes('.')) {
+      const months = {
+        'ene.': '01', 'feb.': '02', 'mar.': '03', 'abr.': '04', 'may.': '05', 'jun.': '06',
+        'jul.': '07', 'ago.': '08', 'sep.': '09', 'oct.': '10', 'nov.': '11', 'dic.': '12'
+      };
+      for (const [month, num] of Object.entries(months)) {
+        if (dateStr.includes(month)) {
+          const year = dateStr.split(' ')[1]; // Extraer el año
+          return `${year}-${num}`;
+        }
+      }
     }
     // Para otros formatos, mantenerlos tal cual
     return dateStr;
