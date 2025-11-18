@@ -3,6 +3,48 @@ import { FaExternalLinkAlt } from 'react-icons/fa';
 import LanguageProgressBar from './LanguageProgressBar';
 import { FINISHED_PROJECTS, DEVELOPING_PROJECTS, NON_FUNCTIONAL_PROJECTS } from '../constants/projects';
 
+// Función para determinar la prioridad de una tecnología
+const getTechPriority = (tech) => {
+  const lowerTech = tech.toLowerCase();
+  
+  // 1. Cualquier typescript (Angular/React)
+  if (lowerTech.includes('typescript') || lowerTech.includes('angular') || lowerTech.includes('react')) {
+    return 1;
+  }
+  
+  // 2. Vite
+  if (lowerTech.includes('vite')) {
+    return 2;
+  }
+  
+  // 3. Lenguajes avanzados (JavaScript/PHP)
+  if (lowerTech.includes('javascript') || lowerTech.includes('php')) {
+    return 3;
+  }
+  
+  // 4. HTML
+  if (lowerTech.includes('html')) {
+    return 4;
+  }
+  
+  // 5. Estilos (CSS/Tailwind)
+  if (lowerTech.includes('css') || lowerTech.includes('tailwind')) {
+    return 5;
+  }
+  
+  // Otros tecnologías tendrán una prioridad menor (más alta en número)
+  return 6;
+};
+
+// Función para ordenar tecnologías según prioridad
+const sortTechnologiesByPriority = (technologies) => {
+  return [...technologies].sort((a, b) => {
+    const priorityA = getTechPriority(a);
+    const priorityB = getTechPriority(b);
+    return priorityA - priorityB;
+  });
+};
+
 const Projects = () => {
 
   return (
@@ -36,7 +78,7 @@ const Projects = () => {
                   {project.languagePercentages && project.languagePercentages.length > 0 && (
                     <LanguageProgressBar 
                       percentages={project.languagePercentages} 
-                      technologies={project.technologies} 
+                      technologies={sortTechnologiesByPriority(project.technologies)} 
                     />
                   )}
                   
@@ -79,7 +121,7 @@ const Projects = () => {
                   {project.languagePercentages && project.languagePercentages.length > 0 && (
                     <LanguageProgressBar 
                       percentages={project.languagePercentages} 
-                      technologies={project.technologies} 
+                      technologies={sortTechnologiesByPriority(project.technologies)} 
                     />
                   )}
                   
@@ -122,7 +164,7 @@ const Projects = () => {
                   {project.languagePercentages && project.languagePercentages.length > 0 && (
                     <LanguageProgressBar 
                       percentages={project.languagePercentages} 
-                      technologies={project.technologies} 
+                      technologies={sortTechnologiesByPriority(project.technologies)} 
                     />
                   )}
                   
