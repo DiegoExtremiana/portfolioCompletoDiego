@@ -22,8 +22,19 @@ const Certifications = () => {
               key={cert.id} 
               className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-4 xs:p-5 sm:p-6 border border-gray-20 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300 min-h-[220px] xs:min-h-[240px] w-full max-w-full"
             >
-              <div className="flex justify-between items-start mb-4">
-                <div>
+              <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 mb-4">
+                {(cert.title === 'Desarrollo de Apps Móviles' || 
+                  cert.title === 'Introducción al Desarrollo Web: HTML y CSS (1/2)' || 
+                  cert.title === 'Introducción al Desarrollo Web: HTML y CSS (2/2)') && (
+                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gray-10 dark:bg-gray-600 rounded-lg p-1 sm:p-2">
+                    <a href="https://grow.google/intl/es/courses-and-tools/" target="_blank" rel="noopener noreferrer">
+                      <img src="/media/images/google.png" alt="Google" className="h-8 sm:h-12 w-auto object-contain rounded" />
+                    </a>
+                  </div>
+                )}
+                <div className={`${(cert.title === 'Desarrollo de Apps Móviles' || 
+                  cert.title === 'Introducción al Desarrollo Web: HTML y CSS (1/2)' || 
+                  cert.title === 'Introducción al Desarrollo Web: HTML y CSS (2/2)') ? "flex-1 min-w-0" : ""}`}>
                   <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2 break-all xs:text-sm text-prevent-overflow">
                     {cert.title}
                   </h3>
@@ -33,7 +44,7 @@ const Certifications = () => {
                         href={cert.subtitleLink} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-30 underline"
+                        className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
                       >
                         {cert.subtitle}
                       </a>
