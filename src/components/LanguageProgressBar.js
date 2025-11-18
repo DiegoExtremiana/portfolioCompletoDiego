@@ -65,19 +65,12 @@ const LanguageProgressBar = ({ percentages }) => {
 
   return (
     <div className="w-full" ref={progressBarRef}>
-      <div className="flex justify-between text-xs text-gray-600 dark:text-gray-400 mb-1">
-        {percentages.map((item, index) => (
-          <span key={index}>
-            {item.language}
-          </span>
-        ))}
-      </div>
-      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 mb-4">
-        <div className="flex h-4 rounded-full overflow-hidden">
+      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 relative mb-4">
+        <div className="flex h-4 rounded-full overflow-hidden relative z-10">
           {percentages.map((item, index) => (
             <div
               key={index}
-              className="h-full flex items-center justify-center text-xs text-white font-bold transition-all duration-300 ease-out"
+              className="h-full flex items-center justify-center text-xs text-white font-bold transition-all duration-300 ease-out relative"
               style={{
                 width: `${animatedPercentages[index]}%`,
                 backgroundColor: LANGUAGE_COLORS[item.language] || '#888',
@@ -86,6 +79,21 @@ const LanguageProgressBar = ({ percentages }) => {
           >
             {`${Math.round(animatedPercentages[index])}%`} {/* Mostrar siempre el porcentaje */}
           </div>
+          ))}
+        </div>
+        {/* Nombres de los lenguajes posicionados encima de cada segmento */}
+        <div className="absolute top-0 left-0 w-full h-4 flex z-0">
+          {percentages.map((item, index) => (
+            <div
+              key={`label-${index}`}
+              className="h-4 flex items-start justify-center text-xs text-gray-600 dark:text-gray-400 font-bold"
+              style={{
+                width: `${animatedPercentages[index]}%`,
+                minWidth: '30px'
+              }}
+            >
+              <span className="mt-[-1.2rem]">{item.language}</span>
+            </div>
           ))}
         </div>
       </div>
