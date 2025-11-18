@@ -12,7 +12,7 @@ export const EXPERIENCES = [
   {
     position: "Programador web FullStack",
     company: "Logroño diseño web",
-    period: "1/2019 - 2/2021",
+    period: "7/2019 - 2/2021",
     description: "Desarrollador Web FullStack, creación a medida con código nativo. Desarrollo en Angular y Firebase. (www.logroñodiseñoweb.es)",
     technologies: ["HTML", "CSS", "JavaScript", "Angular", "PHP", "SQL", "API"],
     url: "http://www.xn--logroodiseoweb-unbf.es/",
@@ -46,7 +46,7 @@ export const TIMELINE_EVENTS = [
     type: 'experience',
     title: 'Programador FullStack',
     subtitle: 'Logroño diseño web',
-    date: '1/2019 - 2/2021',
+    date: '7/2019 - 2/2021',
     description: 'Desarrollador Web FullStack, creación a medida con código nativo. Desarrollo en Angular y Firebase.',
     category: 'Experiencia Laboral'
   },
@@ -65,7 +65,7 @@ export const TIMELINE_EVENTS = [
     type: 'education',
     title: 'Grado Superior en Desarrollo de Aplicaciones Web',
     subtitle: 'FPD Rioja - Logroño (a distancia)',
-    date: '2022-2025',
+    date: '9/2022-6/2025',
     description: 'Formación técnica avanzada en desarrollo web y aplicaciones.',
     category: 'Grado'
   },
@@ -74,7 +74,7 @@ export const TIMELINE_EVENTS = [
     type: 'education',
     title: 'Grado Medio en Sistemas Microinformáticos y Redes',
     subtitle: 'IES Comercio - Logroño',
-    date: '2019-2021',
+    date: '9/2019-6/2021',
     description: 'Formación técnica en sistemas informáticos y redes, base fundamental para mi carrera en tecnología.',
     category: 'Grado'
   },
