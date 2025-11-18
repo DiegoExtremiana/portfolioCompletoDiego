@@ -144,7 +144,7 @@ const Timeline = () => {
   };
 
   return (
-    <section className="py-10 px-4 sm:px-6 section-bg-light">
+    <section id="trayectoria" className="py-10 px-4 sm:px-6 section-bg-light">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 overflow-x-hidden"> {/* Añadido overflow-x-hidden para evitar desbordamiento */}
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
           Timeline

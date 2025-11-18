@@ -2,6 +2,7 @@
 export const NAV_LINKS = [
   { id: 'inicio', label: 'inicio', target: 'inicio' },
  { id: 'sobre-mi', label: 'sobre mi', target: 'sobre-mi' },
+  { id: 'trayectoria', label: 'trayectoria', target: 'trayectoria' },
   { id: 'experiencia', label: 'experiencia', target: 'experiencia' },
  { id: 'proyectos', label: 'proyectos', target: 'proyectos' },
   { id: 'contacto', label: 'contacto', target: 'contacto' }
