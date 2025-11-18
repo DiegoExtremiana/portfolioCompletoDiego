@@ -18,6 +18,16 @@ export const validateEmail = (email) => {
  return '';
 };
 
+// Validación del asunto
+export const validateSubject = (subject) => {
+  if (!subject.trim()) {
+    return 'El asunto es obligatorio';
+  } else if (subject.trim().length < 3) {
+    return 'El asunto debe tener al menos 3 caracteres';
+  }
+  return '';
+};
+
 // Validación del mensaje
 export const validateMessage = (message) => {
  if (!message.trim()) {
@@ -37,6 +47,9 @@ export const validateContactForm = (formData) => {
 
  const emailError = validateEmail(formData.email);
   if (emailError) errors.email = emailError;
+
+  const subjectError = validateSubject(formData.subject);
+  if (subjectError) errors.subject = subjectError;
 
   const messageError = validateMessage(formData.message);
   if (messageError) errors.message = messageError;

@@ -28,8 +28,8 @@ const Footer = () => {
               <FaLinkedin size={24} />
             </a>
             <a 
-              href="https://github.com/TRdeXtremiana" 
-              target="_blank" 
+              href="https://github.com/DiegoExtremiana"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-gray-300 transition-colors duration-300"
             >

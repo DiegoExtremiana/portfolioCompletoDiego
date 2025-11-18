@@ -9,7 +9,7 @@ export const FINISHED_PROJECTS = [
       { language: "CSS", percentage: 38.9 },
       { language: "HTML", percentage: 2.8 }
     ],
-    link: "https://trdextremiana.github.io/3enRaya/",
+    link: "https://DiegoExtremiana.github.io/3enRaya/",
     type: "REACT"
   },
   {
@@ -21,7 +21,7 @@ export const FINISHED_PROJECTS = [
       { language: "CSS", percentage: 31.0 },
       { language: "HTML", percentage: 17.8 }
     ],
-    link: "https://trdextremiana.github.io/cuentaTiempo/",
+    link: "https://DiegoExtremiana.github.io/cuentaTiempo/",
     type: "JavaScript"
   },
   {
@@ -33,7 +33,7 @@ export const FINISHED_PROJECTS = [
       { language: "CSS", percentage: 38.2 },
       { language: "HTML", percentage: 13.7 }
     ],
-    link: "https://trdextremiana.github.io/listaTareas_JQuery/",
+    link: "https://DiegoExtremiana.github.io/listaTareas_JQuery/",
     type: "JavaScript"
   },
   {
@@ -45,7 +45,7 @@ export const FINISHED_PROJECTS = [
       { language: "CSS", percentage: 16.8 },
       { language: "HTML", percentage: 6.6 }
     ],
-    link: "https://trdextremiana.github.io/generar6pokemons/",
+    link: "https://DiegoExtremiana.github.io/generar6pokemons/",
     type: "JavaScript"
   },
   {
@@ -57,7 +57,7 @@ export const FINISHED_PROJECTS = [
       { language: "JavaScript", percentage: 37.9 },
       { language: "HTML", percentage: 16.3 }
     ],
-    link: "https://trdextremiana.github.io/piedraPapelTijera/",
+    link: "https://DiegoExtremiana.github.io/piedraPapelTijera/",
     type: "JavaScript"
   }
 ];
@@ -88,7 +88,7 @@ export const NON_FUNCTIONAL_PROJECTS = [
       { language: "CSS", percentage: 9.3 },
       { language: "HTML", percentage: 6.6 }
     ],
-    link: "https://trdextremiana.github.io/BlackJack/",
+    link: "https://DiegoExtremiana.github.io/BlackJack/",
     type: "JavaScript"
   }
 ];

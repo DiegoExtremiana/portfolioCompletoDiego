@@ -10,5 +10,5 @@ export const NAV_LINKS = [
 export const SOCIAL_LINKS = {
  email: 'dextremiana1998@gmail.com',
   linkedin: 'https://www.linkedin.com/in/diego-e-b08910198/',
-  github: 'https://github.com/TRdeXtremiana'
+  github: 'https://github.com/DiegoExtremiana'
 };

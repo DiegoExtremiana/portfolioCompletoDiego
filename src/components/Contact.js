@@ -7,6 +7,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subject: '',
     message: ''
   });
   const [errors, setErrors] = useState({});
@@ -54,6 +55,7 @@ const Contact = () => {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
+          subject: formData.subject,
           message: formData.message,
         }),
       });
@@ -155,12 +157,12 @@ const Contact = () => {
                 <div>
                   <p className="text-gray-600 dark:text-gray-300">GitHub</p>
                   <a 
-                    href="https://github.com/TRdeXtremiana" 
-                    target="_blank" 
+                    href="https://github.com/DiegoExtremiana"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-lg font-medium link flex items-center"
                   >
-                    TRdeXtremiana
+                    DiegoExtremiana
                     <FaExternalLinkAlt className="ml-2 text-sm" />
                   </a>
                 </div>
@@ -172,30 +174,45 @@ const Contact = () => {
             <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Envíame un Mensaje</h3>
             
             <form className="space-y-6" onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="name" className="block text-[var(--text-primary)] mb-2">Nombre</label>
-                <input
-                  type="text"
-                  id="name"
-                  className={`form-input ${errors.name ? 'border-red-500' : ''}`}
-                  placeholder="Tu nombre"
-                  value={formData.name}
-                  onChange={handleChange}
-                />
-                {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-[var(--text-primary)] mb-2">Nombre</label>
+                  <input
+                    type="text"
+                    id="name"
+                    className={`form-input ${errors.name ? 'border-red-500' : ''}`}
+                    placeholder="Tu nombre"
+                    value={formData.name}
+                    onChange={handleChange}
+                  />
+                  {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-gray-70 dark:text-gray-300 mb-2">Correo electrónico</label>
+                  <input
+                    type="email"
+                    id="email"
+                    className={`form-input ${errors.email ? 'border-red-500' : ''}`}
+                    placeholder="Tu correo electrónico"
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                  {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                </div>
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-gray-70 dark:text-gray-300 mb-2">Correo electrónico</label>
+                <label htmlFor="subject" className="block text-[var(--text-primary)] mb-2">Asunto</label>
                 <input
-                  type="email"
-                  id="email"
-                  className={`form-input ${errors.email ? 'border-red-500' : ''}`}
-                  placeholder="Tu correo electrónico"
-                  value={formData.email}
+                  type="text"
+                  id="subject"
+                  className={`form-input ${errors.subject ? 'border-red-500' : ''}`}
+                  placeholder="Asunto del mensaje"
+                  value={formData.subject || ''}
                   onChange={handleChange}
                 />
-                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
               </div>
               
               <div>
