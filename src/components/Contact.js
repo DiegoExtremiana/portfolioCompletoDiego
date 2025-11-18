@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaGithub, FaEnvelope, FaMapMarkerAlt, FaExternalLinkAlt, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaEnvelope, FaMapMarkerAlt, FaExternalLinkAlt, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import { SOCIAL_LINKS } from '../constants/navigation';
 import { validateContactForm } from '../utils/validationUtils';
 
@@ -97,6 +97,14 @@ const Contact = () => {
             
             <div className="space-y-6">
               <div className="flex items-center">
+                <FaMapMarkerAlt className="text-2xl text-blue-600 dark:text-blue-400 mr-4" />
+                <div>
+                  <p className="text-[var(--text-secondary)]">Ubicación</p>
+                  <p className="text-lg font-medium text-[var(--text-primary)]">Nájera, La Rioja</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center">
                 <FaEnvelope className="text-2xl text-blue-600 dark:text-blue-400 mr-4" />
                 <div>
                   <p className="text-gray-600 dark:text-gray-300">Correo electrónico</p>
@@ -111,10 +119,34 @@ const Contact = () => {
               </div>
               
               <div className="flex items-center">
-                <FaMapMarkerAlt className="text-2xl text-blue-600 dark:text-blue-400 mr-4" />
+                <FaWhatsapp className="text-2xl text-green-600 dark:text-green-400 mr-4" />
                 <div>
-                  <p className="text-[var(--text-secondary)]">Ubicación</p>
-                  <p className="text-lg font-medium text-[var(--text-primary)]">Nájera, La Rioja</p>
+                  <p className="text-gray-600 dark:text-gray-300">WhatsApp</p>
+                  <a 
+                    href="https://wa.me/34610521810" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-lg font-medium link flex items-center"
+                  >
+                    Hablemos
+                    <FaExternalLinkAlt className="ml-2 text-sm" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center">
+                <FaLinkedin className="text-2xl text-blue-60 dark:text-blue-400 mr-4" />
+                <div>
+                  <p className="text-gray-600 dark:text-gray-300">LinkedIn</p>
+                  <a 
+                    href={SOCIAL_LINKS.linkedin} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-lg font-medium link flex items-center"
+                  >
+                    linkedin
+                    <FaExternalLinkAlt className="ml-2 text-sm" />
+                  </a>
                 </div>
               </div>
               
@@ -129,22 +161,6 @@ const Contact = () => {
                     className="text-lg font-medium link flex items-center"
                   >
                     TRdeXtremiana
-                    <FaExternalLinkAlt className="ml-2 text-sm" />
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-center">
-                <FaLinkedin className="text-2xl text-blue-60 dark:text-blue-400 mr-4" />
-                <div>
-                  <p className="text-gray-600 dark:text-gray-300">LinkedIn</p>
-                  <a 
-                    href={SOCIAL_LINKS.linkedin} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-lg font-medium link flex items-center"
-                  >
-                    linkedin
                     <FaExternalLinkAlt className="ml-2 text-sm" />
                   </a>
                 </div>
