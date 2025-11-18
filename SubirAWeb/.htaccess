@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# Regla para redirigir la API de contacto a sendEmail.php
+RewriteCond %{REQUEST_URI} ^/api/contact$
+RewriteRule ^.*$ /sendEmail.php [QSA,L]
