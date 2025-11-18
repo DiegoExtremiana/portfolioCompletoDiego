@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { LANGUAGE_COLORS } from '../constants/skills';
 
-const LanguageProgressBar = ({ percentages }) => {
+const LanguageProgressBar = ({ percentages, technologies }) => {
 
   const [animatedPercentages, setAnimatedPercentages] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
@@ -97,6 +97,19 @@ const LanguageProgressBar = ({ percentages }) => {
           ))}
         </div>
       </div>
+      {/* Mostrar tecnologías si están disponibles */}
+      {technologies && technologies.length > 0 && (
+        <div className="flex flex-wrap gap-2 mb-4">
+          {technologies.map((tech, techIndex) => (
+            <span 
+              key={`tech-${techIndex}`}
+              className="tech-tag text-xs"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

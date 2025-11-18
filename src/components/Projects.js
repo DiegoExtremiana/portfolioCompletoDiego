@@ -31,21 +31,13 @@ const Projects = () => {
                     </span>
                   </div>
                   
-                  <p className="text-[var(--text-secondary)] mb-4">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span 
-                        key={techIndex}
-                        className="tech-tag text-xs"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="text-[var(--text-secondary)] mb-6">{project.description}</p>
                   
                   {project.languagePercentages && project.languagePercentages.length > 0 && (
-                    <LanguageProgressBar percentages={project.languagePercentages} />
+                    <LanguageProgressBar 
+                      percentages={project.languagePercentages} 
+                      technologies={project.technologies} 
+                    />
                   )}
                   
                   <a 
@@ -82,21 +74,13 @@ const Projects = () => {
                     </span>
                   </div>
                   
-                  <p className="text-[var(--text-secondary)] mb-4">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span 
-                        key={techIndex}
-                        className="tech-tag text-xs"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="text-[var(--text-secondary)] mb-6">{project.description}</p>
                   
                   {project.languagePercentages && project.languagePercentages.length > 0 && (
-                    <LanguageProgressBar percentages={project.languagePercentages} />
+                    <LanguageProgressBar 
+                      percentages={project.languagePercentages} 
+                      technologies={project.technologies} 
+                    />
                   )}
                   
                   <a 
@@ -133,21 +117,13 @@ const Projects = () => {
                     </span>
                   </div>
                   
-                  <p className="text-[var(--text-secondary)] mb-4">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span 
-                        key={techIndex}
-                        className="tech-tag text-xs"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="text-[var(--text-secondary)] mb-6">{project.description}</p>
                   
                   {project.languagePercentages && project.languagePercentages.length > 0 && (
-                    <LanguageProgressBar percentages={project.languagePercentages} />
+                    <LanguageProgressBar 
+                      percentages={project.languagePercentages} 
+                      technologies={project.technologies} 
+                    />
                   )}
                   
                   <a 
