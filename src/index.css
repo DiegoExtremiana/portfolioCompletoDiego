@@ -159,6 +159,25 @@ section {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Animaciones para tarjetas del timeline */
+.timeline-card-enter {
+  animation: slideDown 0.5s ease-out;
+}
+
+.timeline-card-exit {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-20px); }
+}
+
 /* Estilos para elementos de navegación */
 .nav-link {
   @apply text-[var(--text-secondary)] hover:text-blue-600 dark:hover:text-blue-400 transition-colors capitalize;

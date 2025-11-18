@@ -184,7 +184,7 @@ const Timeline = () => {
         
         {/* Información de eventos del año al pasar el mouse */}
         {hoveredYear && (
-          <div className="mt-8 p-6 bg-white dark:bg-gray-700 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600 transition-opacity duration-300">
+          <div className="mt-8 p-6 bg-white dark:bg-gray-700 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600 transition-opacity duration-300 timeline-card-enter">
             <h3 className="text-2xl font-bold text-gray-80 dark:text-white mb-4">Eventos en {hoveredYear}</h3>
             <div className="space-y-4">
               {sortedEvents
@@ -245,6 +245,76 @@ const Timeline = () => {
                 } else {
                   // Si es una fecha única, comprobar si contiene el año
                   return eventDate.includes(hoveredYear.toString());
+                }
+              }).length === 0 && (
+                <p className="text-gray-600 dark:text-gray-400 italic">No hubo eventos registrados en este año.</p>
+              )}
+            </div>
+          </div>
+        )}
+        {/* Contenedor para la animación de salida */}
+        {!hoveredYear && timeoutId && (
+          <div className="mt-8 p-6 bg-white dark:bg-gray-700 rounded-xl shadow-lg border-gray-200 dark:border-gray-600 timeline-card-exit absolute opacity-0 pointer-events-none" style={{ animationFillMode: 'forwards' }}>
+            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Eventos en {hoveredYear || ''}</h3>
+            <div className="space-y-4">
+              {sortedEvents
+                .filter(event => {
+                  // Verificar si el evento ocurrió en el año actualmente seleccionado
+                  const eventDate = event.date;
+                  if (eventDate.includes('-')) {
+                    // Si es un rango de fechas como "2022-2025", comprobar si el año está dentro del rango
+                    const [startYear, endYear] = eventDate.split('-').map(year => parseInt(year.trim().split('/').pop()));
+                    return hoveredYear && hoveredYear >= startYear && hoveredYear <= endYear;
+                  } else {
+                    // Si es una fecha única, comprobar si contiene el año
+                    return hoveredYear && eventDate.includes(hoveredYear.toString());
+                  }
+                })
+                .map((event, index) => (
+                  <div key={`${event.id}-${index}`} className="border-l-4 pl-4 py-2 ml-1"
+                    style={{ 
+                      borderLeftColor: event.type === 'education' ? '#3b82f6' : 
+                                      event.type === 'experience' ? '#10b981' : '#8b5cf6'
+                    }}>
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h4 className="text-lg font-bold text-gray-800 dark:text-white">
+                          {event.title}
+                        </h4>
+                        <p className="text-gray-600 dark:text-gray-300 mb-1">
+                          {event.subtitle}
+                        </p>
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className={`
+                            px-2 py-1 rounded-full text-xs font-medium
+                            ${event.type === 'education' ? 'bg-blue-600 text-white dark:bg-blue-600 dark:text-white xs:text-[0.6rem] text-prevent-overflow' : 
+                              event.type === 'experience' ? 'bg-green-100 text-green-800 dark:bg-green-90 dark:text-green-20' : 
+                              'bg-purple-600 text-white dark:bg-purple-600 dark:text-white xs:text-[0.6rem] text-prevent-overflow'}
+                          `}>
+                            {event.category}
+                          </span>
+                          <span className="text-gray-500 dark:text-gray-400 text-sm">
+                            {event.date}
+                          </span>
+                        </div>
+                        <p className="text-gray-700 dark:text-gray-300 text-sm">
+                          {event.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
+              {sortedEvents.filter(event => {
+                // Verificar si el evento ocurrió en el año actualmente seleccionado
+                const eventDate = event.date;
+                if (eventDate.includes('-')) {
+                  // Si es un rango de fechas como "2022-2025", comprobar si el año está dentro del rango
+                  const [startYear, endYear] = eventDate.split('-').map(year => parseInt(year.trim().split('/').pop()));
+                  return hoveredYear && hoveredYear >= startYear && hoveredYear <= endYear;
+                } else {
+                  // Si es una fecha única, comprobar si contiene el año
+                  return hoveredYear && eventDate.includes(hoveredYear.toString());
                 }
               }).length === 0 && (
                 <p className="text-gray-600 dark:text-gray-400 italic">No hubo eventos registrados en este año.</p>
