@@ -92,7 +92,7 @@ const Projects = () => {
         
         {/* Proyectos Finalizados */}
         <div className="mb-16">
-          <h3 className="section-subtitle bg-emerald-500 dark:bg-emerald-700 inline-block px-6 py-2 rounded-full text-white">
+          <h3 className="section-subtitle bg-emerald-500 dark:bg-emerald-700 inline-block px-6 py-2 rounded-full text-white dark:text-white">
             Finalizado
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -140,7 +140,7 @@ const Projects = () => {
         
         {/* Proyectos en Desarrollo */}
         <div className="mb-16">
-          <h3 className="section-subtitle bg-yellow-100 dark:bg-yellow-800 inline-block px-6 py-2 rounded-full">
+          <h3 className="section-subtitle bg-yellow-100 dark:bg-yellow-800 inline-block px-6 py-2 rounded-full text-gray-800 dark:text-white">
             En Desarrollo
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -188,7 +188,7 @@ const Projects = () => {
         
         {/* Proyectos No Funcionales */}
         <div>
-          <h3 className="section-subtitle bg-red-600 dark:bg-red-800 inline-block px-6 py-2 rounded-full text-white">
+          <h3 className="section-subtitle bg-red-600 dark:bg-red-800 inline-block px-6 py-2 rounded-full text-white dark:text-white">
             No Funcional
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">

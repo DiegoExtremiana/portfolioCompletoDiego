@@ -314,17 +314,17 @@ const Timeline = () => {
         
         {/* Leyenda */}
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-                    <div className="flex items-center">
+          <div className="flex items-center">
             <div className="w-4 h-4 rounded-full bg-purple-500 mr-2"></div>
-            <span className="text-gray-700 dark:text-gray-300 text-sm">Certificaciones</span>
+            <span className="text-black dark:text-gray-300 text-sm font-medium">Certificaciones</span>
           </div>
           <div className="flex items-center">
             <div className="w-4 h-4 rounded-full bg-blue-500 mr-2"></div>
-            <span className="text-gray-70 dark:text-gray-300 text-sm">Educación</span>
+            <span className="text-black dark:text-gray-300 text-sm font-medium">Educación</span>
           </div>
           <div className="flex items-center">
             <div className="w-4 h-4 rounded-full bg-green-500 mr-2"></div>
-            <span className="text-gray-70 dark:text-gray-300 text-sm">Experiencia Laboral</span>
+            <span className="text-black dark:text-gray-300 text-sm font-medium">Experiencia Laboral</span>
           </div>
         </div>
       </div>
