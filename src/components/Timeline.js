@@ -38,6 +38,19 @@ const Timeline = () => {
     else if (/^\d{4}-\d{4}$/.test(dateStr)) {
       return dateStr;
     }
+    // Si es un formato como "ene. 2021" o "feb. 2021", convertimos mes abreviado a número
+    else if (dateStr.includes('.')) {
+      const months = {
+        'ene.': '01', 'feb.': '02', 'mar.': '03', 'abr.': '04', 'may.': '05', 'jun.': '06',
+        'jul.': '07', 'ago.': '08', 'sep.': '09', 'oct.': '10', 'nov.': '11', 'dic.': '12'
+      };
+      for (const [month, num] of Object.entries(months)) {
+        if (dateStr.includes(month)) {
+          const year = dateStr.split(' ')[1]; // Extraer el año
+          return `${year}-${num}`;
+        }
+      }
+    }
     // Para otros formatos, mantenerlos tal cual
     return dateStr;
   };
