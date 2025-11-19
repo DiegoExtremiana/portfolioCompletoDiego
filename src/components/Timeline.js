@@ -11,33 +11,9 @@ const Timeline = () => {
   // Filtrar certificaciones visibles
   const visibleCertifications = CERTIFICATIONS.filter(cert => !CERTIFICATES_TO_HIDE.includes(cert.title));
 
-  // Convertir estudios a formato de evento para el timeline
-  const studiesEvents = STUDIES.map(study => ({
-    id: study.id,
-    type: 'education',
-    title: study.title,
-    subtitle: study.subtitle,
-    date: study.date,
-    description: study.description,
-    category: 'Estudio'
-  }));
-
-  // Convertir certificaciones a formato de evento para el timeline
-  const certificationEvents = visibleCertifications.map(cert => ({
-    id: cert.id + 100, // Añadir offset para evitar conflictos de ID
-    type: 'certification',
-    title: cert.title,
-    subtitle: cert.subtitle,
-    date: cert.date,
-    description: cert.description,
-    category: 'Certificación'
-  }));
-
   // Combinar todos los eventos, evitando duplicados
   const allEvents = [
-    ...TIMELINE_EVENTS, // Experiencias y estudios existentes
-    ...studiesEvents,   // Estudios adicionales
-    ...certificationEvents // Certificaciones
+    ...TIMELINE_EVENTS // Experiencias, estudios y certificaciones ya existentes
   ];
 
   // Función para normalizar fechas para la comparación de duplicados
