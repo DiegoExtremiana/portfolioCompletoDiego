@@ -16,7 +16,7 @@ const LanguageProgressBar = ({ percentages, technologies }) => {
         }
       },
       {
-        threshold: 0.5, // Activar cuando el 50% del elemento esté visible
+        threshold: 0.7, // Activar cuando el 70% del elemento esté visible
       }
     );
 
