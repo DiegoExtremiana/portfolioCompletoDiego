@@ -70,10 +70,11 @@ const LanguageProgressBar = ({ percentages, technologies }) => {
           {percentages.map((item, index) => (
             <div
               key={index}
-              className="h-full flex items-center justify-center text-xs text-white font-bold transition-all duration-300 ease-out relative"
+              className="h-full flex items-center justify-center text-xs font-bold transition-all duration-300 ease-out relative"
               style={{
                 width: `${animatedPercentages[index]}%`,
                 backgroundColor: LANGUAGE_COLORS[item.language] || '#888',
+                color: 'rgb(16,25,39)',
                 minWidth: '30px' // Mínimo para que se vea el texto
               }}
           >
