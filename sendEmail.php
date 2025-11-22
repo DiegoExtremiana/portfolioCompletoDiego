@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Contenido del correo
         $mail->isHTML(false); // Formato de texto plano
-        $mail->Subject = $subject;
+        $mail->Subject = "PORTAFOLIO";
         $mail->Body = "Nombre: " . $name . "\n" .
             "Email: " . $email . "\n" .
             "Asunto: " . $subject . "\n\n" .

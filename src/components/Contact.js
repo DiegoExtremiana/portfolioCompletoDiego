@@ -64,7 +64,7 @@ const Contact = () => {
         const data = await response.json();
         if (data.success) {
           setSubmitMessage(data.message);
-          setFormData({ name: '', email: '', message: '' });
+          setFormData({ name: '', email: '', subject: '', message: '' });
         } else {
           setSubmitMessage(data.error || 'Error al enviar el mensaje.');
         }
