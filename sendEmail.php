@@ -1,4 +1,7 @@
 <?php
+// Deshabilitar la visualización de errores para evitar que se muestren en la respuesta JSON
+ini_set('display_errors', 0);
+
 // Manejar solicitud OPTIONS (preflight) primero, antes de cualquier otra lógica
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     // Configurar cabeceras CORS para solicitudes preflight
@@ -16,51 +19,46 @@ header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, X-Requested-With, Authorization');
 header('Access-Control-Allow-Credentials: true');
 
-// Verificar si Composer está disponible en diferentes ubicaciones posibles
-$composerAutoloadPaths = [
-    __DIR__ . '/vendor/autoload.php',           // En la misma carpeta
-    __DIR__ . '/../vendor/autoload.php',        // En la carpeta padre (caso común en XAMPP)
-    __DIR__ . '/../../../vendor/autoload.php',  // En caso de subcarpeta en htdocs
-    'C:/xampp/htdocs/vendor/autoload.php'       // Ruta absoluta común en XAMPP
-];
-
-$autoloadLoaded = false;
-foreach ($composerAutoloadPaths as $path) {
-    if (file_exists($path)) {
-        require_once $path;
-        $autoloadLoaded = true;
-        break;
-    }
-}
-
-if (!$autoloadLoaded) {
-    // Si no se puede encontrar Composer, mostrar error
+// Cargar la librería PHPMailer
+$autoloadPath = __DIR__ . '/vendor/autoload.php';
+if (!file_exists($autoloadPath)) {
     http_response_code(500);
     header('Content-Type: application/json');
-    echo json_encode(['error' => 'No se pudo encontrar PHPMailer. Asegúrate de instalar Composer y ejecutar "composer install" en el directorio raíz de XAMPP.']);
+    echo json_encode(['error' => 'No se encontró el archivo de autoload. Asegúrate de instalar las dependencias con Composer.']);
     exit;
 }
+
+require_once $autoloadPath;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-// Carga la configuración de correo
-$emailConfig = [
-    'smtp_host' => 'smtp.gmail.com',           // Servidor SMTP de Gmail
-    'smtp_username' => 'dextremiana1998@gmail.com', // Tu dirección de correo
-    'smtp_password' => 'wcxj qnbk xcat quwv',    // Contraseña de aplicación de Gmail - Reemplaza con tu contraseña de aplicación real
-    'smtp_port' => 587,                        // Puerto SMTP
-    'smtp_secure' => 'tls',                    // Tipo de encriptación
-    'from_email' => 'dextremiana1998@gmail.com', // Correo desde el que se envía
-    'from_name' => 'Formulario de Contacto Portfolio',   // Nombre que aparece como remitente
-    'to_email' => 'dextremiana1998@gmail.com'  // Correo al que se envían los mensajes
-];
+// Cargar configuración de correo desde archivo externo
+$configPath = __DIR__ . '/config.php';
+if (!file_exists($configPath)) {
+    http_response_code(500);
+    header('Content-Type: application/json');
+    echo json_encode(['error' => 'No se encontró el archivo de configuración.']);
+    exit;
+}
 
-// Cargar configuración desde archivo si existe
-$configFile = __DIR__ . '/config/emailConfig.php';
-if (file_exists($configFile)) {
-    $emailConfig = require_once $configFile;
+$emailConfig = require_once $configPath;
+
+// Cargar configuración desde archivo de configuración alternativo si existe (para compatibilidad)
+$altConfigFile = __DIR__ . '/src/config/emailConfig.php';
+if (file_exists($altConfigFile)) {
+    try {
+        $altConfig = require_once $altConfigFile;
+        // Combinar la configuración del archivo con la principal, manteniendo los valores principales
+        $emailConfig = array_merge($altConfig, $emailConfig);
+    } catch (Exception $e) {
+        // Si hay un error al cargar el archivo de configuración alternativo, devolver error en formato JSON
+        http_response_code(500);
+        header('Content-Type: application/json');
+        echo json_encode(['error' => 'Error al cargar la configuración del archivo alternativo: ' . $e->getMessage()]);
+        exit;
+    }
 }
 
 // Configurar Content-Type para todas las solicitudes
@@ -91,6 +89,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Crear una nueva instancia de PHPMailer
     $mail = new PHPMailer(true);
+
+    // Validar que las credenciales necesarias estén presentes
+    if (empty($emailConfig['smtp_username']) || empty($emailConfig['smtp_password']) || empty($emailConfig['from_email']) || empty($emailConfig['to_email'])) {
+        http_response_code(500);
+        echo json_encode(['error' => 'Faltan credenciales de correo. Verifique que el archivo de configuración (config.php) esté correctamente configurado.']);
+        exit;
+    }
 
     try {
         // Configuración del servidor SMTP
