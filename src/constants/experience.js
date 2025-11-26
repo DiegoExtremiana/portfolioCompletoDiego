@@ -4,7 +4,7 @@ export const EXPERIENCES = [
     position: "Programador web FullStack",
     company: "Wunder control solutions",
     period: "9/2024 - 1/2025",
-    description: "Creé una aplicación responsiva de control de presencia con perfil, mensajería, comunicación con la base de datos mediante API, registros y edición usando HTML, CSS, JavaScript, REACT, PHP y SQL.",
+    description: "Creé una aplicación responsiva enfocada en el control de presencia con perfil, mensajería, comunicación con la base de datos mediante API, registros y edición usando HTML, CSS, JavaScript, REACT, PHP y SQL.",
     technologies: ["HTML", "CSS", "JavaScript", "REACT", "PHP", "SQL", "API"],
     url: null,
     note: null
@@ -23,7 +23,7 @@ export const EXPERIENCES = [
     company: "Arsys",
     period: "3/2021 - 6/2021",
     description: "Responder a las preguntas y ayudar a los usuarios con sus problemas en páginas web.",
-    technologies: ["Atención al cliente", "Soporte técnico", "Resolución de problemas"],
+    technologies: ["HTML", "CSS", "JavaScript", "CiberSeguridad", "Soporte técnico", "Resolución de problemas"],
     url: "https://www.arsys.es/",
     note: null
   }
@@ -38,7 +38,7 @@ export const TIMELINE_EVENTS = [
     title: 'Programador web',
     subtitle: 'Wunder control solutions',
     date: '9/2024 - 1/2025',
-    description: 'Creé una aplicación responsiva de control de presencia con perfil, mensajería, comunicación con la base de datos mediante API, registros y edición usando HTML, CSS, JavaScript, REACT, PHP y SQL.',
+    description: 'Creé una aplicación responsiva enfocada en el control de presencia con perfil, mensajería, comunicación con la base de datos mediante API, registros y edición usando HTML, CSS, JavaScript, REACT, PHP y SQL.',
     category: 'Experiencia Laboral'
   },
   {
@@ -60,17 +60,8 @@ export const TIMELINE_EVENTS = [
     category: 'Experiencia Laboral'
   },
   // Educación: Grados Oficiales
-  {
+    {
     id: 1,
-    type: 'education',
-    title: 'Grado Superior en Desarrollo de Aplicaciones Web',
-    subtitle: 'FPD Rioja - Logroño (a distancia)',
-    date: '9/2022-6/2025',
-    description: 'Formación técnica avanzada en desarrollo web y aplicaciones.',
-    category: 'Grado'
-  },
-  {
-    id: 2,
     type: 'education',
     title: 'Grado Medio en Sistemas Microinformáticos y Redes',
     subtitle: 'IES Comercio - Logroño',
@@ -78,6 +69,16 @@ export const TIMELINE_EVENTS = [
     description: 'Formación técnica en sistemas informáticos y redes, base fundamental para mi carrera en tecnología.',
     category: 'Grado'
   },
+  {
+    id: 2,
+    type: 'education',
+    title: 'Grado Superior en Desarrollo de Aplicaciones Web',
+    subtitle: 'FPD Rioja - Logroño (a distancia)',
+    date: '9/2022-6/2025',
+    description: 'Formación técnica avanzada en desarrollo web y aplicaciones.',
+    category: 'Grado'
+  },
+
   // Cursos y Certificaciones
   {
     id: 5,

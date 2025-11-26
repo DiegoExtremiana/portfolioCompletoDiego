@@ -14,7 +14,7 @@ public/build/
 .env.test.local
 .env.production.local
 
-# Configuration files
+# Configuration files with sensitive data
 config.php
 
 # OS generated files

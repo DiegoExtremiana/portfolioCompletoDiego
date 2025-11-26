@@ -12,7 +12,7 @@ Este es mi portfolio personal desarrollado con React y PHP. Incluye una sección
 
 ## Configuración del Formulario de Contacto
 
-Para que el formulario de contacto funcione correctamente y los mensajes se envíen a tu correo electrónico `dextremiana1998@gmail.com`, debes configurar una contraseña de aplicación de Gmail.
+Para que el formulario de contacto funcione correctamente y los mensajes se envíen a tu correo electrónico, debes configurar las variables de entorno de correo.
 
 ### Pasos para configurar:
 
@@ -62,7 +62,7 @@ El proyecto utiliza PHPMailer para el envío de correos electrónicos:
 2. Instala las dependencias de PHP con `composer install`
 3. Inicia Apache y MySQL en XAMPP
 4. Ejecuta `npm install` y luego `npm start` para iniciar la aplicación React
-5. El formulario de contacto enviará los mensajes a `dextremiana1998@gmail.com`
+5. El formulario de contacto enviará los mensajes al correo configurado en las variables de entorno
 
 ## Pruebas
 

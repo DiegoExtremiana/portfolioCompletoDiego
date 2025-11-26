@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validar que las credenciales necesarias estén presentes
     if (empty($emailConfig['smtp_username']) || empty($emailConfig['smtp_password']) || empty($emailConfig['from_email']) || empty($emailConfig['to_email'])) {
         http_response_code(500);
-        echo json_encode(['error' => 'Faltan credenciales de correo. Verifique que el archivo de configuración (config.php) esté correctamente configurado.']);
+        echo json_encode(['error' => 'Faltan credenciales de correo. Verifique que las variables de entorno estén correctamente configuradas.']);
         exit;
     }
 
@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(['success' => true, 'message' => 'Mensaje enviado correctamente']);
     } catch (Exception $e) {
         http_response_code(500);
-        echo json_encode(['error' => 'Error al enviar el mensaje: ' . $mail->ErrorInfo]);
+        echo json_encode(['error' => 'Error al enviar el mensaje']);
     }
 } else {
     http_response_code(405);

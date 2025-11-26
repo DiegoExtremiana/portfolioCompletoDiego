@@ -1,6 +1,6 @@
 // Lista de habilidades
 export const SKILLS = [
-  'HTML', 'CSS', 'JavaScript', 'React', 'PHP', 'SQL', 'Tailwind CSS', 'Git', 'GitHub'
+  'HTML', 'CSS', 'JavaScript', 'React', 'Angular', 'PHP', 'SQL', 'Tailwind CSS', 'WordPress' , 'Git', 'GitHub'
 ];
 
 // Colores para las barras de progreso de lenguajes
