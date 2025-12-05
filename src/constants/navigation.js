@@ -9,7 +9,7 @@ export const NAV_LINKS = [
 ];
 
 export const SOCIAL_LINKS = {
- email: 'dextremiana1998@ejemplo.com', // Reemplaza con tu email real en producción
+ email: 'dextremiana1998@gmail.com', // Reemplaza con tu email real en producción
   linkedin: 'https://www.linkedin.com/in/diego-e-b08910198/',
   github: 'https://github.com/DiegoExtremiana'
 };
