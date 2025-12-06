@@ -21,7 +21,7 @@ const Experience = () => {
             >
               <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 mb-4">
                 {(exp.company === "Arsys" || exp.company === "Wunder control solutions") && (
-                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 dark:bg-gray-600 rounded-lg p-1 sm:p-2">
+                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-[rgb(74,85,98)] dark:bg-gray-600 rounded-lg p-1 sm:p-2">
                     {exp.company === "Arsys" ? (
                       <a href="https://www.arsys.es/" target="_blank" rel="noopener noreferrer">
                         <img src="/media/images/arsys.png" alt="Arsys" className="h-8 sm:h-12 w-auto object-contain rounded" />

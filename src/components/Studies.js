@@ -21,14 +21,14 @@ const Studies = () => {
             >
               <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 mb-4">
                 {study.subtitle.includes("IES Comercio") && (
-                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 dark:bg-gray-600 rounded-lg p-1 sm:p-2">
+                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-[rgb(74,85,98)] dark:bg-gray-600 rounded-lg p-1 sm:p-2">
                     <a href="https://iescomercio.com/" target="_blank" rel="noopener noreferrer">
                       <img src="/media/images/IEScomercio.png" alt="IES Comercio" className="h-8 sm:h-12 w-auto object-contain rounded" />
                     </a>
                   </div>
                 )}
                 {study.subtitle.includes("FPD Rioja") && (
-                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 dark:bg-gray-600 rounded-lg p-1 sm:p-2">
+                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-[rgb(74,85,98)] dark:bg-gray-600 rounded-lg p-1 sm:p-2">
                     <a href="https://fpdrioja.es/" target="_blank" rel="noopener noreferrer">
                       <img src="/media/images/FPDrioja.png" alt="FPD Rioja" className="h-8 sm:h-12 w-auto object-contain rounded" />
                     </a>
