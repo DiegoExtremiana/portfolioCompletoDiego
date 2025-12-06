@@ -12,7 +12,7 @@ const Certifications = () => {
   return (
     <section className="py-10 px-4 sm:px-6 section-bg-light">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[var(--text-primary)]">
           Certificaciones
         </h2>
         
@@ -35,10 +35,10 @@ const Certifications = () => {
                 <div className={`${(cert.title === 'Desarrollo de Apps Móviles' || 
                   cert.title === 'Introducción al Desarrollo Web: HTML y CSS (1/2)' || 
                   cert.title === 'Introducción al Desarrollo Web: HTML y CSS (2/2)') ? "flex-1 min-w-0" : ""}`}>
-                  <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2 break-all xs:text-sm text-prevent-overflow">
+                  <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2 break-all xs:text-sm text-prevent-overflow">
                     {cert.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-sm xs:text-xs sm:block text-prevent-overflow">
+                  <p className="text-[var(--text-secondary)] mb-2 text-sm xs:text-xs sm:block text-prevent-overflow">
                     {cert.subtitleLink ? (
                       <a 
                         href={cert.subtitleLink} 
@@ -56,13 +56,13 @@ const Certifications = () => {
                     <span className="px-2 py-1 bg-purple-600 text-white dark:bg-purple-600 dark:text-white rounded-full text-xs xs:text-[0.6rem] font-medium text-prevent-overflow">
                       {cert.category}
                     </span>
-                    <span className="text-gray-500 dark:text-gray-400 text-xs xs:text-[0.6rem] text-prevent-overflow">
+                    <span className="text-[var(--text-secondary)] text-xs xs:text-[0.6rem] text-prevent-overflow">
                       {cert.date}
                     </span>
                   </div>
                 </div>
               </div>
-              <p className="text-gray-700 dark:text-gray-300 text-sm xs:text-xs sm:block text-prevent-overflow">
+              <p className="text-[var(--text-secondary)] text-sm xs:text-xs sm:block text-prevent-overflow">
                 {cert.description}
               </p>
             </div>

@@ -30,7 +30,7 @@ const About = () => {
               alt="Diploma de Diego" 
               className="w-full max-w-xs h-auto object-cover img-rounded mx-0"
             />
-            <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 dark:text-white mt-4 text-left">
+            <h3 className="text-xl sm:text-2xl font-semibold text-[var(--text-primary)] mt-4 text-left">
               Diego Extremiana - Desarrollador Web
             </h3>
           </div>

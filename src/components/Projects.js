@@ -151,7 +151,7 @@ const Projects = () => {
               >
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-white">{project.title}</h3>
+                  <h3 className="text-xl font-bold text-[var(--text-primary)]">{project.title}</h3>
                     <span className="tech-tag text-xs">
                       {project.type}
                     </span>
@@ -199,7 +199,7 @@ const Projects = () => {
               >
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold text-gray-80 dark:text-white">{project.title}</h3>
+                  <h3 className="text-xl font-bold text-[var(--text-primary)]">{project.title}</h3>
                     <span className="tech-tag text-xs">
                       {project.type}
                     </span>
@@ -227,7 +227,7 @@ const Projects = () => {
               </div>
             ))}
             {searchTerm && filteredNonFunctionalProjects.length === 0 && (
-              <div className="col-span-full text-center py-8 text-gray-500 dark:text-gray-400">
+              <div className="col-span-full text-center py-8 text-[var(--text-secondary)]">
                 No se encontraron proyectos no funcionales que coincidan con la búsqueda
               </div>
             )}

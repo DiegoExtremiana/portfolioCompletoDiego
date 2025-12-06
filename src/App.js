@@ -9,9 +9,9 @@ function App() {
   const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
-    // Verificar preferencia del sistema o estado guardado
+    // Establecer el modo oscuro por defecto independientemente de las preferencias del sistema
     const isDark = localStorage.getItem('darkMode') === 'true' || 
-                  (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                  (!('darkMode' in localStorage));
     setDarkMode(isDark);
   }, []);
 

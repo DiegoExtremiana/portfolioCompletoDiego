@@ -18,10 +18,10 @@ const Header = ({ darkMode, setDarkMode }) => {
   };
 
   return (
-    <header className="fixed w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm py-4 px-4 sm:px-6 shadow-md transition-colors duration-300">
+    <header className="fixed w-full z-50 bg-[var(--bg-secondary)] backdrop-blur-sm py-4 px-4 sm:px-6 shadow-md transition-colors duration-300">
       <div className="w-full max-w-6xl mx-auto flex justify-between items-center">
         {/* Logo o nombre */}
-        <div className="text-xl font-bold text-gray-80 dark:text-white">
+        <div className="text-xl font-bold text-[var(--text-primary)]">
           Diego Extremiana
         </div>
 
@@ -31,7 +31,7 @@ const Header = ({ darkMode, setDarkMode }) => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.target)}
-              className="nav-link text-sm md:text-base text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-40 transition-colors capitalize"
+              className="nav-link text-sm md:text-base text-[var(--text-secondary)] hover:text-blue-600 dark:hover:text-blue-40 transition-colors capitalize"
             >
               {item.label}
             </button>
@@ -67,7 +67,7 @@ const Header = ({ darkMode, setDarkMode }) => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.target)}
-              className="text-left py-2 nav-link text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors capitalize"
+              className="text-left py-2 nav-link text-[var(--text-secondary)] hover:text-blue-600 dark:hover:text-blue-40 transition-colors capitalize"
             >
               {item.label}
             </button>

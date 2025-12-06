@@ -17,7 +17,7 @@ const Experience = () => {
           {sortedExperiences.map((exp, index) => (
             <div 
               key={index} 
-              className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-4 xs:p-5 sm:p-6 border-gray-20 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300 min-h-[220px] xs:min-h-[240px] w-full max-w-full"
+              className="bg-[var(--card-bg)] rounded-xl shadow-lg p-4 xs:p-5 sm:p-6 border-gray-20 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300 min-h-[220px] xs:min-h-[240px] w-full max-w-full"
             >
               <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 mb-4">
                 {(exp.company === "Arsys" || exp.company === "Wunder control solutions") && (
@@ -36,7 +36,7 @@ const Experience = () => {
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start">
                     <div className="flex flex-col">
-                      <h3 className="text-lg font-bold text-gray-800 dark:text-white break-all xs:text-sm text-prevent-overflow">{exp.position}{exp.note ? <span className="block text-sm crimson-red xs:text-xs text-prevent-overflow">{exp.note}</span> : null}</h3>
+                      <h3 className="text-lg font-bold text-[var(--text-primary)] break-all xs:text-sm text-prevent-overflow">{exp.position}{exp.note ? <span className="block text-sm crimson-red xs:text-xs text-prevent-overflow">{exp.note}</span> : null}</h3>
                       <span className="text-lg xs:text-base sm:block text-prevent-overflow mt-1 sm:mt-0">
                         {exp.url ? (
                           <a href={exp.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline text-prevent-overflow">
@@ -59,7 +59,7 @@ const Experience = () => {
                 </div>
               </div>
               
-              <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm xs:text-xs sm:block text-prevent-overflow">{exp.description}</p>
+              <p className="text-[var(--text-secondary)] mb-4 text-sm xs:text-xs sm:block text-prevent-overflow">{exp.description}</p>
               
               <div className="hidden sm:flex flex-wrap gap-2 mb-4 xs:gap-1">
                 {exp.technologies.map((tech, techIndex) => (
@@ -72,7 +72,7 @@ const Experience = () => {
                 ))}
               </div>
               
-              <p className="text-gray-500 dark:text-gray-400 text-sm xs:text-xs text-prevent-overflow">
+              <p className="text-[var(--text-secondary)] text-sm xs:text-xs text-prevent-overflow">
                 {exp.period}
               </p>
             </div>

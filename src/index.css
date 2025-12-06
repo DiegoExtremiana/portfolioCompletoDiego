@@ -62,11 +62,33 @@ section {
 
 /* Estilos para etiquetas de habilidades */
 .skill-tag {
-  @apply px-4 py-2 bg-blue-100 dark:bg-blue-900 text-[var(--text-primary)] dark:text-white rounded-full text-sm;
+  @apply px-4 py-2 bg-[var(--skill-tag-bg)] text-[var(--text-primary)] rounded-full text-sm;
 }
 
 .tech-tag {
-  @apply px-3 py-1 bg-gray-200 dark:bg-gray-600 text-[var(--text-primary)] dark:text-white rounded-full text-sm;
+  @apply px-3 py-1 bg-[var(--tech-tag-bg)] text-[var(--text-primary)] rounded-full text-sm;
+}
+
+/* Estilos específicos para el modo claro */
+:root {
+  --skill-tag-bg: #dbeafe; /* bg-blue-100 */
+  --tech-tag-bg: #e5e7eb; /* bg-gray-20 */
+  --timeline-line-bg: #9ca3af; /* bg-gray-400 */
+  --timeline-year-bg: #ffffff;
+  --timeline-year-text: #1f2937;
+  --progress-bar-bg: #e5e7eb; /* bg-gray-200 */
+  --progress-bar-label-text: #4b5563; /* text-gray-600 */
+}
+
+/* Estilos específicos para el modo oscuro */
+.dark {
+  --skill-tag-bg: #1e3a8a; /* bg-blue-900 */
+  --tech-tag-bg: #4b5563; /* bg-gray-600 */
+  --timeline-line-bg: #6b7280; /* dark:bg-gray-500 */
+  --timeline-year-bg: #1f2937;
+  --timeline-year-text: #f9fafb;
+  --progress-bar-bg: #374151; /* dark:bg-gray-700 */
+  --progress-bar-label-text: #9ca3af; /* dark:text-gray-400 */
 }
 
 /* Estilo para texto en rojo carmesí */
@@ -111,10 +133,6 @@ section {
   @apply text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 text-[var(--text-primary)];
 }
 
-/* Estilos para h2 en modo claro - Forzar color negro */
-:root:not(.dark) h2 {
-  color: #000000 !important;
-}
 
 /* Estilos para enlaces */
 .link {

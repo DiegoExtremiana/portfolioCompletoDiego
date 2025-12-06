@@ -9,7 +9,7 @@ const Studies = () => {
   return (
     <section className="py-10 px-4 sm:px-6 section-bg-light">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[var(--text-primary)]">
           Estudios
         </h2>
         
@@ -17,7 +17,7 @@ const Studies = () => {
           {sortedStudies.map((study) => (
             <div 
               key={study.id} 
-              className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-4 xs:p-5 sm:p-6 border-gray-20 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300 min-h-[220px] xs:min-h-[240px] w-full max-w-full"
+              className="bg-[var(--card-bg)] rounded-xl shadow-lg p-4 xs:p-5 sm:p-6 border-gray-20 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300 min-h-[220px] xs:min-h-[240px] w-full max-w-full"
             >
               <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 mb-4">
                 {study.subtitle.includes("IES Comercio") && (
@@ -35,10 +35,10 @@ const Studies = () => {
                   </div>
                 )}
                 <div className={`${study.subtitle.includes("IES Comercio") || study.subtitle.includes("FPD Rioja") ? "flex-1 min-w-0" : ""}`}>
-                  <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2 break-all xs:text-sm text-prevent-overflow">
+                  <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2 break-all xs:text-sm text-prevent-overflow">
                     {study.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-2 text-sm xs:text-xs sm:block text-prevent-overflow">
+                  <p className="text-[var(--text-secondary)] mb-2 text-sm xs:text-xs sm:block text-prevent-overflow">
                     {study.subtitleLink ? (
                       <a 
                         href={study.subtitleLink} 
@@ -56,13 +56,13 @@ const Studies = () => {
                     <span className="px-2 py-1 bg-blue-600 text-white dark:bg-blue-60 dark:text-white rounded-full text-xs xs:text-[0.6rem] font-medium text-prevent-overflow">
                       {study.category}
                     </span>
-                    <span className="text-gray-500 dark:text-gray-400 text-xs xs:text-[0.6rem] text-prevent-overflow">
+                    <span className="text-[var(--text-secondary)] text-xs xs:text-[0.6rem] text-prevent-overflow">
                       {study.date}
                     </span>
                   </div>
                 </div>
               </div>
-              <p className="text-gray-700 dark:text-gray-300 text-sm xs:text-xs sm:block text-prevent-overflow">
+              <p className="text-[var(--text-secondary)] text-sm xs:text-xs sm:block text-prevent-overflow">
                 {study.description}
               </p>
             </div>

@@ -65,7 +65,7 @@ const LanguageProgressBar = ({ percentages, technologies }) => {
 
   return (
     <div className="w-full" ref={progressBarRef}>
-      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 relative mb-4">
+      <div className="w-full bg-[var(--progress-bar-bg)] rounded-full h-4 relative mb-4">
         <div className="flex h-4 rounded-full overflow-hidden relative z-10">
           {percentages.map((item, index) => (
             <div
@@ -87,7 +87,7 @@ const LanguageProgressBar = ({ percentages, technologies }) => {
           {percentages.map((item, index) => (
             <div
               key={`label-${index}`}
-              className="h-4 flex items-start justify-center text-xs text-gray-600 dark:text-gray-400 font-bold"
+              className="h-4 flex items-start justify-center text-xs text-[var(--progress-bar-label-text)] font-bold"
               style={{
                 width: `${animatedPercentages[index]}%`,
                 minWidth: '30px'

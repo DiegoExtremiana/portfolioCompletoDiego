@@ -95,7 +95,7 @@ const Contact = () => {
         
         <div className="flex flex-col md:flex-row gap-12">
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-semibold text-gray-80 dark:text-white mb-6">Información de Contacto</h3>
+            <h3 className="text-2xl font-semibold text-[var(--text-primary)] mb-6">Información de Contacto</h3>
             
             <div className="space-y-6">
               <div className="flex items-center">
@@ -109,7 +109,7 @@ const Contact = () => {
               <div className="flex items-center">
                 <FaEnvelope className="text-2xl text-blue-600 dark:text-blue-400 mr-4" />
                 <div>
-                  <p className="text-gray-600 dark:text-gray-300">Correo electrónico</p>
+                  <p className="text-[var(--text-secondary)]">Correo electrónico</p>
                   <a 
                     href={`mailto:${SOCIAL_LINKS.email}`} 
                     className="text-lg font-medium link flex items-center"
@@ -123,7 +123,7 @@ const Contact = () => {
               <div className="flex items-center">
                 <FaWhatsapp className="text-2xl text-green-600 dark:text-green-400 mr-4" />
                 <div>
-                  <p className="text-gray-600 dark:text-gray-300">WhatsApp</p>
+                  <p className="text-[var(--text-secondary)]">WhatsApp</p>
                   <a 
                     href="https://wa.me/34610521810" 
                     target="_blank" 
@@ -139,7 +139,7 @@ const Contact = () => {
               <div className="flex items-center">
                 <FaLinkedin className="text-2xl text-blue-60 dark:text-blue-400 mr-4" />
                 <div>
-                  <p className="text-gray-600 dark:text-gray-300">LinkedIn</p>
+                  <p className="text-[var(--text-secondary)]">LinkedIn</p>
                   <a 
                     href={SOCIAL_LINKS.linkedin} 
                     target="_blank" 
@@ -155,7 +155,7 @@ const Contact = () => {
               <div className="flex items-center">
                 <FaGithub className="text-2xl text-blue-600 dark:text-blue-400 mr-4" />
                 <div>
-                  <p className="text-gray-600 dark:text-gray-300">GitHub</p>
+                  <p className="text-[var(--text-secondary)]">GitHub</p>
                   <a 
                     href="https://github.com/DiegoExtremiana"
                     target="_blank"
@@ -171,7 +171,7 @@ const Contact = () => {
           </div>
           
           <div className="md:w-1/2">
-            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Envíame un Mensaje</h3>
+            <h3 className="text-2xl font-semibold text-[var(--text-primary)] mb-6">Envíame un Mensaje</h3>
             
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -189,7 +189,7 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-gray-70 dark:text-gray-300 mb-2">Correo electrónico</label>
+                  <label htmlFor="email" className="block text-[var(--text-primary)] mb-2">Correo electrónico</label>
                   <input
                     type="email"
                     id="email"

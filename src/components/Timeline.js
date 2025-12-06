@@ -135,7 +135,7 @@ const Timeline = () => {
   return (
     <section id="trayectoria" className="py-10 px-4 sm:px-6 section-bg-light">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 overflow-x-hidden"> {/* Añadido overflow-x-hidden para evitar desbordamiento */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[var(--text-primary)]">
           Timeline
         </h2>
         
@@ -153,7 +153,7 @@ const Timeline = () => {
                 {/* Círculo del año */}
                 <div className={`
                   w-6 h-6 rounded-full border-4 transition-all duration-300
-                  bg-gray-50 border-gray-300
+                  bg-[var(--timeline-year-bg)] border-[var(--border-primary)]
                   ${hoveredYear === year ? 'scale-125 ring-4 ring-opacity-50 ring-gray-500' : ''}
                 `}
                 onMouseEnter={() => handleMouseEnter(year)}
@@ -163,7 +163,7 @@ const Timeline = () => {
                 <div className="w-0.5 h-8 bg-gray-400 dark:bg-gray-500"></div>
                 
                 {/* Año */}
-                <div className="text-xs font-semibold text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 px-2 py-1 rounded mt-1">
+                <div className="text-xs font-semibold text-[var(--text-primary)] bg-[var(--card-bg)] px-2 py-1 rounded mt-1">
                   {year}
                 </div>
               </div>
@@ -174,7 +174,7 @@ const Timeline = () => {
         {/* Información de eventos del año al pasar el mouse */}
         {hoveredYear && (
           <div className="mt-8 p-6 bg-white dark:bg-gray-700 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600 transition-opacity duration-300 timeline-card-enter">
-            <h3 className="text-2xl font-bold text-gray-80 dark:text-white mb-4">Eventos en {hoveredYear}</h3>
+            <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">Eventos en {hoveredYear}</h3>
             <div className="space-y-4">
               {sortedEvents
                 .filter(event => {
@@ -197,10 +197,10 @@ const Timeline = () => {
                     }}>
                     <div className="flex justify-between items-start">
                       <div>
-                        <h4 className="text-lg font-bold text-gray-800 dark:text-white">
+                        <h4 className="text-lg font-bold text-[var(--text-primary)]">
                           {event.title}
                         </h4>
-                        <p className="text-gray-600 dark:text-gray-300 mb-1">
+                        <p className="text-[var(--text-secondary)] mb-1">
                           {event.subtitle}
                         </p>
                         <div className="flex items-center gap-2 mb-2">
@@ -212,11 +212,11 @@ const Timeline = () => {
                           `}>
                             {event.category}
                           </span>
-                          <span className="text-gray-500 dark:text-gray-400 text-sm">
+                          <span className="text-[var(--text-secondary)] text-sm">
                             {event.date}
                           </span>
                         </div>
-                        <p className="text-gray-700 dark:text-gray-300 text-sm">
+                        <p className="text-[var(--text-secondary)] text-sm">
                           {event.description}
                         </p>
                       </div>
@@ -236,7 +236,7 @@ const Timeline = () => {
                   return eventDate.includes(hoveredYear.toString());
                 }
               }).length === 0 && (
-                <p className="text-gray-600 dark:text-gray-400 italic">No hubo eventos registrados en este año.</p>
+              <p className="text-[var(--text-secondary)] italic">No hubo eventos registrados en este año.</p>
               )}
             </div>
           </div>
@@ -244,7 +244,7 @@ const Timeline = () => {
         {/* Contenedor para la animación de salida */}
         {!hoveredYear && timeoutId && (
           <div className="mt-8 p-6 bg-white dark:bg-gray-700 rounded-xl shadow-lg border-gray-200 dark:border-gray-600 timeline-card-exit absolute opacity-0 pointer-events-none" style={{ animationFillMode: 'forwards' }}>
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Eventos en {hoveredYear || ''}</h3>
+            <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">Eventos en {hoveredYear || ''}</h3>
             <div className="space-y-4">
               {sortedEvents
                 .filter(event => {
@@ -267,10 +267,10 @@ const Timeline = () => {
                     }}>
                     <div className="flex justify-between items-start">
                       <div>
-                        <h4 className="text-lg font-bold text-gray-800 dark:text-white">
+                        <h4 className="text-lg font-bold text-[var(--text-primary)]">
                           {event.title}
                         </h4>
-                        <p className="text-gray-600 dark:text-gray-300 mb-1">
+                        <p className="text-[var(--text-secondary)] mb-1">
                           {event.subtitle}
                         </p>
                         <div className="flex items-center gap-2 mb-2">
@@ -282,11 +282,11 @@ const Timeline = () => {
                           `}>
                             {event.category}
                           </span>
-                          <span className="text-gray-500 dark:text-gray-400 text-sm">
+                          <span className="text-[var(--text-secondary)] text-sm">
                             {event.date}
                           </span>
                         </div>
-                        <p className="text-gray-700 dark:text-gray-300 text-sm">
+                        <p className="text-[var(--text-secondary)] text-sm">
                           {event.description}
                         </p>
                       </div>
@@ -306,7 +306,7 @@ const Timeline = () => {
                   return hoveredYear && eventDate.includes(hoveredYear.toString());
                 }
               }).length === 0 && (
-                <p className="text-gray-600 dark:text-gray-400 italic">No hubo eventos registrados en este año.</p>
+              <p className="text-[var(--text-secondary)] italic">No hubo eventos registrados en este año.</p>
               )}
             </div>
           </div>
