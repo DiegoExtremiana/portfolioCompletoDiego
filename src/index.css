@@ -82,11 +82,11 @@ section {
   --timeline-dot-border: #e5e7eb;
   --timeline-year-bg-color: #ffffff;
   --timeline-year-text-color: #1f2937;
-  --certification-card-bg: #ffffff;
+  --certification-card-bg: var(--card-bg);
   --certification-card-border: #e5e7eb;
-  --certification-text-primary: #1f2937;
-  --certification-text-secondary: #6b7280;
-  --project-card-bg: #f9fafb;
+  --certification-text-primary: var(--text-primary);
+  --certification-text-secondary: var(--text-secondary);
+  --project-card-bg: rgb(31,41,55);
   --project-card-border: #e5e7eb;
   --project-text-primary: #1f2937;
   --project-text-secondary: #6b7280;

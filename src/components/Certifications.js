@@ -20,7 +20,7 @@ const Certifications = () => {
           {sortedCertifications.map((cert) => (
             <div 
               key={cert.id} 
-              className="bg-[var(--certification-card-bg)] dark:bg-gray-700 rounded-xl shadow-lg p-4 xs:p-5 sm:p-6 border border-[var(--certification-card-border)] dark:border-gray-600 hover:shadow-xl transition-shadow duration-300 min-h-[220px] xs:min-h-[240px] w-full max-w-full"
+              className="bg-[var(--certification-card-bg)] dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 mb-4">
                 {(cert.title === 'Desarrollo de Apps Móviles' || 
