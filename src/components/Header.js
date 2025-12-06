@@ -50,7 +50,7 @@ const Header = ({ darkMode, setDarkMode }) => {
 
           {/* Menú hamburguesa para móvil */}
           <button
-            className="md:hidden p-2 text-gray-700 dark:text-white"
+            className={`md:hidden p-2 text-gray-700 dark:text-white transform transition-transform duration-300 ${menuOpen ? 'rotate-90' : ''}`}
             onClick={toggleMenu}
             aria-label="Abrir menú"
           >
