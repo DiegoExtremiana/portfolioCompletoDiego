@@ -140,7 +140,7 @@ const Projects = () => {
         
         {/* Proyectos en Desarrollo */}
         <div className="mb-16">
-          <h3 className="section-subtitle bg-yellow-100 dark:bg-yellow-800 inline-block px-6 py-2 rounded-full text-gray-800 dark:text-white">
+          <h3 className="section-subtitle bg-orange-500 dark:bg-orange-600 inline-block px-6 py-2 rounded-full text-white dark:text-white">
             En Desarrollo
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">

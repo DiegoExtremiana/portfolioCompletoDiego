@@ -77,7 +77,7 @@ const About = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center link"
                 >
-                  <FaLinkedin className="text-xl sm:text-2xl mr-2" /> linkedin
+                  <FaLinkedin className="text-xl sm:text-2xl text-blue-600 dark:text-blue-400 mr-2" /> linkedin
                 </a>
               </div>
             </div>

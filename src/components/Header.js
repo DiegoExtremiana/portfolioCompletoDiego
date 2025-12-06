@@ -61,7 +61,7 @@ const Header = ({ darkMode, setDarkMode }) => {
 
       {/* Menú móvil */}
       {menuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-800 py-4 px-6 shadow-lg">
+        <div className="md:hidden bg-[var(--bg-secondary)] dark:bg-gray-800 py-4 px-6 shadow-lg">
           <div className="flex flex-col space-y-4">
           {NAV_LINKS.map((item) => (
             <button

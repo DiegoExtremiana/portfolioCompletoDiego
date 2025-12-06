@@ -137,7 +137,7 @@ const Contact = () => {
               </div>
 
               <div className="flex items-center">
-                <FaLinkedin className="text-2xl text-blue-60 dark:text-blue-400 mr-4" />
+                <FaLinkedin className="text-2xl text-blue-600 dark:text-blue-400 mr-4" />
                 <div>
                   <p className="text-[var(--text-secondary)]">LinkedIn</p>
                   <a 

@@ -25,7 +25,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-[var(--text-primary)] hover:text-blue-500 transition-colors duration-300"
             >
-              <FaLinkedin size={24} />
+              <FaLinkedin size={24} className="text-blue-600 dark:text-blue-400" />
             </a>
             <a 
               href="https://github.com/DiegoExtremiana"
