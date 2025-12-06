@@ -141,7 +141,7 @@ const Timeline = () => {
         
         <div className="relative">
           {/* Línea de tiempo horizontal */}
-          <div className="absolute left-0 right-0 top-1/2 h-1 bg-gray-300 dark:bg-gray-600 transform -translate-y-1/2 z-0"></div>
+          <div className="absolute left-0 right-0 top-1/2 h-1 bg-[var(--timeline-line-bg)] transform -translate-y-1/2 z-0"></div>
           
           {/* Marcadores de años */}
           <div className="relative flex justify-between items-center h-32 overflow-x-auto pb-4">
@@ -153,14 +153,14 @@ const Timeline = () => {
                 {/* Círculo del año */}
                 <div className={`
                   w-6 h-6 rounded-full border-4 transition-all duration-300
-                  bg-[var(--timeline-year-bg)] border-[var(--border-primary)]
+                  bg-[var(--timeline-dot-bg)] border-[var(--timeline-dot-border)]
                   ${hoveredYear === year ? 'scale-125 ring-4 ring-opacity-50 ring-gray-500' : ''}
                 `}
                 onMouseEnter={() => handleMouseEnter(year)}
                 onMouseLeave={handleMouseLeave}></div>
                 
                 {/* Línea vertical hacia abajo */}
-                <div className="w-0.5 h-8 bg-gray-400 dark:bg-gray-500"></div>
+                <div className="w-0.5 h-8 bg-[var(--timeline-line-bg)]"></div>
                 
                 {/* Año */}
                 <div className="text-xs font-semibold text-[var(--text-primary)] bg-[var(--card-bg)] px-2 py-1 rounded mt-1">
@@ -173,7 +173,7 @@ const Timeline = () => {
         
         {/* Información de eventos del año al pasar el mouse */}
         {hoveredYear && (
-          <div className="mt-8 p-6 bg-white dark:bg-gray-700 rounded-xl shadow-lg border border-gray-200 dark:border-gray-600 transition-opacity duration-300 timeline-card-enter">
+          <div className="mt-8 p-6 bg-[var(--timeline-card-bg)] rounded-xl shadow-lg border border-[var(--timeline-card-border)] transition-opacity duration-300 timeline-card-enter">
             <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">Eventos en {hoveredYear}</h3>
             <div className="space-y-4">
               {sortedEvents
@@ -192,8 +192,8 @@ const Timeline = () => {
                 .map((event, index) => (
                   <div key={`${event.id}-${index}`} className="border-l-4 pl-4 py-2 ml-1"
                     style={{ 
-                      borderLeftColor: event.type === 'education' ? '#3b82f6' : 
-                                      event.type === 'experience' ? '#10b981' : '#8b5cf6'
+                      borderLeftColor: event.type === 'education' ? 'var(--timeline-event-border-education)' : 
+                                      event.type === 'experience' ? 'var(--timeline-event-border-experience)' : 'var(--timeline-event-border-certification)'
                     }}>
                     <div className="flex justify-between items-start">
                       <div>
@@ -243,7 +243,7 @@ const Timeline = () => {
         )}
         {/* Contenedor para la animación de salida */}
         {!hoveredYear && timeoutId && (
-          <div className="mt-8 p-6 bg-white dark:bg-gray-700 rounded-xl shadow-lg border-gray-200 dark:border-gray-600 timeline-card-exit absolute opacity-0 pointer-events-none" style={{ animationFillMode: 'forwards' }}>
+          <div className="mt-8 p-6 bg-[var(--timeline-card-bg)] rounded-xl shadow-lg border-[var(--timeline-card-border)] timeline-card-exit absolute opacity-0 pointer-events-none" style={{ animationFillMode: 'forwards' }}>
             <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">Eventos en {hoveredYear || ''}</h3>
             <div className="space-y-4">
               {sortedEvents
@@ -262,8 +262,8 @@ const Timeline = () => {
                 .map((event, index) => (
                   <div key={`${event.id}-${index}`} className="border-l-4 pl-4 py-2 ml-1"
                     style={{ 
-                      borderLeftColor: event.type === 'education' ? '#3b82f6' : 
-                                      event.type === 'experience' ? '#10b981' : '#8b5cf6'
+                      borderLeftColor: event.type === 'education' ? 'var(--timeline-event-border-education)' : 
+                                      event.type === 'experience' ? 'var(--timeline-event-border-experience)' : 'var(--timeline-event-border-certification)'
                     }}>
                     <div className="flex justify-between items-start">
                       <div>
@@ -278,7 +278,7 @@ const Timeline = () => {
                             px-2 py-1 rounded-full text-xs font-medium
                             ${event.type === 'education' ? 'bg-blue-600 text-white dark:bg-blue-600 dark:text-white xs:text-[0.6rem] text-prevent-overflow' : 
                               event.type === 'experience' ? 'bg-green-100 text-green-800 dark:bg-green-90 dark:text-green-20' : 
-                              'bg-purple-600 text-white dark:bg-purple-600 dark:text-white xs:text-[0.6rem] text-prevent-overflow'}
+                              'bg-purple-600 text-white dark:bg-purple-60 dark:text-white xs:text-[0.6rem] text-prevent-overflow'}
                           `}>
                             {event.category}
                           </span>
@@ -315,16 +315,16 @@ const Timeline = () => {
         {/* Leyenda */}
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <div className="flex items-center">
-            <div className="w-4 h-4 rounded-full bg-purple-500 mr-2"></div>
-            <span className="text-black dark:text-gray-300 text-sm font-medium">Certificaciones</span>
+            <div className="w-4 h-4 rounded-full bg-[var(--timeline-event-border-certification)] mr-2"></div>
+            <span className="text-[var(--timeline-legend-text)] text-sm font-medium">Certificaciones</span>
           </div>
           <div className="flex items-center">
-            <div className="w-4 h-4 rounded-full bg-blue-500 mr-2"></div>
-            <span className="text-black dark:text-gray-300 text-sm font-medium">Educación</span>
+            <div className="w-4 h-4 rounded-full bg-[var(--timeline-event-border-education)] mr-2"></div>
+            <span className="text-[var(--timeline-legend-text)] text-sm font-medium">Educación</span>
           </div>
           <div className="flex items-center">
-            <div className="w-4 h-4 rounded-full bg-green-500 mr-2"></div>
-            <span className="text-black dark:text-gray-300 text-sm font-medium">Experiencia Laboral</span>
+            <div className="w-4 h-4 rounded-full bg-[var(--timeline-event-border-experience)] mr-2"></div>
+            <span className="text-[var(--timeline-legend-text)] text-sm font-medium">Experiencia Laboral</span>
           </div>
         </div>
       </div>

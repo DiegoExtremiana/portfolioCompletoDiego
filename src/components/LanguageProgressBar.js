@@ -65,7 +65,7 @@ const LanguageProgressBar = ({ percentages, technologies }) => {
 
   return (
     <div className="w-full" ref={progressBarRef}>
-      <div className="w-full bg-[var(--progress-bar-bg)] rounded-full h-4 relative mb-4">
+      <div className="w-full bg-[var(--progress-bar-track-bg)] rounded-full h-4 relative mb-4">
         <div className="flex h-4 rounded-full overflow-hidden relative z-10">
           {percentages.map((item, index) => (
             <div

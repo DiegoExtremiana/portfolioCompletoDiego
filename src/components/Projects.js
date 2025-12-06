@@ -99,7 +99,7 @@ const Projects = () => {
             {filteredFinishedProjects.map((project, index) => (
               <div 
                 key={index} 
-                className="bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-[var(--project-card-bg)] dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">

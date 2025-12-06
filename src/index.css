@@ -78,6 +78,29 @@ section {
   --timeline-year-text: #1f2937;
   --progress-bar-bg: #e5e7eb; /* bg-gray-200 */
   --progress-bar-label-text: #4b5563; /* text-gray-600 */
+  --timeline-dot-bg: #ffffff;
+  --timeline-dot-border: #e5e7eb;
+  --timeline-year-bg-color: #ffffff;
+  --timeline-year-text-color: #1f2937;
+  --certification-card-bg: #ffffff;
+  --certification-card-border: #e5e7eb;
+  --certification-text-primary: #1f2937;
+  --certification-text-secondary: #6b7280;
+  --project-card-bg: #f9fafb;
+  --project-card-border: #e5e7eb;
+  --project-text-primary: #1f2937;
+  --project-text-secondary: #6b7280;
+  --progress-bar-track-bg: #e5e7eb;
+  --progress-bar-label-text: #4b5563;
+  /* Variables específicas para la timeline */
+  --timeline-card-bg: #ffffff;
+  --timeline-card-border: #e5e7eb;
+  --timeline-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --timeline-event-border-education: #3b82f6;
+  --timeline-event-border-experience: #10b981;
+  --timeline-event-border-certification: #8b5cf6;
+  --timeline-legend-bg: #ffffff;
+  --timeline-legend-text: #000000;
 }
 
 /* Estilos específicos para el modo oscuro */
@@ -88,7 +111,16 @@ section {
   --timeline-year-bg: #1f2937;
   --timeline-year-text: #f9fafb;
   --progress-bar-bg: #374151; /* dark:bg-gray-700 */
-  --progress-bar-label-text: #9ca3af; /* dark:text-gray-400 */
+ --progress-bar-label-text: #9ca3af; /* dark:text-gray-400 */
+  /* Variables específicas para la timeline en modo oscuro */
+  --timeline-card-bg: #1f2937;
+  --timeline-card-border: #374151;
+  --timeline-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  --timeline-event-border-education: #60a5fa;
+  --timeline-event-border-experience: #34d399;
+  --timeline-event-border-certification: #c084fc;
+  --timeline-legend-bg: #1f2937;
+  --timeline-legend-text: #f9fafb;
 }
 
 /* Estilo para texto en rojo carmesí */
