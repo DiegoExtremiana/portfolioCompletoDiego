@@ -15,7 +15,7 @@ const Footer = () => {
           <div className="flex space-x-6">
             <a 
               href={`mailto:${SOCIAL_LINKS.email}`} 
-              className="text-[var(--text-primary)] hover:text-gray-300 transition-colors duration-300"
+              className="text-blue-600 dark:text-blue-40 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300"
             >
               <FaEnvelope size={24} />
             </a>
@@ -23,7 +23,7 @@ const Footer = () => {
               href={SOCIAL_LINKS.linkedin} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-[var(--text-primary)] hover:text-blue-500 transition-colors duration-300"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-colors duration-300"
             >
               <FaLinkedin size={24} className="text-blue-600 dark:text-blue-400" />
             </a>
@@ -31,7 +31,7 @@ const Footer = () => {
               href="https://github.com/DiegoExtremiana"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--text-primary)] hover:text-gray-300 transition-colors duration-300"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300"
             >
               <FaGithub size={24} />
             </a>
