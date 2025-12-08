@@ -118,15 +118,24 @@ const Projects = () => {
                     />
                   )}
                   
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="btn-primary inline-flex items-center justify-center w-full px-4 py-2"
-                  >
-                    Ver Proyecto
-                    <FaExternalLinkAlt className="ml-2 text-xs" />
-                  </a>
+                  {project.status === "próximamente" ? (
+                    <button
+                      className="btn-primary inline-flex items-center justify-center w-full px-4 py-2 opacity-70 cursor-not-allowed"
+                      disabled
+                    >
+                      Próximamente
+                    </button>
+                  ) : (
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="btn-primary inline-flex items-center justify-center w-full px-4 py-2"
+                    >
+                      Ver Proyecto
+                      <FaExternalLinkAlt className="ml-2 text-xs" />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -166,15 +175,24 @@ const Projects = () => {
                     />
                   )}
                   
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="btn-primary inline-flex items-center justify-center w-full px-4 py-2"
-                  >
-                    Ver Proyecto
-                    <FaExternalLinkAlt className="ml-2 text-xs" />
-                  </a>
+                  {project.status === "próximamente" ? (
+                    <button
+                      className="btn-primary inline-flex items-center justify-center w-full px-4 py-2 opacity-70 cursor-not-allowed"
+                      disabled
+                    >
+                      Próximamente
+                    </button>
+                  ) : (
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="btn-primary inline-flex items-center justify-center w-full px-4 py-2"
+                    >
+                      Ver Proyecto
+                      <FaExternalLinkAlt className="ml-2 text-xs" />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -214,15 +232,24 @@ const Projects = () => {
                     />
                   )}
                   
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="btn-primary inline-flex items-center justify-center w-full px-4 py-2"
-                  >
-                    Ver Proyecto
-                    <FaExternalLinkAlt className="ml-2 text-xs" />
-                  </a>
+                  {project.status === "próximamente" ? (
+                    <button
+                      className="btn-primary inline-flex items-center justify-center w-full px-4 py-2 opacity-70 cursor-not-allowed"
+                      disabled
+                    >
+                      Próximamente
+                    </button>
+                  ) : (
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="btn-primary inline-flex items-center justify-center w-full px-4 py-2"
+                    >
+                      Ver Proyecto
+                      <FaExternalLinkAlt className="ml-2 text-xs" />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}

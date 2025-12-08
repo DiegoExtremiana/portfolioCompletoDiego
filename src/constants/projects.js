@@ -2,7 +2,7 @@
 export const FINISHED_PROJECTS = [
   {
     title: "3 en Raya",
-    description: "Juego de 3 en Raya implementado con React",
+    description: "Juego de 3 en Raya implementado en React",
     technologies: ["React", "Vite", "JavaScript", "CSS"],
     languagePercentages: [
       { language: "JavaScript", percentage: 58.3 },
@@ -13,8 +13,8 @@ export const FINISHED_PROJECTS = [
     type: "REACT"
   },
   {
-    title: "Cronómetro",
-    description: "Aplicación de cronómetro con funcionalidades de inicio, pausa y reinicio",
+    title: "Temporizador",
+    description: "Aplicación enfocada al paso del tiempo con barra de porcentaje, editable",
     technologies: ["JavaScript", "HTML", "CSS"],
     languagePercentages: [
       { language: "JavaScript", percentage: 51.2 },
@@ -26,7 +26,7 @@ export const FINISHED_PROJECTS = [
   },
   {
     title: "Lista de Tareas",
-    description: "Aplicación de lista de tareas usando JQuery",
+    description: "Aplicación enfocada en una lista de tareas pendientes y hechas usando JQuery",
     technologies: ["JavaScript", "JQuery", "HTML", "CSS"],
     languagePercentages: [
       { language: "JavaScript", percentage: 48.1 },
@@ -50,7 +50,7 @@ export const FINISHED_PROJECTS = [
   },
   {
     title: "Piedra, Papel, Tijera",
-    description: "Juego de Piedra, Papel, Tijera con diferentes modos de juego",
+    description: "Juego de Piedra, Papel, Tijera con diferentes modos de juego (como big bang)",
     technologies: ["JavaScript", "HTML", "CSS"],
     languagePercentages: [
       { language: "CSS", percentage: 45.8 },
@@ -65,8 +65,8 @@ export const FINISHED_PROJECTS = [
 export const DEVELOPING_PROJECTS = [
   {
     title: "El Diegoncurso",
-    description: "Proyecto en desarrollo de una plataforma orientada a los concursos",
-    technologies: ["React", "JavaScript", "CSS"],
+    description: "Proyecto orientado a los concursos en línea",
+    technologies: ["React", "JavaScript", "PHP", "CSS", "API", "SQL"],
     languagePercentages: [
       { language: 'JavaScript', percentage: 70.6 },
       { language: 'PHP', percentage: 21.3 },
@@ -75,6 +75,20 @@ export const DEVELOPING_PROJECTS = [
     ],
     link: "https://www.diegoncurso.es/",
     type: "REACT"
+  },
+  {
+    title: "Dorimu-team",
+    description: "Página enfocada a un grupo de streamers",
+    technologies: ["React", "JavaScript", "PHP", "CSS"],
+    languagePercentages: [
+      { language: 'JavaScript', percentage: 70.6 },
+      { language: 'PHP', percentage: 21.3 },
+      { language: 'CSS', percentage: 4.0 },
+      { language: 'HTML', percentage: 4.1 }
+    ],
+    link: "#",
+    type: "REACT",
+    status: "próximamente"
   }
 ];
 
