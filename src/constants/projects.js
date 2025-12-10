@@ -81,10 +81,10 @@ export const DEVELOPING_PROJECTS = [
     description: "Página enfocada a un grupo de streamers",
     technologies: ["React", "JavaScript", "PHP", "CSS"],
     languagePercentages: [
-      { language: 'JavaScript', percentage: 70.6 },
-      { language: 'PHP', percentage: 21.3 },
-      { language: 'CSS', percentage: 4.0 },
-      { language: 'HTML', percentage: 4.1 }
+      { language: 'JavaScript', percentage: 0 },
+      { language: 'PHP', percentage: 0 },
+      { language: 'CSS', percentage: 0 },
+      { language: 'HTML', percentage: 0 }
     ],
     link: "#",
     type: "REACT",
