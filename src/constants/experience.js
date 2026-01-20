@@ -12,7 +12,7 @@ export const EXPERIENCES = [
   {
     position: "Programador web FullStack",
     company: "Logroño diseño web",
-    period: "7/2019 - 2/2021",
+    period: "7/2021 - 2/2022",
     description: "Desarrollador Web FullStack, creación a medida con código nativo. Desarrollo en Angular y Firebase. (www.logroñodiseñoweb.es)",
     technologies: ["HTML", "CSS", "JavaScript", "Angular", "PHP", "SQL", "API"],
     url: "http://www.xn--logroodiseoweb-unbf.es/",

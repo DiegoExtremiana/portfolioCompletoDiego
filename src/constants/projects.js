@@ -79,15 +79,11 @@ export const DEVELOPING_PROJECTS = [
   {
     title: "Dorimu-team",
     description: "Página enfocada a un grupo de streamers",
-    technologies: ["React", "JavaScript", "PHP", "CSS"],
+    technologies: [],
     languagePercentages: [
-      { language: 'JavaScript', percentage: 0 },
-      { language: 'PHP', percentage: 0 },
-      { language: 'CSS', percentage: 0 },
-      { language: 'HTML', percentage: 0 }
+
     ],
     link: "#",
-    type: "REACT",
     status: "próximamente"
   }
 ];
