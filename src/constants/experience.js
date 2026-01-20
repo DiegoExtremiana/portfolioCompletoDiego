@@ -46,7 +46,7 @@ export const TIMELINE_EVENTS = [
     type: 'experience',
     title: 'Programador FullStack',
     subtitle: 'Logroño diseño web',
-    date: '7/2019 - 2/2021',
+    date: '7/2021 - 2/2022',
     description: 'Desarrollador Web FullStack, creación a medida con código nativo. Desarrollo en Angular y Firebase.',
     category: 'Experiencia Laboral'
   },
