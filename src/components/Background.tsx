@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { WebGLBackground, type BackgroundColors } from '../lib/webgl-background';
+import type { SceneBackground, SceneColors } from '../lib/scene-background';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 import type { Theme } from '../hooks/useTheme';
 
@@ -14,7 +14,7 @@ function readVar(name: string): RGB {
   return [0, 0, 0];
 }
 
-function readColors(): BackgroundColors {
+function readColors(): SceneColors {
   return {
     bg: readVar('--bg'),
     accent: readVar('--accent'),
@@ -24,55 +24,70 @@ function readColors(): BackgroundColors {
 
 export function Background({ theme }: { theme: Theme }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const engineRef = useRef<WebGLBackground | null>(null);
+  const engineRef = useRef<SceneBackground | null>(null);
+  const reducedRef = useRef(false);
   const [fallback, setFallback] = useState(false);
   const reducedMotion = usePrefersReducedMotion();
 
-  // Initialize once.
+  // Lazy-load Three.js and set up the scene once.
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const engine = new WebGLBackground(canvas);
-    if (!engine.init()) {
-      setFallback(true);
-      return;
-    }
-    engineRef.current = engine;
-    engine.setColors(readColors());
+    let cancelled = false;
+    let teardown = () => {};
 
-    let ticking = false;
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        const max = document.documentElement.scrollHeight - window.innerHeight;
-        engine.setScroll(max > 0 ? window.scrollY / max : 0);
-        ticking = false;
-      });
-    };
-    const onResize = () => engine.resize();
-    const onVisibility = () => (document.hidden ? engine.stop() : engine.start());
+    import('../lib/scene-background')
+      .then(({ SceneBackground }) => {
+        if (cancelled || !canvasRef.current) return;
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onResize);
-    document.addEventListener('visibilitychange', onVisibility);
-    onScroll();
+        const engine = new SceneBackground(canvasRef.current);
+        if (!engine.init()) {
+          setFallback(true);
+          return;
+        }
+        engineRef.current = engine;
+        engine.setColors(readColors());
+        engine.setMotion(!reducedRef.current);
+
+        let ticking = false;
+        const onScroll = () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => {
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            engine.setScroll(max > 0 ? window.scrollY / max : 0);
+            ticking = false;
+          });
+        };
+        const onResize = () => engine.resize();
+        const onVisibility = () => (document.hidden ? engine.stop() : engine.start());
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onResize);
+        document.addEventListener('visibilitychange', onVisibility);
+        onScroll();
+
+        teardown = () => {
+          window.removeEventListener('scroll', onScroll);
+          window.removeEventListener('resize', onResize);
+          document.removeEventListener('visibilitychange', onVisibility);
+          engine.dispose();
+        };
+      })
+      .catch(() => setFallback(true));
 
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onResize);
-      document.removeEventListener('visibilitychange', onVisibility);
-      engine.dispose();
+      cancelled = true;
+      teardown();
       engineRef.current = null;
     };
   }, []);
 
-  // React to reduced-motion preference.
+  // React to reduced-motion changes.
   useEffect(() => {
-    const engine = engineRef.current;
-    if (!engine) return;
-    engine.setMotion(!reducedMotion);
+    reducedRef.current = reducedMotion;
+    engineRef.current?.setMotion(!reducedMotion);
   }, [reducedMotion]);
 
   // Re-read palette after a theme change (rAF ensures CSS vars are applied).
@@ -98,12 +113,12 @@ export function Background({ theme }: { theme: Theme }) {
       ) : (
         <canvas ref={canvasRef} className="h-full w-full" />
       )}
-      {/* Legibility scrim: keeps text crisp over the animation. */}
+      {/* Legibility scrim: keeps text crisp over the 3D scene. */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(to bottom, rgb(var(--bg)/0.35), rgb(var(--bg)/0.15) 30%, rgb(var(--bg)/0.35))',
+            'radial-gradient(130% 90% at 50% 40%, transparent 30%, rgb(var(--bg)/0.55) 100%)',
         }}
       />
     </div>
