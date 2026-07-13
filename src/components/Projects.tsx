@@ -3,11 +3,12 @@ import { FiGithub, FiSearch } from 'react-icons/fi';
 import { SectionHeading } from './SectionHeading';
 import { Reveal } from './Reveal';
 import { ProjectCard } from './ProjectCard';
-import { getRepos, github, isGithubOk } from '../data/github';
+import { github } from '../data/github';
+import { useGithubRepos } from '../hooks/useGithubRepos';
 
 export function Projects() {
   const [query, setQuery] = useState('');
-  const repos = getRepos();
+  const { repos, live } = useGithubRepos();
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -33,9 +34,21 @@ export function Projects() {
         <SectionHeading
           eyebrow="Proyectos"
           title="Lo que he construido"
-          description="Sincronizado automáticamente con mis repositorios públicos de GitHub."
+          description="Sincronizado en tiempo real con mis repositorios públicos de GitHub."
         />
         <Reveal className="mb-12 w-full sm:w-72">
+          <div
+            className={`mb-3 inline-flex items-center gap-1.5 text-xs transition-opacity ${
+              live ? 'text-accent2 opacity-100' : 'opacity-0'
+            }`}
+            aria-hidden={!live}
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent2 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent2" />
+            </span>
+            En vivo desde GitHub
+          </div>
           <div className="relative">
             <FiSearch
               size={16}
@@ -53,7 +66,7 @@ export function Projects() {
         </Reveal>
       </div>
 
-      {!isGithubOk ? (
+      {repos.length === 0 ? (
         <div className="card p-10 text-center text-muted">
           <FiGithub className="mx-auto mb-3 text-2xl" />
           No se pudieron cargar los proyectos ahora mismo. Visita

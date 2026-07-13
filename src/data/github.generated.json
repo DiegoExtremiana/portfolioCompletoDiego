@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-13T12:26:31.754Z",
+  "generatedAt": "2026-07-13T12:49:27.139Z",
   "ok": true,
   "user": {
     "login": "DiegoExtremiana",
@@ -8,7 +8,7 @@
     "avatarUrl": "https://avatars.githubusercontent.com/u/98778132?v=4",
     "htmlUrl": "https://github.com/DiegoExtremiana",
     "followers": 2,
-    "publicRepos": 12,
+    "publicRepos": 7,
     "location": "La Rioja, Spain"
   },
   "repos": [
@@ -58,45 +58,6 @@
       "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/cafesDiego"
     },
     {
-      "id": 1236625603,
-      "name": "notePastes",
-      "title": "Note Pastes",
-      "description": "Compartir notas en equipos pokémon con uno o varios amigos",
-      "htmlUrl": "https://github.com/DiegoExtremiana/notePastes",
-      "homepage": null,
-      "hasPages": true,
-      "demoUrl": "https://diegoextremiana.github.io/notePastes/",
-      "pushedAt": "2026-05-12T14:59:25Z",
-      "createdAt": "2026-05-12T12:24:54Z",
-      "updatedAt": "2026-05-12T15:24:04Z",
-      "stars": 0,
-      "topics": [],
-      "primaryLanguage": "JavaScript",
-      "languages": {
-        "JavaScript": 93350,
-        "CSS": 20470,
-        "HTML": 8590
-      },
-      "languagePercentages": [
-        {
-          "language": "JavaScript",
-          "percentage": 76.3,
-          "color": "#f1e05a"
-        },
-        {
-          "language": "CSS",
-          "percentage": 16.7,
-          "color": "#563d7c"
-        },
-        {
-          "language": "HTML",
-          "percentage": 7,
-          "color": "#e34c26"
-        }
-      ],
-      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/notePastes"
-    },
-    {
       "id": 1138287238,
       "name": "CurriculumDigital",
       "title": "Curriculum Digital",
@@ -136,84 +97,6 @@
       "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/CurriculumDigital"
     },
     {
-      "id": 1104587147,
-      "name": "portfolioPublico",
-      "title": "Portfolio Publico",
-      "description": "Página centrada en mis proyectos y en una conexión fácil hacia ellos",
-      "htmlUrl": "https://github.com/DiegoExtremiana/portfolioPublico",
-      "homepage": "https://portfolio-publico-mauve.vercel.app",
-      "hasPages": true,
-      "demoUrl": "https://portfolio-publico-mauve.vercel.app",
-      "pushedAt": "2025-12-10T12:14:47Z",
-      "createdAt": "2025-11-26T12:13:44Z",
-      "updatedAt": "2025-12-10T12:14:50Z",
-      "stars": 0,
-      "topics": [],
-      "primaryLanguage": "CSS",
-      "languages": {
-        "CSS": 46160,
-        "HTML": 579
-      },
-      "languagePercentages": [
-        {
-          "language": "CSS",
-          "percentage": 98.8,
-          "color": "#563d7c"
-        },
-        {
-          "language": "HTML",
-          "percentage": 1.2,
-          "color": "#e34c26"
-        }
-      ],
-      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/portfolioPublico"
-    },
-    {
-      "id": 893036952,
-      "name": "TFG",
-      "title": "TFG",
-      "description": "Gestor de gastos web de manera mensual",
-      "htmlUrl": "https://github.com/DiegoExtremiana/TFG",
-      "homepage": null,
-      "hasPages": true,
-      "demoUrl": "https://diegoextremiana.github.io/TFG/",
-      "pushedAt": "2025-07-12T16:27:01Z",
-      "createdAt": "2024-11-23T11:19:39Z",
-      "updatedAt": "2025-07-12T16:27:04Z",
-      "stars": 0,
-      "topics": [],
-      "primaryLanguage": "PHP",
-      "languages": {
-        "PHP": 47051,
-        "CSS": 10741,
-        "JavaScript": 5688,
-        "HTML": 358
-      },
-      "languagePercentages": [
-        {
-          "language": "PHP",
-          "percentage": 73.7,
-          "color": "#4F5D95"
-        },
-        {
-          "language": "CSS",
-          "percentage": 16.8,
-          "color": "#563d7c"
-        },
-        {
-          "language": "JavaScript",
-          "percentage": 8.9,
-          "color": "#f1e05a"
-        },
-        {
-          "language": "HTML",
-          "percentage": 0.6,
-          "color": "#e34c26"
-        }
-      ],
-      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/TFG"
-    },
-    {
       "id": 1018502794,
       "name": "3enRaya",
       "title": "3en Raya",
@@ -251,45 +134,6 @@
         }
       ],
       "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/3enRaya"
-    },
-    {
-      "id": 776017240,
-      "name": "BlackJack",
-      "title": "Black Jack",
-      "description": "Black jack, está un poco pocho pero unas risas te echas",
-      "htmlUrl": "https://github.com/DiegoExtremiana/BlackJack",
-      "homepage": null,
-      "hasPages": true,
-      "demoUrl": "https://diegoextremiana.github.io/BlackJack/",
-      "pushedAt": "2025-07-12T10:53:41Z",
-      "createdAt": "2024-03-22T14:09:30Z",
-      "updatedAt": "2025-07-12T10:53:44Z",
-      "stars": 0,
-      "topics": [],
-      "primaryLanguage": "JavaScript",
-      "languages": {
-        "JavaScript": 15077,
-        "CSS": 1659,
-        "HTML": 1186
-      },
-      "languagePercentages": [
-        {
-          "language": "JavaScript",
-          "percentage": 84.1,
-          "color": "#f1e05a"
-        },
-        {
-          "language": "CSS",
-          "percentage": 9.3,
-          "color": "#563d7c"
-        },
-        {
-          "language": "HTML",
-          "percentage": 6.6,
-          "color": "#e34c26"
-        }
-      ],
-      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/BlackJack"
     },
     {
       "id": 894020984,
@@ -446,93 +290,33 @@
         }
       ],
       "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/piedraPapelTijera"
-    },
-    {
-      "id": 546267530,
-      "name": "gradoMedio",
-      "title": "Grado Medio",
-      "description": "Apuntes y prácticas de grado medio",
-      "htmlUrl": "https://github.com/DiegoExtremiana/gradoMedio",
-      "homepage": null,
-      "hasPages": false,
-      "demoUrl": null,
-      "pushedAt": "2022-10-19T12:40:01Z",
-      "createdAt": "2022-10-05T20:16:14Z",
-      "updatedAt": "2022-10-19T14:07:09Z",
-      "stars": 0,
-      "topics": [],
-      "primaryLanguage": "CSS",
-      "languages": {
-        "CSS": 150994,
-        "HTML": 64347,
-        "Batchfile": 10909,
-        "Rich Text Format": 9864
-      },
-      "languagePercentages": [
-        {
-          "language": "CSS",
-          "percentage": 63.9,
-          "color": "#563d7c"
-        },
-        {
-          "language": "HTML",
-          "percentage": 27.3,
-          "color": "#e34c26"
-        },
-        {
-          "language": "Batchfile",
-          "percentage": 4.6,
-          "color": "#8b93a7"
-        },
-        {
-          "language": "Rich Text Format",
-          "percentage": 4.2,
-          "color": "#8b93a7"
-        }
-      ],
-      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/gradoMedio"
     }
   ],
   "languagePercentages": [
     {
       "language": "TypeScript",
-      "percentage": 35.5,
+      "percentage": 76.2,
       "color": "#3178c6"
     },
     {
-      "language": "CSS",
-      "percentage": 28,
-      "color": "#563d7c"
-    },
-    {
-      "language": "JavaScript",
-      "percentage": 15.8,
-      "color": "#f1e05a"
-    },
-    {
-      "language": "HTML",
-      "percentage": 9.9,
-      "color": "#e34c26"
-    },
-    {
-      "language": "PHP",
-      "percentage": 5.2,
-      "color": "#4F5D95"
-    },
-    {
       "language": "PLpgSQL",
-      "percentage": 3.4,
+      "percentage": 7.4,
       "color": "#336790"
     },
     {
-      "language": "Batchfile",
-      "percentage": 1.2,
-      "color": "#8b93a7"
+      "language": "JavaScript",
+      "percentage": 7,
+      "color": "#f1e05a"
     },
     {
-      "language": "Rich Text Format",
-      "percentage": 1.1,
-      "color": "#8b93a7"
+      "language": "CSS",
+      "percentage": 5.9,
+      "color": "#563d7c"
+    },
+    {
+      "language": "HTML",
+      "percentage": 3.6,
+      "color": "#e34c26"
     }
   ]
 }
