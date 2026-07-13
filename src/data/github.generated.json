@@ -1,0 +1,538 @@
+{
+  "generatedAt": "2026-07-13T11:55:16.220Z",
+  "ok": true,
+  "user": {
+    "login": "DiegoExtremiana",
+    "name": "Diego Extremiana",
+    "bio": null,
+    "avatarUrl": "https://avatars.githubusercontent.com/u/98778132?v=4",
+    "htmlUrl": "https://github.com/DiegoExtremiana",
+    "followers": 2,
+    "publicRepos": 12,
+    "location": "La Rioja, Spain"
+  },
+  "repos": [
+    {
+      "id": 1293597552,
+      "name": "cafesDiego",
+      "title": "Cafes Diego",
+      "description": null,
+      "htmlUrl": "https://github.com/DiegoExtremiana/cafesDiego",
+      "homepage": null,
+      "hasPages": true,
+      "demoUrl": "https://diegoextremiana.github.io/cafesDiego/",
+      "pushedAt": "2026-07-13T08:14:35Z",
+      "createdAt": "2026-07-08T12:51:13Z",
+      "updatedAt": "2026-07-13T08:15:03Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "TypeScript",
+      "languages": {
+        "TypeScript": 324043,
+        "PLpgSQL": 31385,
+        "CSS": 2209,
+        "HTML": 478
+      },
+      "languagePercentages": [
+        {
+          "language": "TypeScript",
+          "percentage": 90.5,
+          "color": "#3178c6"
+        },
+        {
+          "language": "PLpgSQL",
+          "percentage": 8.8,
+          "color": "#336790"
+        },
+        {
+          "language": "CSS",
+          "percentage": 0.6,
+          "color": "#563d7c"
+        },
+        {
+          "language": "HTML",
+          "percentage": 0.1,
+          "color": "#e34c26"
+        }
+      ],
+      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/cafesDiego"
+    },
+    {
+      "id": 1236625603,
+      "name": "notePastes",
+      "title": "Note Pastes",
+      "description": "Compartir notas en equipos pokémon con uno o varios amigos",
+      "htmlUrl": "https://github.com/DiegoExtremiana/notePastes",
+      "homepage": null,
+      "hasPages": true,
+      "demoUrl": "https://diegoextremiana.github.io/notePastes/",
+      "pushedAt": "2026-05-12T14:59:25Z",
+      "createdAt": "2026-05-12T12:24:54Z",
+      "updatedAt": "2026-05-12T15:24:04Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "JavaScript",
+      "languages": {
+        "JavaScript": 93350,
+        "CSS": 20470,
+        "HTML": 8590
+      },
+      "languagePercentages": [
+        {
+          "language": "JavaScript",
+          "percentage": 76.3,
+          "color": "#f1e05a"
+        },
+        {
+          "language": "CSS",
+          "percentage": 16.7,
+          "color": "#563d7c"
+        },
+        {
+          "language": "HTML",
+          "percentage": 7,
+          "color": "#e34c26"
+        }
+      ],
+      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/notePastes"
+    },
+    {
+      "id": 1138287238,
+      "name": "CurriculumDigital",
+      "title": "Curriculum Digital",
+      "description": null,
+      "htmlUrl": "https://github.com/DiegoExtremiana/CurriculumDigital",
+      "homepage": null,
+      "hasPages": true,
+      "demoUrl": "https://diegoextremiana.github.io/CurriculumDigital/",
+      "pushedAt": "2026-01-21T11:32:13Z",
+      "createdAt": "2026-01-20T13:34:12Z",
+      "updatedAt": "2026-01-21T11:32:16Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "HTML",
+      "languages": {
+        "HTML": 8982,
+        "CSS": 5289,
+        "JavaScript": 510
+      },
+      "languagePercentages": [
+        {
+          "language": "HTML",
+          "percentage": 60.8,
+          "color": "#e34c26"
+        },
+        {
+          "language": "CSS",
+          "percentage": 35.8,
+          "color": "#563d7c"
+        },
+        {
+          "language": "JavaScript",
+          "percentage": 3.5,
+          "color": "#f1e05a"
+        }
+      ],
+      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/CurriculumDigital"
+    },
+    {
+      "id": 1104587147,
+      "name": "portfolioPublico",
+      "title": "Portfolio Publico",
+      "description": "Página centrada en mis proyectos y en una conexión fácil hacia ellos",
+      "htmlUrl": "https://github.com/DiegoExtremiana/portfolioPublico",
+      "homepage": "https://portfolio-publico-mauve.vercel.app",
+      "hasPages": true,
+      "demoUrl": "https://portfolio-publico-mauve.vercel.app",
+      "pushedAt": "2025-12-10T12:14:47Z",
+      "createdAt": "2025-11-26T12:13:44Z",
+      "updatedAt": "2025-12-10T12:14:50Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "CSS",
+      "languages": {
+        "CSS": 46160,
+        "HTML": 579
+      },
+      "languagePercentages": [
+        {
+          "language": "CSS",
+          "percentage": 98.8,
+          "color": "#563d7c"
+        },
+        {
+          "language": "HTML",
+          "percentage": 1.2,
+          "color": "#e34c26"
+        }
+      ],
+      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/portfolioPublico"
+    },
+    {
+      "id": 893036952,
+      "name": "TFG",
+      "title": "TFG",
+      "description": "Gestor de gastos web de manera mensual",
+      "htmlUrl": "https://github.com/DiegoExtremiana/TFG",
+      "homepage": null,
+      "hasPages": true,
+      "demoUrl": "https://diegoextremiana.github.io/TFG/",
+      "pushedAt": "2025-07-12T16:27:01Z",
+      "createdAt": "2024-11-23T11:19:39Z",
+      "updatedAt": "2025-07-12T16:27:04Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "PHP",
+      "languages": {
+        "PHP": 47051,
+        "CSS": 10741,
+        "JavaScript": 5688,
+        "HTML": 358
+      },
+      "languagePercentages": [
+        {
+          "language": "PHP",
+          "percentage": 73.7,
+          "color": "#4F5D95"
+        },
+        {
+          "language": "CSS",
+          "percentage": 16.8,
+          "color": "#563d7c"
+        },
+        {
+          "language": "JavaScript",
+          "percentage": 8.9,
+          "color": "#f1e05a"
+        },
+        {
+          "language": "HTML",
+          "percentage": 0.6,
+          "color": "#e34c26"
+        }
+      ],
+      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/TFG"
+    },
+    {
+      "id": 1018502794,
+      "name": "3enRaya",
+      "title": "3en Raya",
+      "description": "El juego de 3 en raya desarrollado en REACT y con modos fácil, medio y dificil, además de la posibilidad de jugar contra otra persona en presencial",
+      "htmlUrl": "https://github.com/DiegoExtremiana/3enRaya",
+      "homepage": null,
+      "hasPages": true,
+      "demoUrl": "https://diegoextremiana.github.io/3enRaya/",
+      "pushedAt": "2025-07-12T13:43:57Z",
+      "createdAt": "2025-07-12T11:58:22Z",
+      "updatedAt": "2025-07-12T13:43:51Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "JavaScript",
+      "languages": {
+        "JavaScript": 7552,
+        "CSS": 5033,
+        "HTML": 361
+      },
+      "languagePercentages": [
+        {
+          "language": "JavaScript",
+          "percentage": 58.3,
+          "color": "#f1e05a"
+        },
+        {
+          "language": "CSS",
+          "percentage": 38.9,
+          "color": "#563d7c"
+        },
+        {
+          "language": "HTML",
+          "percentage": 2.8,
+          "color": "#e34c26"
+        }
+      ],
+      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/3enRaya"
+    },
+    {
+      "id": 776017240,
+      "name": "BlackJack",
+      "title": "Black Jack",
+      "description": "Black jack, está un poco pocho pero unas risas te echas",
+      "htmlUrl": "https://github.com/DiegoExtremiana/BlackJack",
+      "homepage": null,
+      "hasPages": true,
+      "demoUrl": "https://diegoextremiana.github.io/BlackJack/",
+      "pushedAt": "2025-07-12T10:53:41Z",
+      "createdAt": "2024-03-22T14:09:30Z",
+      "updatedAt": "2025-07-12T10:53:44Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "JavaScript",
+      "languages": {
+        "JavaScript": 15077,
+        "CSS": 1659,
+        "HTML": 1186
+      },
+      "languagePercentages": [
+        {
+          "language": "JavaScript",
+          "percentage": 84.1,
+          "color": "#f1e05a"
+        },
+        {
+          "language": "CSS",
+          "percentage": 9.3,
+          "color": "#563d7c"
+        },
+        {
+          "language": "HTML",
+          "percentage": 6.6,
+          "color": "#e34c26"
+        }
+      ],
+      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/BlackJack"
+    },
+    {
+      "id": 894020984,
+      "name": "cuentaTiempo",
+      "title": "Cuenta Tiempo",
+      "description": "Cronómetro con distintos modos y barra de progreso en REACT",
+      "htmlUrl": "https://github.com/DiegoExtremiana/cuentaTiempo",
+      "homepage": null,
+      "hasPages": true,
+      "demoUrl": "https://diegoextremiana.github.io/cuentaTiempo/",
+      "pushedAt": "2025-07-12T10:39:16Z",
+      "createdAt": "2024-11-25T16:00:11Z",
+      "updatedAt": "2025-07-12T10:39:19Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "JavaScript",
+      "languages": {
+        "JavaScript": 5876,
+        "CSS": 3553,
+        "HTML": 2044
+      },
+      "languagePercentages": [
+        {
+          "language": "JavaScript",
+          "percentage": 51.2,
+          "color": "#f1e05a"
+        },
+        {
+          "language": "CSS",
+          "percentage": 31,
+          "color": "#563d7c"
+        },
+        {
+          "language": "HTML",
+          "percentage": 17.8,
+          "color": "#e34c26"
+        }
+      ],
+      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/cuentaTiempo"
+    },
+    {
+      "id": 956508768,
+      "name": "generar6pokemons",
+      "title": "Generar6pokemons",
+      "description": "genera 6 pokémons aleatorios",
+      "htmlUrl": "https://github.com/DiegoExtremiana/generar6pokemons",
+      "homepage": null,
+      "hasPages": true,
+      "demoUrl": "https://diegoextremiana.github.io/generar6pokemons/",
+      "pushedAt": "2025-07-12T10:26:43Z",
+      "createdAt": "2025-03-28T11:22:38Z",
+      "updatedAt": "2025-07-12T10:26:47Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "JavaScript",
+      "languages": {
+        "JavaScript": 8040,
+        "CSS": 1767,
+        "HTML": 692
+      },
+      "languagePercentages": [
+        {
+          "language": "JavaScript",
+          "percentage": 76.6,
+          "color": "#f1e05a"
+        },
+        {
+          "language": "CSS",
+          "percentage": 16.8,
+          "color": "#563d7c"
+        },
+        {
+          "language": "HTML",
+          "percentage": 6.6,
+          "color": "#e34c26"
+        }
+      ],
+      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/generar6pokemons"
+    },
+    {
+      "id": 979345921,
+      "name": "listaTareas_JQuery",
+      "title": "Lista Tareas JQuery",
+      "description": "Una lista de tareas hecha con JQuery",
+      "htmlUrl": "https://github.com/DiegoExtremiana/listaTareas_JQuery",
+      "homepage": null,
+      "hasPages": true,
+      "demoUrl": "https://diegoextremiana.github.io/listaTareas_JQuery/",
+      "pushedAt": "2025-05-07T11:27:01Z",
+      "createdAt": "2025-05-07T11:24:05Z",
+      "updatedAt": "2025-05-07T11:27:04Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "JavaScript",
+      "languages": {
+        "JavaScript": 5067,
+        "CSS": 4030,
+        "HTML": 1449
+      },
+      "languagePercentages": [
+        {
+          "language": "JavaScript",
+          "percentage": 48,
+          "color": "#f1e05a"
+        },
+        {
+          "language": "CSS",
+          "percentage": 38.2,
+          "color": "#563d7c"
+        },
+        {
+          "language": "HTML",
+          "percentage": 13.7,
+          "color": "#e34c26"
+        }
+      ],
+      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/listaTareas_JQuery"
+    },
+    {
+      "id": 902838745,
+      "name": "piedraPapelTijera",
+      "title": "Piedra Papel Tijera",
+      "description": null,
+      "htmlUrl": "https://github.com/DiegoExtremiana/piedraPapelTijera",
+      "homepage": null,
+      "hasPages": true,
+      "demoUrl": "https://diegoextremiana.github.io/piedraPapelTijera/",
+      "pushedAt": "2024-12-13T11:55:24Z",
+      "createdAt": "2024-12-13T11:23:38Z",
+      "updatedAt": "2024-12-13T11:55:28Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "CSS",
+      "languages": {
+        "CSS": 3049,
+        "JavaScript": 2518,
+        "HTML": 1083
+      },
+      "languagePercentages": [
+        {
+          "language": "CSS",
+          "percentage": 45.8,
+          "color": "#563d7c"
+        },
+        {
+          "language": "JavaScript",
+          "percentage": 37.9,
+          "color": "#f1e05a"
+        },
+        {
+          "language": "HTML",
+          "percentage": 16.3,
+          "color": "#e34c26"
+        }
+      ],
+      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/piedraPapelTijera"
+    },
+    {
+      "id": 546267530,
+      "name": "gradoMedio",
+      "title": "Grado Medio",
+      "description": "Apuntes y prácticas de grado medio",
+      "htmlUrl": "https://github.com/DiegoExtremiana/gradoMedio",
+      "homepage": null,
+      "hasPages": false,
+      "demoUrl": null,
+      "pushedAt": "2022-10-19T12:40:01Z",
+      "createdAt": "2022-10-05T20:16:14Z",
+      "updatedAt": "2022-10-19T14:07:09Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "CSS",
+      "languages": {
+        "CSS": 150994,
+        "HTML": 64347,
+        "Batchfile": 10909,
+        "Rich Text Format": 9864
+      },
+      "languagePercentages": [
+        {
+          "language": "CSS",
+          "percentage": 63.9,
+          "color": "#563d7c"
+        },
+        {
+          "language": "HTML",
+          "percentage": 27.3,
+          "color": "#e34c26"
+        },
+        {
+          "language": "Batchfile",
+          "percentage": 4.6,
+          "color": "#8b93a7"
+        },
+        {
+          "language": "Rich Text Format",
+          "percentage": 4.2,
+          "color": "#8b93a7"
+        }
+      ],
+      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/gradoMedio"
+    }
+  ],
+  "languagePercentages": [
+    {
+      "language": "TypeScript",
+      "percentage": 35.5,
+      "color": "#3178c6"
+    },
+    {
+      "language": "CSS",
+      "percentage": 28,
+      "color": "#563d7c"
+    },
+    {
+      "language": "JavaScript",
+      "percentage": 15.8,
+      "color": "#f1e05a"
+    },
+    {
+      "language": "HTML",
+      "percentage": 9.9,
+      "color": "#e34c26"
+    },
+    {
+      "language": "PHP",
+      "percentage": 5.2,
+      "color": "#4F5D95"
+    },
+    {
+      "language": "PLpgSQL",
+      "percentage": 3.4,
+      "color": "#336790"
+    },
+    {
+      "language": "Batchfile",
+      "percentage": 1.2,
+      "color": "#8b93a7"
+    },
+    {
+      "language": "Rich Text Format",
+      "percentage": 1.1,
+      "color": "#8b93a7"
+    }
+  ]
+}

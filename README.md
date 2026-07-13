@@ -1,79 +1,71 @@
-# Portfolio Personal
+# Portfolio · Diego Extremiana
 
-Este es mi portfolio personal desarrollado con React y PHP. Incluye una sección de contacto que permite a los visitantes enviar mensajes directamente a mi correo electrónico.
+Portfolio personal — moderno, accesible y de alto rendimiento. React + TypeScript + Vite, con fondo WebGL sincronizado al scroll, proyectos y tecnologías cargados **automáticamente** desde la API de GitHub, y formulario de contacto vía función serverless.
+
+🔗 **En producción:** https://diegoextremiana.vercel.app/
+
+## Stack
+
+- **Vite 5** + **React 18** + **TypeScript** (estricto)
+- **Tailwind CSS 3** con sistema de tokens (claro/oscuro) vía CSS variables
+- **WebGL** (shader propio, sin dependencias) para el fondo animado
+- Tipografías **self-hosted** (`@fontsource-variable`) — cero peticiones externas
+- **Vercel Serverless Function** + **Nodemailer** para el contacto
 
 ## Características
 
-- Interfaz moderna desarrollada con React
-- Formulario de contacto funcional
-- Envío de emails a través de SMTP con PHPMailer
-- Diseño responsive
-- Soporte para modo claro/oscuro
+- **Proyectos automáticos** — todos los repos públicos (sin forks ni archivados) se
+  obtienen de GitHub en tiempo de build. Demos derivadas de GitHub Pages, imagen
+  representativa, tecnologías y fecha incluidas.
+- **Tecnologías automáticas** — los porcentajes de lenguajes se calculan analizando
+  todos los repositorios; nada se mantiene a mano.
+- **Fondo sincronizado al scroll** — evoluciona hacia delante y hacia atrás con la
+  navegación. Respeta `prefers-reduced-motion` y cae a un gradiente CSS si no hay WebGL.
+- **Diseño responsive** con modo claro/oscuro y animaciones sutiles al hacer scroll.
+- **SEO + accesibilidad** — Open Graph, Twitter Cards, JSON-LD, sitemap, skip-link,
+  foco visible y contraste AA.
 
-## Configuración del Formulario de Contacto
-
-Para que el formulario de contacto funcione correctamente y los mensajes se envíen a tu correo electrónico, debes configurar las variables de entorno de correo.
-
-### Pasos para configurar:
-
-1. **Habilitar la verificación en dos pasos**
-   - Ve a tu [Cuenta de Google](https://myaccount.google.com/)
-   - Navega a "Seguridad" 
-   - Activa la "Verificación en dos pasos"
-
-2. **Crear una contraseña de aplicación**
-   - En la página de "Seguridad" de tu cuenta de Google
-   - Busca la sección "Contraseñas de aplicación"
-   - Selecciona "Correo" como aplicación y "Otro" como dispositivo
-   - Dale un nombre (por ejemplo: "PortfolioContact")
-   - Haz clic en "Generar"
-   - Copia la contraseña generada
-
-3. **Actualizar la configuración**
-   - Abre el archivo `src/config/emailConfig.php`
-   - Reemplaza `TU_CONTRASENA_APP` con la contraseña de aplicación que acabas de generar:
-
-   ```php
-   'smtp_password' => 'la_contraseña_de_aplicación_que_acabas_de_generar',
-   ```
-
-## Dependencias
-
-El proyecto utiliza PHPMailer para el envío de correos electrónicos:
-
-```json
-{
-    "require": {
-        "phpmailer/phpmailer": "^7.0"
-    }
-}
-```
-
-## Estructura del Proyecto
-
-- `src/components/Contact.js` - Componente React del formulario de contacto
-- `sendEmail.php` - Archivo PHP que maneja el envío de correos
-- `src/config/emailConfig.php` - Configuración de credenciales de email
-- `src/setupProxy.js` - Configuración del proxy para las solicitudes API
-
-## Ejecución del Proyecto
-
-1. Asegúrate de tener instalados Node.js, npm y XAMPP
-2. Instala las dependencias de PHP con `composer install`
-3. Inicia Apache y MySQL en XAMPP
-4. Ejecuta `npm install` y luego `npm start` para iniciar la aplicación React
-5. El formulario de contacto enviará los mensajes al correo configurado en las variables de entorno
-
-## Pruebas
-
-Se incluye un script de prueba `test_email.php` que puedes ejecutar para verificar que la configuración de email funcione correctamente:
+## Desarrollo
 
 ```bash
-php test_email.php
+npm install
+npm run dev        # http://localhost:5173
 ```
 
-## Importante
+| Script                | Acción                                                        |
+| --------------------- | ------------------------------------------------------------- |
+| `npm run dev`         | Servidor de desarrollo (Vite)                                 |
+| `npm run build`       | Refresca datos de GitHub y compila a `dist/`                  |
+| `npm run preview`     | Sirve el build de producción                                  |
+| `npm run fetch:github`| Regenera el snapshot `src/data/github.generated.json`         |
+| `npm run typecheck`   | Comprobación de tipos (`tsc --noEmit`)                        |
 
-- No compartas tu contraseña de aplicación con nadie
-- Si alguna vez sospechas que la contraseña ha sido comprometida, genera una nueva
-- Esta contraseña es específica para esta aplicación y no afecta el acceso a otros servicios
+## Datos de GitHub
+
+El script `scripts/fetch-github.mjs` genera un snapshot estático en build (así el sitio
+carga al instante y sin límites de rate). Es **tolerante a fallos**: si la API no
+responde, conserva el snapshot anterior y el build no falla. Un `GITHUB_TOKEN` (opcional)
+solo sube el límite de peticiones. Para ver cambios nuevos en tus repos, vuelve a
+desplegar en Vercel.
+
+## Formulario de contacto
+
+La función `api/contact.ts` envía el mensaje por SMTP. Configura estas variables en
+**Vercel → Settings → Environment Variables** (ver `.env.example`):
+
+```
+SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, CONTACT_TO
+```
+
+Si **no** están configuradas, el formulario cae con elegancia a un enlace `mailto:`, así
+que nunca queda roto. Recomendado: Gmail con una
+[contraseña de aplicación](https://myaccount.google.com/apppasswords).
+
+## Despliegue (Vercel)
+
+Framework **Vite** (autodetectado), sin configuración extra: `npm run build` → `dist/`.
+Las funciones de `api/` se despliegan automáticamente como serverless.
+```bash
+vercel        # preview
+vercel --prod # producción
+```

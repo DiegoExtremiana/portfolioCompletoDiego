@@ -2,248 +2,187 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Estilos base para el cuerpo */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  width: 100%;
-  max-width: 100vw;
-}
-
-/* Estilos para el modo claro y oscuro */
-:root {
-  --bg-primary: #f9fafb;
-  --bg-secondary: #ffffff;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --border-primary: #e5e7eb;
-  --accent-primary: #3b82f6;
-  --accent-secondary: #1d4ed8;
-  --card-bg: #ffffff;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
+/* ============================================================
+   Design tokens — RGB channel triplets so Tailwind's
+   `rgb(var(--x) / <alpha-value>)` opacity modifiers work.
+   ============================================================ */
+:root,
 .dark {
-  --bg-primary: #111827;
-  --bg-secondary: #1f2937;
-  --text-primary: #f9fafb;
-  --text-secondary: #d1d5db;
-  --border-primary: #374151;
-  --accent-primary: #60a5fa;
-  --accent-secondary: #3b82f6;
-  --card-bg: #1f2937;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  --bg: 7 7 11;
+  --surface: 15 16 23;
+  --surface-2: 22 24 34;
+  --border: 36 39 51;
+  --content: 237 238 243;
+  --muted: 162 168 184;
+  --faint: 107 113 130;
+  --accent: 139 123 255;
+  --accent-soft: 185 176 255;
+  --accent2: 52 224 196;
+  color-scheme: dark;
 }
 
-/* Estilos generales para secciones */
-section {
-  scroll-margin-top: 80px;
+.light {
+  --bg: 246 247 251;
+  --surface: 255 255 255;
+  --surface-2: 240 241 246;
+  --border: 226 229 238;
+  --content: 20 21 29;
+  --muted: 86 93 112;
+  --faint: 138 144 162;
+  --accent: 99 84 246;
+  --accent-soft: 75 63 214;
+  --accent2: 13 148 136;
+  color-scheme: light;
 }
 
-/* Estilos para botones */
-.btn-primary {
-  @apply px-4 py-2 sm:px-6 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-lg text-sm sm:text-base;
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+  * {
+    border-color: rgb(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: rgb(var(--bg));
+    color: rgb(var(--content));
+    font-family: theme('fontFamily.sans');
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    transition: background-color 0.4s theme('transitionTimingFunction.smooth'),
+      color 0.4s theme('transitionTimingFunction.smooth');
+  }
+
+  h1, h2, h3, h4 {
+    font-family: theme('fontFamily.display');
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  section {
+    scroll-margin-top: 5.5rem;
+  }
+
+  /* Accessible focus ring */
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: rgb(var(--accent) / 0.3);
+    color: rgb(var(--content));
+  }
+
+  /* Subtle, theme-aware scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--border));
+    border-radius: 99px;
+    border: 2px solid rgb(var(--bg));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--faint));
+  }
 }
 
-.btn-secondary {
-  @apply px-4 py-2 sm:px-6 sm:py-3 bg-[var(--bg-secondary)] text-[var(--text-primary)] rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors text-sm sm:text-base;
+/* ============================================================
+   Components
+   ============================================================ */
+@layer components {
+  .container-wide {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-bold sm:text-4xl md:text-5xl;
+  }
+
+  .lead {
+    @apply text-base leading-relaxed text-muted sm:text-lg;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold
+      transition-all duration-300 ease-smooth focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-white shadow-glow hover:-translate-y-0.5 hover:brightness-110;
+  }
+  .btn-ghost {
+    @apply btn border border-border bg-surface/60 text-content backdrop-blur hover:border-accent/60 hover:bg-surface;
+  }
+
+  /* Surfaces */
+  .card {
+    @apply rounded-2xl border border-border bg-surface/70 backdrop-blur-sm transition-all duration-300 ease-smooth;
+  }
+  .card-hover {
+    @apply hover:-translate-y-1 hover:border-accent/40 hover:shadow-soft;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-border bg-surface-2/70 px-3 py-1 text-xs font-medium text-muted;
+  }
+
+  .link-underline {
+    @apply relative text-content transition-colors hover:text-accent;
+  }
+
+  /* Scroll-reveal primitive (used by Reveal.tsx) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s theme('transitionTimingFunction.smooth'),
+      transform 0.7s theme('transitionTimingFunction.smooth');
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-/* Estilos para tarjetas */
-.card {
-  @apply bg-[var(--card-bg)] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow;
-}
-
-/* Estilos para etiquetas de habilidades */
-.skill-tag {
-  @apply px-4 py-2 bg-[var(--skill-tag-bg)] text-[var(--text-primary)] rounded-full text-sm;
-}
-
-.tech-tag {
-  @apply px-3 py-1 bg-[var(--tech-tag-bg)] text-[var(--text-primary)] rounded-full text-sm;
-}
-
-/* Estilos específicos para el modo claro */
-:root {
-  --skill-tag-bg: #dbeafe; /* bg-blue-100 */
-  --tech-tag-bg: #e5e7eb; /* bg-gray-20 */
-  --timeline-line-bg: #9ca3af; /* bg-gray-400 */
-  --timeline-year-bg: #ffffff;
-  --timeline-year-text: #1f2937;
-  --progress-bar-bg: #e5e7eb; /* bg-gray-200 */
-  --progress-bar-label-text: #4b5563; /* text-gray-600 */
-  --timeline-dot-bg: #ffffff;
-  --timeline-dot-border: #e5e7eb;
-  --timeline-year-bg-color: #ffffff;
-  --timeline-year-text-color: #1f2937;
-  --certification-card-bg: var(--card-bg);
-  --certification-card-border: #e5e7eb;
-  --certification-text-primary: var(--text-primary);
-  --certification-text-secondary: var(--text-secondary);
-  --project-card-bg: rgb(31,41,55);
-  --project-card-border: #e5e7eb;
-  --project-text-primary: #1f2937;
-  --project-text-secondary: #6b7280;
-  --progress-bar-track-bg: #e5e7eb;
-  --progress-bar-label-text: #4b5563;
-  /* Variables específicas para la timeline */
-  --timeline-card-bg: #ffffff;
-  --timeline-card-border: #e5e7eb;
-  --timeline-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --timeline-event-border-education: #3b82f6;
-  --timeline-event-border-experience: #10b981;
-  --timeline-event-border-certification: #8b5cf6;
-  --timeline-legend-bg: #ffffff;
-  --timeline-legend-text: #000000;
-}
-
-/* Estilos específicos para el modo oscuro */
-.dark {
-  --skill-tag-bg: #1e3a8a; /* bg-blue-900 */
-  --tech-tag-bg: #4b5563; /* bg-gray-600 */
-  --timeline-line-bg: #6b7280; /* dark:bg-gray-500 */
-  --timeline-year-bg: #1f2937;
-  --timeline-year-text: #f9fafb;
-  --progress-bar-bg: #374151; /* dark:bg-gray-700 */
- --progress-bar-label-text: #9ca3af; /* dark:text-gray-400 */
-  /* Variables específicas para la timeline en modo oscuro */
-  --timeline-card-bg: #1f2937;
-  --timeline-card-border: #374151;
-  --timeline-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-  --timeline-event-border-education: #60a5fa;
-  --timeline-event-border-experience: #34d399;
-  --timeline-event-border-certification: #c084fc;
-  --timeline-legend-bg: #1f2937;
-  --timeline-legend-text: #f9fafb;
-}
-
-/* Estilo para texto en rojo carmesí */
-.crimson-red {
-  color: #dc143c;
-}
-
-/* Estilos para manejar texto largo en móviles */
-.text-prevent-overflow {
-  word-break: keep-all;
-  overflow-wrap: break-word;
-  hyphens: none;
-  min-width: 0; /* Permite que el contenedor se reduzca */
-}
-
-.text-prevent-overflow * {
-  word-break: keep-all;
-  overflow-wrap: break-word;
-  hyphens: none;
-}
-
-/* Clase para texto que se ajusta dinámicamente en tamaño si no cabe */
-.text-fit {
-  font-size: clamp(0.5rem, 2.5vw, 1rem); /* Tamaño de fuente adaptable */
-}
-
-.text-fit-sm {
-  font-size: clamp(0.4rem, 2vw, 0.875rem); /* Para textos más pequeños */
-}
-
-.text-fit-xs {
-  font-size: clamp(0.3rem, 1.5vw, 0.75rem); /* Para textos aún más pequeños */
-}
-
-/* Estilos para encabezados de sección */
-.section-title {
-  @apply text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-[var(--text-primary)];
-}
-
-/* Estilos para subtítulos de sección */
-.section-subtitle {
-  @apply text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 text-[var(--text-primary)];
-}
-
-
-/* Estilos para enlaces */
-.link {
-  @apply text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors;
-}
-
-/* Estilos para formularios */
-.form-input {
-  @apply w-full px-4 py-3 bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-[var(--text-primary)];
-}
-
-/* Estilos para listas */
-.list {
-  @apply space-y-4;
-}
-
-/* Estilos para imágenes */
-.img-profile {
-  @apply w-full h-full object-cover;
-}
-
-.img-rounded {
-  @apply rounded-xl border-4 border-blue-500 shadow-lg;
-}
-
-/* Estilos para contenedores */
-.container {
-  @apply max-w-6xl mx-auto;
-}
-
-/* Estilos para secciones con fondo */
-.section-bg-light {
-  @apply bg-[var(--bg-secondary)];
-}
-
-.section-bg-dark {
-  @apply bg-[var(--bg-primary)];
-}
-
-/* Estilos para animaciones */
-.fade-in {
-  animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Animaciones para tarjetas del timeline */
-.timeline-card-enter {
-  animation: slideDown 0.5s ease-out;
-}
-
-.timeline-card-exit {
-  animation: slideUp 0.5s ease-out;
-}
-
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideUp {
-  from { opacity: 1; transform: translateY(0); }
-  to { opacity: 0; transform: translateY(-20px); }
-}
-
-/* Estilos para elementos de navegación */
-.nav-link {
-  @apply text-[var(--text-secondary)] hover:text-blue-600 dark:hover:text-blue-400 transition-colors capitalize;
-}
-
-/* Estilos para el modo oscuro */
-* {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* ============================================================
+   Motion preferences
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

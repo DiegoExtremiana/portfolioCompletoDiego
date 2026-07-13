@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/media/images/iconoBarba.png" />
+    <link rel="apple-touch-icon" href="/media/images/iconoBarba.png" />
+
+    <title>Diego Extremiana — Desarrollador Web Full Stack</title>
+    <meta
+      name="description"
+      content="Portfolio de Diego Extremiana, desarrollador web Full Stack especializado en React, TypeScript, Angular y PHP. Proyectos, trayectoria y contacto."
+    />
+    <meta name="author" content="Diego Extremiana" />
+    <meta name="theme-color" content="#07070b" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f7f7fb" media="(prefers-color-scheme: light)" />
+    <link rel="canonical" href="https://diegoextremiana.vercel.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Diego Extremiana" />
+    <meta property="og:title" content="Diego Extremiana — Desarrollador Web Full Stack" />
+    <meta
+      property="og:description"
+      content="Desarrollador web Full Stack: React, TypeScript, Angular y PHP. Descubre mis proyectos y trayectoria."
+    />
+    <meta property="og:url" content="https://diegoextremiana.vercel.app/" />
+    <meta property="og:image" content="https://diegoextremiana.vercel.app/media/images/fotoPerfilDiego.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Diego Extremiana — Desarrollador Web Full Stack" />
+    <meta
+      name="twitter:description"
+      content="Desarrollador web Full Stack: React, TypeScript, Angular y PHP."
+    />
+    <meta name="twitter:image" content="https://diegoextremiana.vercel.app/media/images/fotoPerfilDiego.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Diego Extremiana",
+        "url": "https://diegoextremiana.vercel.app/",
+        "image": "https://diegoextremiana.vercel.app/media/images/fotoPerfilDiego.png",
+        "jobTitle": "Desarrollador Web Full Stack",
+        "address": { "@type": "PostalAddress", "addressLocality": "Nájera", "addressRegion": "La Rioja", "addressCountry": "ES" },
+        "sameAs": [
+          "https://github.com/DiegoExtremiana",
+          "https://www.linkedin.com/in/diego-e-b08910198/"
+        ],
+        "knowsAbout": ["React", "TypeScript", "Angular", "JavaScript", "PHP", "Tailwind CSS", "SQL"]
+      }
+    </script>
+
+    <!-- Set theme before paint to avoid flash of incorrect theme -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var isLight = stored === 'light';
+          document.documentElement.classList.toggle('dark', !isLight);
+          document.documentElement.classList.toggle('light', isLight);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <noscript>Necesitas habilitar JavaScript para ver este sitio.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

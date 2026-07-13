@@ -1,40 +1,47 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
-  "description": "Portfolio web application for Diego Extremiana",
-  "main": "index.js",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+  "name": "diego-extremiana-portfolio",
+  "version": "2.0.0",
+  "description": "Portfolio of Diego Extremiana — Full Stack Web Developer",
+  "type": "module",
+  "author": "Diego Extremiana",
+  "license": "MIT",
   "keywords": [
     "portfolio",
     "react",
+    "typescript",
+    "vite",
     "tailwind",
-    "responsive"
+    "webgl"
   ],
-  "author": "Diego Extremiana",
-  "license": "MIT",
-  "dependencies": {
-    "http-proxy-middleware": "^3.0.5",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^5.5.0",
-    "react-scripts": "5.0.1",
-    "tailwindcss": "^3.3.0"
+  "scripts": {
+    "dev": "vite",
+    "fetch:github": "node scripts/fetch-github.mjs",
+    "build": "node scripts/fetch-github.mjs && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.1.1",
+    "@fontsource-variable/space-grotesk": "^5.1.1",
+    "nodemailer": "^6.9.16",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vercel/node": "^3.2.29",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^5.4.11"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
