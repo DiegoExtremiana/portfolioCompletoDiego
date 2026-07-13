@@ -4,7 +4,7 @@ export const PROFILE = {
   name: 'Diego Extremiana',
   role: 'Desarrollador Web Full Stack',
   location: 'Nájera, La Rioja',
-  photo: '/media/images/fotoPerfilDiego.png',
+  photo: '/media/images/perfilDiego.jpg',
   /** Short rotating descriptors shown in the hero. */
   roles: ['Full Stack', 'Front-end', 'React & TypeScript', 'Creador de contenido'],
   tagline:

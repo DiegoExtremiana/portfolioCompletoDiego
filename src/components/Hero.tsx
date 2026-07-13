@@ -13,6 +13,7 @@ const STATS = [
 
 export function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
+  const [imgError, setImgError] = useState(false);
   const reduced = usePrefersReducedMotion();
 
   useEffect(() => {
@@ -98,14 +99,21 @@ export function Hero() {
               aria-hidden="true"
             />
             <div className="absolute inset-0 overflow-hidden rounded-[2rem] border border-border bg-surface">
-              <img
-                src={PROFILE.photo}
-                alt={`${PROFILE.name}, ${PROFILE.role}`}
-                width={480}
-                height={480}
-                loading="eager"
-                className="h-full w-full object-cover"
-              />
+              {!imgError ? (
+                <img
+                  src={PROFILE.photo}
+                  alt={`${PROFILE.name}, ${PROFILE.role}`}
+                  width={480}
+                  height={480}
+                  loading="eager"
+                  onError={() => setImgError(true)}
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <div className="grid h-full w-full place-items-center bg-gradient-to-br from-accent/30 to-accent2/30 font-display text-7xl font-bold text-content/80">
+                  DE
+                </div>
+              )}
             </div>
             <div className="absolute -bottom-4 -left-4 rounded-2xl border border-border bg-surface/90 px-4 py-3 shadow-soft backdrop-blur">
               <p className="font-display text-sm font-bold">{PROFILE.role}</p>
