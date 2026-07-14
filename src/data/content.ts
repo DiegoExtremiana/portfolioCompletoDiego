@@ -8,7 +8,7 @@ export const PROFILE = {
   /** Short rotating descriptors shown in the hero. */
   roles: ['Full Stack', 'Front-end', 'React & TypeScript', 'Creador de contenido'],
   tagline:
-    'Construyo aplicaciones web que sirven para algo: cuidadas por dentro y por fuera.',
+    'Construyo aplicaciones web de utilidad: cuidadas por dentro y por fuera.',
 } as const;
 
 export const ABOUT_PARAGRAPHS: string[] = [
