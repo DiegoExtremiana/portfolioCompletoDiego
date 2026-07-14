@@ -8,6 +8,8 @@ import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { useTheme } from './hooks/useTheme';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 export function App() {
   const { theme, toggle } = useTheme();
@@ -34,6 +36,8 @@ export function App() {
       </main>
 
       <Footer />
+      <Analytics />
+      <SpeedInsights />
     </>
   );
 }
