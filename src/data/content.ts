@@ -40,12 +40,12 @@ export const CONTACT_LINKS: ContactLink[] = [
     value: 'dextremiana1998@gmail.com',
     href: 'mailto:dextremiana1998@gmail.com',
   },
-  {
-    id: 'whatsapp',
-    label: 'WhatsApp',
-    value: '+34 610 521 810',
-    href: 'https://wa.me/34610521810',
-  },
+  // {
+  //   id: 'whatsapp',
+  //   label: 'WhatsApp',
+  //   value: '+34 610 521 810',
+  //   href: 'https://wa.me/34610521810',
+  // },
   {
     id: 'linkedin',
     label: 'LinkedIn',
