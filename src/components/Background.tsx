@@ -14,11 +14,21 @@ function readVar(name: string): RGB {
   return [0, 0, 0];
 }
 
+function readNum(name: string, fallback: number): number {
+  const raw = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  const n = Number.parseFloat(raw);
+  return Number.isNaN(n) ? fallback : n;
+}
+
 function readColors(): SceneColors {
   return {
     bg: readVar('--bg'),
     accent: readVar('--accent'),
     accent2: readVar('--accent2'),
+    crystal: readVar('--crystal'),
+    ambient: readNum('--scene-ambient', 0.35),
+    pointIntensity: readNum('--scene-point', 40),
+    metalness: readNum('--scene-metal', 0.55),
   };
 }
 

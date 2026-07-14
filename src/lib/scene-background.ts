@@ -32,6 +32,13 @@ export interface SceneColors {
   bg: RGB;
   accent: RGB;
   accent2: RGB;
+  crystal: RGB;
+  /** Ambient (white) light intensity — high in light mode keeps facets pale. */
+  ambient: number;
+  /** Accent point-light intensity — low in light mode avoids saturated facets. */
+  pointIntensity: number;
+  /** Crystal metalness — low in light mode reads as diffuse glass, not mirror. */
+  metalness: number;
 }
 
 const TWO_PI = Math.PI * 2;
@@ -109,6 +116,14 @@ export class SceneBackground {
     this.renderer?.setClearColor(rgbColor(colors.bg), 1);
     this.lightA.color = rgbColor(colors.accent);
     this.lightB.color = rgbColor(colors.accent2);
+    this.lightA.intensity = colors.pointIntensity;
+    this.lightB.intensity = colors.pointIntensity;
+    this.ambient.intensity = colors.ambient;
+    if (this.mesh) {
+      const m = this.mesh.material as MeshStandardMaterial;
+      m.color = rgbColor(colors.crystal);
+      m.metalness = colors.metalness;
+    }
     if (this.edges) (this.edges.material as LineBasicMaterial).color = rgbColor(colors.accent);
     this.render();
   }

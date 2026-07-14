@@ -14,10 +14,15 @@
   --border: 36 39 51;
   --content: 237 238 243;
   --muted: 162 168 184;
-  --faint: 107 113 130;
+  --faint: 122 128 146;
   --accent: 139 123 255;
   --accent-soft: 185 176 255;
   --accent2: 52 224 196;
+  --crystal: 34 36 47;
+  /* 3D scene: metallic, accent-lit crystal on a dark field */
+  --scene-ambient: 0.35;
+  --scene-point: 40;
+  --scene-metal: 0.55;
   color-scheme: dark;
 }
 
@@ -28,10 +33,15 @@
   --border: 226 229 238;
   --content: 20 21 29;
   --muted: 86 93 112;
-  --faint: 138 144 162;
+  --faint: 100 107 126;
   --accent: 99 84 246;
   --accent-soft: 75 63 214;
-  --accent2: 13 148 136;
+  --accent2: 13 118 108;
+  --crystal: 214 217 238;
+  /* 3D scene: pale diffuse glass, white-lit — never darkens text over it */
+  --scene-ambient: 0.9;
+  --scene-point: 16;
+  --scene-metal: 0.15;
   color-scheme: light;
 }
 
