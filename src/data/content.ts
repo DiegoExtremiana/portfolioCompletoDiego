@@ -8,7 +8,7 @@ export const PROFILE = {
   /** Short rotating descriptors shown in the hero. */
   roles: ['Backend / Full-stack', 'Laravel', 'PrestaShop & WordPress', 'React JS'],
   tagline:
-    'Programador web junior con experiencia real desplegando código en producción en tres stacks distintos: Laravel, PrestaShop y WordPress.',
+    'Construyendo aplicaciones web mientras aprendo algo nuevo en cada proyecto.',
 } as const;
 
 export const ABOUT_PARAGRAPHS: string[] = [

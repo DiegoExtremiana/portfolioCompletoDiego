@@ -66,7 +66,7 @@ export function Footer() {
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 text-sm text-faint sm:flex-row">
           <p>© {year} {PROFILE.name}. Todos los derechos reservados.</p>
           <div className="flex items-center gap-4">
-            <span>Hecho con React, TypeScript y Vite</span>
+            {/* <span>Hecho con React, TypeScript y Vite</span> */}
             <button
               onClick={() => scrollToId('inicio')}
               className="inline-flex items-center gap-1 transition-colors hover:text-content"
