@@ -6,9 +6,8 @@ export const PROFILE = {
   location: 'Nájera, La Rioja',
   photo: '/media/images/perfilDiego.jpg',
   /** Short rotating descriptors shown in the hero. */
-  roles: ['Backend / Full-stack', 'Laravel', 'PrestaShop & WordPress', 'React JS'],
-  tagline:
-    'Construyendo aplicaciones web mientras aprendo algo nuevo en cada proyecto.',
+  roles: [  'Web',   'de Aplicaciones',   'de Productos',   'de Soluciones', ],
+  tagline:    'Construyendo aplicaciones web mientras aprendo algo nuevo en cada proyecto.',
 } as const;
 
 export const ABOUT_PARAGRAPHS: string[] = [
