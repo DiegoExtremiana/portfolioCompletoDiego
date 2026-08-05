@@ -6,6 +6,11 @@ const HIDDEN_REPOS = new Set(['salimos-']);
 /** Repo names (lowercase) shown first, in this order — mirrors the CV's featured projects. */
 const PINNED_ORDER = ['diegoncurso', 'cafesdiego', 'cuentatiempo', '3enraya'];
 
+/** Description overrides (lowercase repo name) — replaces whatever GitHub returns for that repo. */
+const DESCRIPTION_OVERRIDES: Record<string, string> = {
+  cafesdiego: 'Aplicación web para registrar y analizar el consumo de café',
+};
+
 /** Projects not hosted on a public GitHub repo (own server) — injected manually. */
 const MANUAL_REPOS: Repo[] = [
   {
@@ -36,7 +41,12 @@ const MANUAL_REPOS: Repo[] = [
 
 /** Hides non-serious repos, injects manual (non-GitHub) projects, and pins the CV highlights first. */
 export function curateRepos(repos: Repo[]): Repo[] {
-  const filtered = repos.filter((r) => !HIDDEN_REPOS.has(r.name.toLowerCase()));
+  const filtered = repos
+    .filter((r) => !HIDDEN_REPOS.has(r.name.toLowerCase()))
+    .map((r) => {
+      const override = DESCRIPTION_OVERRIDES[r.name.toLowerCase()];
+      return override ? { ...r, description: override } : r;
+    });
   const existing = new Set(filtered.map((r) => r.name.toLowerCase()));
   const combined = [...filtered, ...MANUAL_REPOS.filter((r) => !existing.has(r.name.toLowerCase()))];
 
