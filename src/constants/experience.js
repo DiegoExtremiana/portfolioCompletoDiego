@@ -1,20 +1,20 @@
 // Datos de experiencia
 export const EXPERIENCES = [
    {
-    position: "Programador web",
-    company: "SDI - Soluciones Digitales Integrales",
-    period: "4/2026 - 8/2026",
-    description: "Consultas a base de datos mediante API, creación de páginas web y aplicaciones web con Prestashop.",
-    technologies: [ "Prestashop", "Wordpress", "PHP", "Laravel", "SQL", "API"],
+    position: "Programador Web (Backend / Full-stack)",
+    company: "SDi",
+    period: "4/2026 - Actualidad",
+    description: "Backend inicial del equipo con Laravel autodidacta, 2 tiendas online en PrestaShop, 3 sitios en WordPress y soporte de incidencias front-end.",
+    technologies: [ "Laravel", "Prestashop", "Wordpress", "PHP", "SQL"],
     url: "https://www.sdi.es/",
     note: null
   },
   {
-    position: "Programador web FullStack",
+    position: "Programador Informático",
     company: "Wunder control solutions",
-    period: "9/2024 - 1/2025",
-    description: "Creé una aplicación responsiva enfocada en el control de presencia con perfil, mensajería, comunicación con la base de datos mediante API, registros y edición usando HTML, CSS, JavaScript, REACT, PHP y SQL.",
-    technologies: ["HTML", "CSS", "JavaScript", "REACT", "PHP", "SQL", "API"],
+    period: "10/2024 - 12/2024",
+    description: "Aplicación web de control de presencia completa y funcional, frontend en React con componentes reutilizables, back-end en PHP e integración de API, estilo con SCSS.",
+    technologies: ["HTML", "SCSS", "JavaScript", "REACT", "PHP", "SQL", "API"],
     url: null,
     note: null
   },
@@ -44,10 +44,10 @@ export const TIMELINE_EVENTS = [
   {
     id: 17,
     type: 'experience',
-    title: 'Programador web',
+    title: 'Programador Informático',
     subtitle: 'Wunder control solutions',
-    date: '9/2024 - 1/2025',
-    description: 'Creé una aplicación responsiva enfocada en el control de presencia con perfil, mensajería, comunicación con la base de datos mediante API, registros y edición usando HTML, CSS, JavaScript, REACT, PHP y SQL.',
+    date: '10/2024 - 12/2024',
+    description: 'Aplicación web de control de presencia completa y funcional, frontend en React con componentes reutilizables, back-end en PHP e integración de API, estilo con SCSS.',
     category: 'Experiencia Laboral'
   },
   {
@@ -71,10 +71,10 @@ export const TIMELINE_EVENTS = [
     {
     id: 20,
     type: 'experience',
-    title: 'Programador web',
-    subtitle: 'SDI - Soluciones Digitales Integrales',
-    date: '4/2026 - 8/2026',
-    description: 'Consultas a base de datos mediante API, creación de páginas web y aplicaciones web con Prestashop.',
+    title: 'Programador Web (Backend / Full-stack)',
+    subtitle: 'SDi',
+    date: '4/2026 - Actualidad',
+    description: 'Backend inicial del equipo con Laravel autodidacta, 2 tiendas online en PrestaShop, 3 sitios en WordPress y soporte de incidencias front-end.',
     category: 'Experiencia Laboral'
   },
   // Educación: Grados Oficiales

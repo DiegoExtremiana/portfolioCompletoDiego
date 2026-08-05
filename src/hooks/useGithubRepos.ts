@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import type { Repo } from '../types';
 import { github } from '../data/github';
 import { fetchLiveRepos } from '../lib/github-live';
+import { curateRepos } from '../data/projects';
 
 const CACHE_KEY = 'gh-repos-v1';
 
@@ -34,7 +35,7 @@ function writeCache(repos: Repo[]) {
  * render the cached/snapshot list instantly, then refresh live from GitHub.
  */
 export function useGithubRepos(): { repos: Repo[]; live: boolean } {
-  const [repos, setRepos] = useState<Repo[]>(() => readCache() ?? github.repos);
+  const [repos, setRepos] = useState<Repo[]>(() => curateRepos(readCache() ?? github.repos));
   const [live, setLive] = useState(false);
 
   useEffect(() => {
@@ -42,9 +43,10 @@ export function useGithubRepos(): { repos: Repo[]; live: boolean } {
     fetchLiveRepos(controller.signal)
       .then((fresh) => {
         if (fresh && fresh.length > 0) {
-          setRepos(fresh);
+          const curated = curateRepos(fresh);
+          setRepos(curated);
           setLive(true);
-          writeCache(fresh);
+          writeCache(curated);
         }
       })
       .catch(() => {

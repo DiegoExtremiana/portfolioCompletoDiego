@@ -11,7 +11,7 @@ export function ProjectCard({ repo }: { repo: Repo }) {
   return (
     <article className="card card-hover group flex flex-col overflow-hidden">
       <div className="relative aspect-[16/9] overflow-hidden border-b border-border bg-surface-2">
-        {!imgError ? (
+        {repo.image && !imgError ? (
           <img
             src={repo.image}
             alt={`Vista previa de ${repo.title}`}

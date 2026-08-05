@@ -9,7 +9,7 @@ export function About() {
       <SectionHeading
         eyebrow="Sobre mí"
         title="Ideas convertidas en producto"
-        description="Desarrollador web con foco en el front-end y una mirada completa de todo el ciclo del producto."
+        description="Desarrollador web con experiencia en distintos stacks y capacidad para adaptarme rápidamente a nuevas tecnologías."
       />
 
       <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">

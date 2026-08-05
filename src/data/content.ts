@@ -2,35 +2,36 @@ import type { ContactLink, TimelineEvent } from '../types';
 
 export const PROFILE = {
   name: 'Diego Extremiana',
-  role: 'Desarrollador Web Full Stack',
+  role: 'Desarrollador Web',
   location: 'Nájera, La Rioja',
   photo: '/media/images/perfilDiego.jpg',
   /** Short rotating descriptors shown in the hero. */
-  roles: ['Full Stack', 'Front-end', 'React & TypeScript', 'Creador de contenido'],
+  roles: ['Backend / Full-stack', 'Laravel', 'PrestaShop & WordPress', 'React JS'],
   tagline:
-    'Construyo aplicaciones web de utilidad: cuidadas por dentro y por fuera.',
+    'Programador web junior con experiencia real desplegando código en producción en tres stacks distintos: Laravel, PrestaShop y WordPress.',
 } as const;
 
 export const ABOUT_PARAGRAPHS: string[] = [
-  'Siempre he sido una persona curiosa y muy de "trastear". Ese impulso me llevó al desarrollo web, donde disfruto transformando ideas en algo tangible que funciona y ayuda a la gente. Me gusta entender el porqué de cada cosa, cuidar los detalles y crear experiencias agradables tanto en el código como en la interfaz.',
-  'Trabajo con React, Angular, JavaScript, TypeScript, PHP y bases de datos, y me siento cómodo tanto creando interfaces dinámicas como montando la lógica que hay detrás. También soy streamer, algo que complementa mi faceta técnica: me mantiene conectado con la comunicación, el ritmo y el diseño visual.',
-  'Soy constante, resolutivo y con ganas de seguir mejorando. Me motiva aprender, colaborar y construir proyectos con un propósito claro.',
+  '¡Hola! Soy Diego, desarrollador web con experiencia en Laravel, WordPress, PrestaShop, React y PHP. Me gusta crear aplicaciones útiles, mantener un código limpio y enfrentarme a nuevos retos. Durante mi experiencia profesional he tenido la oportunidad de trabajar en proyectos reales en producción y adaptarme rápidamente a diferentes tecnologías según las necesidades de cada proyecto.',
+  'Además de mi trabajo, disfruto desarrollando proyectos personales con los que sigo aprendiendo y experimentando con nuevas herramientas. En este portafolio encontrarás una selección de ellos, ya que gran parte de mi trabajo profesional no puede mostrarse por acuerdos de confidencialidad.',
 ];
 
 /** Curated tools/frameworks not always captured by GitHub language bytes. */
 export const SKILLS: string[] = [
-  'React',
-  'TypeScript',
-  'Angular',
+  'HTML',
+  'SCSS/CSS',
   'JavaScript',
+  'TypeScript',
   'PHP',
   'Laravel',
-  'Tailwind CSS',
-  'SQL',
-  'Node.js',
-  'Git',
-  'PrestaShop',
+  'React',
+  'Vite',
   'WordPress',
+  'PrestaShop',
+  'SQL',
+  'MySQL',
+  'Supabase',
+  'Git',
 ];
 
 export const CONTACT_LINKS: ContactLink[] = [
@@ -78,14 +79,15 @@ export const TIMELINE: TimelineEvent[] = [
   {
     id: 'sdi',
     type: 'work',
-    title: 'Programador web',
-    org: 'SDI · Soluciones Digitales Integrales',
+    title: 'Programador Web (Backend / Full-stack)',
+    org: 'SDi',
     orgUrl: 'https://www.sdi.es/',
+    logo: '/media/images/sdi.png',
     start: '2026-04',
     end: 'present',
     description:
-      'Consultas a base de datos mediante API y desarrollo de páginas y aplicaciones web con PrestaShop y Laravel.',
-    tags: ['PrestaShop', 'PHP', 'Laravel', 'SQL', 'API'],
+      'Cubrí la necesidad inicial de backend aprendiendo Laravel de forma autodidacta, entregué 2 tiendas online en PrestaShop y desarrollé 3 sitios en WordPress, además de resolver incidencias de front-end en proyectos ya publicados.',
+    tags: ['Laravel', 'PrestaShop', 'WordPress', 'PHP', 'SQL'],
   },
   {
     id: 'grado-superior',
@@ -102,15 +104,15 @@ export const TIMELINE: TimelineEvent[] = [
   {
     id: 'wunder',
     type: 'work',
-    title: 'Programador web Full Stack',
+    title: 'Programador Informático',
     org: 'Wunder Control Solutions',
     orgUrl: 'https://wundersolutions.es/',
     logo: '/media/images/wunder.png',
-    start: '2024-09',
-    end: '2025-01',
+    start: '2024-10',
+    end: '2024-12',
     description:
-      'Aplicación responsive de control de presencia con perfiles, mensajería, registros y comunicación con la base de datos vía API.',
-    tags: ['React', 'JavaScript', 'PHP', 'SQL', 'API'],
+      'Aplicación web de control de presencia completa y funcional: frontend en React con componentes reutilizables, back-end en PHP e integración de API para gestión de datos en tiempo real. Estilo completo con SCSS, interfaz moderna y responsiva.',
+    tags: ['React', 'PHP', 'SCSS', 'API'],
   },
   {
     id: 'logrono',
