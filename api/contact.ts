@@ -19,7 +19,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const { SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, CONTACT_TO } = process.env;
 
-  // Not configured → tell the client so it can fall back to a mailto: link.
+  // The client falls back to a mailto: link on 503.
   if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
     return res.status(503).json({ error: 'not_configured' });
   }
@@ -30,7 +30,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const subject = String(body.subject ?? '').trim();
   const message = String(body.message ?? '').trim();
 
-  // Honeypot: bots fill hidden fields. Pretend success without sending.
+  // Honeypot filled in: answer OK so the bot doesn't retry, but send nothing.
   if (body.company) return res.status(200).json({ ok: true });
 
   if (!name || !email || !subject || !message) {

@@ -4,11 +4,11 @@ import { SectionHeading } from './SectionHeading';
 import { Reveal } from './Reveal';
 import { ProjectCard } from './ProjectCard';
 import { github } from '../data/github';
-import { useGithubRepos } from '../hooks/useGithubRepos';
+import { useGithubData } from '../hooks/useGithubData';
 
 export function Projects() {
   const [query, setQuery] = useState('');
-  const { repos, live } = useGithubRepos();
+  const { repos, live } = useGithubData();
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();

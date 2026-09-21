@@ -1,9 +1,11 @@
 import { FiGithub } from 'react-icons/fi';
 import { getLanguageChart } from '../data/github';
+import { useGithubData } from '../hooks/useGithubData';
 import { useInView } from '../hooks/useInView';
 
 export function TechStack() {
-  const languages = getLanguageChart();
+  const { languages: shares, live } = useGithubData();
+  const languages = getLanguageChart(shares);
   const [ref, inView] = useInView<HTMLDivElement>();
 
   if (languages.length === 0) return null;
@@ -12,10 +14,20 @@ export function TechStack() {
     <div ref={ref} className="card p-6 sm:p-7">
       <div className="mb-6 flex items-center justify-between gap-4">
         <h3 className="font-display text-lg font-bold">Stack técnico</h3>
-        <span className="inline-flex items-center gap-1.5 text-xs text-faint">
-          <FiGithub size={13} />
-          Calculado desde GitHub
-        </span>
+        {live ? (
+          <span className="inline-flex items-center gap-1.5 text-xs text-accent2">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent2 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent2" />
+            </span>
+            En vivo desde GitHub
+          </span>
+        ) : (
+          <span className="inline-flex items-center gap-1.5 text-xs text-faint">
+            <FiGithub size={13} />
+            Calculado desde GitHub
+          </span>
+        )}
       </div>
 
       <div className="space-y-4">

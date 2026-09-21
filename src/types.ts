@@ -1,4 +1,3 @@
-/** Shape of the build-time GitHub snapshot (scripts/fetch-github.mjs). */
 export interface LanguageShare {
   language: string;
   percentage: number;
@@ -14,6 +13,7 @@ export interface Repo {
   homepage: string | null;
   hasPages: boolean;
   demoUrl: string | null;
+  /** Empty for projects that aren't on GitHub. */
   pushedAt: string;
   createdAt: string;
   updatedAt: string;
@@ -44,7 +44,6 @@ export interface GithubSnapshot {
   languagePercentages: LanguageShare[];
 }
 
-/** Curated content. */
 export type TimelineType = 'work' | 'education' | 'certification';
 
 export interface TimelineEvent {

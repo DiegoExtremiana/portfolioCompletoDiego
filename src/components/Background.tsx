@@ -39,7 +39,6 @@ export function Background({ theme }: { theme: Theme }) {
   const [fallback, setFallback] = useState(false);
   const reducedMotion = usePrefersReducedMotion();
 
-  // Lazy-load Three.js and set up the scene once.
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -94,13 +93,12 @@ export function Background({ theme }: { theme: Theme }) {
     };
   }, []);
 
-  // React to reduced-motion changes.
   useEffect(() => {
     reducedRef.current = reducedMotion;
     engineRef.current?.setMotion(!reducedMotion);
   }, [reducedMotion]);
 
-  // Re-read palette after a theme change (rAF ensures CSS vars are applied).
+  // Wait a frame so the theme's CSS variables are applied before reading them.
   useEffect(() => {
     const engine = engineRef.current;
     if (!engine) return;
@@ -123,11 +121,11 @@ export function Background({ theme }: { theme: Theme }) {
       ) : (
         <canvas ref={canvasRef} className="h-full w-full" />
       )}
-      {/* Legibility scrim: keeps text crisp over the 3D scene. */}
       <div
         className="absolute inset-0"
         style={{
           background:
+            'linear-gradient(rgb(var(--bg)/var(--scene-veil)), rgb(var(--bg)/var(--scene-veil))),' +
             'radial-gradient(130% 90% at 50% 40%, transparent 30%, rgb(var(--bg)/0.55) 100%)',
         }}
       />

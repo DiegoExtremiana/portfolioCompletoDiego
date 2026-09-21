@@ -3,11 +3,9 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 interface RevealProps {
   children: ReactNode;
   className?: string;
-  /** Stagger delay in ms. */
   delay?: number;
 }
 
-/** Fades + slides its children in the first time they enter the viewport. */
 export function Reveal({ children, className = '', delay = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);

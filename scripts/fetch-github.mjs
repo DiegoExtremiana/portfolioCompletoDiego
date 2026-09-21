@@ -1,15 +1,7 @@
 /**
- * Build-time GitHub data fetcher.
- *
- * Pulls public repositories + language breakdowns for the configured user and
- * writes a static snapshot to src/data/github.generated.json.
- *
- * Runs automatically before `vite build` (see package.json "prebuild").
- * It is intentionally NON-FATAL: if the GitHub API is unavailable or rate
- * limited, it keeps the previously generated snapshot so the build never fails.
- *
- * Usage:  node scripts/fetch-github.mjs
- * Auth:   set GITHUB_TOKEN to raise the rate limit (optional).
+ * Writes src/data/github.generated.json from the public GitHub API (repos and
+ * language bytes). It never fails the build: if the API errors or is rate
+ * limited, the previous snapshot is kept. GITHUB_TOKEN raises the rate limit.
  */
 import { writeFileSync, existsSync, readFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -21,7 +13,6 @@ const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || '';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_FILE = resolve(__dirname, '../src/data/github.generated.json');
 
-// Repos to never show (case-insensitive), e.g. the portfolio itself or scratch repos.
 const EXCLUDE = new Set(
   (process.env.GITHUB_EXCLUDE || 'portfolioCompletoDiego,DiegoExtremiana')
     .split(',')
@@ -29,7 +20,6 @@ const EXCLUDE = new Set(
     .filter(Boolean),
 );
 
-// Minimal GitHub "Linguist" color map (only the languages likely to appear).
 const LANGUAGE_COLORS = {
   JavaScript: '#f1e05a',
   TypeScript: '#3178c6',
@@ -71,13 +61,13 @@ async function gh(url) {
   return res.json();
 }
 
-function keepDate(err) {
+function keepSnapshot(err) {
   console.warn(`\n[fetch-github] ${err.message}`);
   if (existsSync(OUT_FILE)) {
     console.warn('[fetch-github] Keeping existing snapshot; build continues.\n');
     process.exit(0);
   }
-  // No prior snapshot: write an empty-but-valid shell so imports never break.
+  // Without any snapshot the app's imports would break, so write an empty valid one.
   writeSnapshot({
     generatedAt: null,
     ok: false,
@@ -106,7 +96,6 @@ async function main() {
     .filter((r) => !r.fork && !r.archived && !r.private)
     .filter((r) => !EXCLUDE.has(r.name.toLowerCase()));
 
-  // Language bytes per repo (parallel, bounded).
   const withLangs = await Promise.all(
     repos.map(async (r) => {
       let languages = {};
@@ -117,7 +106,6 @@ async function main() {
       }
       const homepage = normalizeHomepage(r.homepage);
       // Most repos leave `homepage` empty but publish a GitHub Pages demo.
-      // Derive it so live demos surface automatically.
       const demoUrl =
         homepage || (r.has_pages ? `https://${USERNAME.toLowerCase()}.github.io/${r.name}/` : null);
       return {
@@ -137,14 +125,13 @@ async function main() {
         primaryLanguage: r.language,
         languages,
         languagePercentages: toPercentages(languages),
-        image: `https://opengraph.githubassets.com/1/${USERNAME}/${r.name}`,
+        image: '',
       };
     }),
   );
 
   withLangs.sort((a, b) => new Date(b.pushedAt) - new Date(a.pushedAt));
 
-  // Aggregate language totals across all repos.
   const totals = {};
   for (const r of withLangs) {
     for (const [lang, bytes] of Object.entries(r.languages)) {
@@ -204,4 +191,4 @@ function prettifyName(name) {
     .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-main().catch(keepDate);
+main().catch(keepSnapshot);

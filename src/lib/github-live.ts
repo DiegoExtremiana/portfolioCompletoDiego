@@ -1,35 +1,18 @@
 /**
- * Live GitHub fetch (client-side).
+ * Client-side refresh of the GitHub data baked into the build.
  *
- * Pulls the public repo list in a single request so newly published projects —
- * and their demo link, when it exists — appear without a redeploy. Language
- * *breakdowns* are enriched from the build-time snapshot when available (they'd
- * otherwise cost one request per repo); brand-new repos fall back to their
- * primary language. Returns null on any failure so callers keep the snapshot.
+ * Language breakdowns need one request per repo but only change on a push, so a
+ * repo is only asked again when its `pushed_at` differs from the one we already
+ * know (snapshot or a previous visit). A normal visit costs a single request,
+ * which matters with the 60 requests/hour anonymous limit.
  */
 import type { Repo } from '../types';
-import { github } from '../data/github';
+import { github, toLanguageShares } from '../data/github';
 
 const USERNAME = 'DiegoExtremiana';
 const EXCLUDE = new Set(['portfoliocompletodiego', 'diegoextremiana']);
-
-const LANGUAGE_COLORS: Record<string, string> = {
-  JavaScript: '#f1e05a',
-  TypeScript: '#3178c6',
-  HTML: '#e34c26',
-  CSS: '#563d7c',
-  SCSS: '#c6538c',
-  PHP: '#4F5D95',
-  Python: '#3572A5',
-  Java: '#b07219',
-  Vue: '#41b883',
-  Astro: '#ff5a03',
-  Dart: '#00B4AB',
-  Go: '#00ADD8',
-  Rust: '#dea584',
-  Kotlin: '#A97BFF',
-  Swift: '#F05138',
-};
+const HEADERS = { Accept: 'application/vnd.github+json' };
+const LANG_CACHE_KEY = 'gh-langs-v1';
 
 interface GhListRepo {
   id: number;
@@ -41,13 +24,21 @@ interface GhListRepo {
   fork: boolean;
   archived: boolean;
   private: boolean;
-  pushed_at: string;
+  pushed_at: string | null;
   created_at: string;
   updated_at: string;
   stargazers_count: number;
   topics?: string[];
   language: string | null;
+  languages_url: string;
 }
+
+interface LangEntry {
+  pushedAt: string;
+  languages: Record<string, number>;
+}
+
+type LangCache = Record<string, LangEntry>;
 
 function prettify(name: string): string {
   return name
@@ -65,12 +56,42 @@ function normalizeHomepage(url: string | null): string | null {
   return /^https?:\/\//.test(trimmed) ? trimmed : `https://${trimmed}`;
 }
 
-export async function fetchLiveRepos(signal?: AbortSignal): Promise<Repo[] | null> {
+function readLangCache(): LangCache {
+  try {
+    const raw = localStorage.getItem(LANG_CACHE_KEY);
+    return raw ? (JSON.parse(raw) as LangCache) : {};
+  } catch {
+    return {};
+  }
+}
+
+function writeLangCache(cache: LangCache) {
+  try {
+    localStorage.setItem(LANG_CACHE_KEY, JSON.stringify(cache));
+  } catch {
+    /* storage full or unavailable */
+  }
+}
+
+// Snapshot and previous visits, whichever has the newest push for each repo.
+function knownLanguages(cache: LangCache): Map<number, LangEntry> {
+  const known = new Map<number, LangEntry>();
+  for (const r of github.repos) {
+    known.set(r.id, { pushedAt: r.pushedAt, languages: r.languages });
+  }
+  for (const [id, entry] of Object.entries(cache)) {
+    const snap = known.get(Number(id));
+    if (!snap || entry.pushedAt >= snap.pushedAt) known.set(Number(id), entry);
+  }
+  return known;
+}
+
+export async function fetchLiveRepos(): Promise<Repo[] | null> {
   let raw: GhListRepo[];
   try {
     const res = await fetch(
       `https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=pushed&type=owner`,
-      { headers: { Accept: 'application/vnd.github+json' }, signal },
+      { headers: HEADERS },
     );
     if (!res.ok) return null;
     raw = (await res.json()) as GhListRepo[];
@@ -79,16 +100,43 @@ export async function fetchLiveRepos(signal?: AbortSignal): Promise<Repo[] | nul
     return null;
   }
 
-  const snapshotById = new Map(github.repos.map((r) => [r.id, r]));
+  const cache = readLangCache();
+  const known = knownLanguages(cache);
 
-  return raw
-    .filter((r) => !r.fork && !r.archived && !r.private && !EXCLUDE.has(r.name.toLowerCase()))
-    .map((r): Repo => {
+  const resolved = await Promise.all(
+    raw
+      .filter((r) => !r.fork && !r.archived && !r.private && !EXCLUDE.has(r.name.toLowerCase()))
+      .map(async (r) => {
+        const pushedAt = r.pushed_at ?? r.created_at;
+        const prev = known.get(r.id);
+        if (prev && prev.pushedAt === pushedAt) {
+          return { r, pushedAt, languages: prev.languages, verified: true };
+        }
+        try {
+          const res = await fetch(r.languages_url, { headers: HEADERS });
+          if (!res.ok) throw new Error(`GitHub ${res.status}`);
+          const languages = (await res.json()) as Record<string, number>;
+          return { r, pushedAt, languages, verified: true };
+        } catch {
+          // Rate limited or offline: keep the last breakdown so the repo doesn't lose its languages.
+          const languages = prev?.languages ?? (r.language ? { [r.language]: 1 } : {});
+          return { r, pushedAt, languages, verified: false };
+        }
+      }),
+  );
+
+  const nextCache: LangCache = {};
+  for (const { r, pushedAt, languages, verified } of resolved) {
+    if (verified) nextCache[r.id] = { pushedAt, languages };
+    else if (cache[r.id]) nextCache[r.id] = cache[r.id];
+  }
+  writeLangCache(nextCache);
+
+  return resolved
+    .map(({ r, languages }): Repo => {
       const homepage = normalizeHomepage(r.homepage);
       const demoUrl =
         homepage || (r.has_pages ? `https://${USERNAME.toLowerCase()}.github.io/${r.name}/` : null);
-      const snap = snapshotById.get(r.id);
-      const primary = r.language;
 
       return {
         id: r.id,
@@ -99,20 +147,15 @@ export async function fetchLiveRepos(signal?: AbortSignal): Promise<Repo[] | nul
         homepage,
         hasPages: Boolean(r.has_pages),
         demoUrl,
-        pushedAt: r.pushed_at,
+        pushedAt: r.pushed_at ?? r.created_at,
         createdAt: r.created_at,
         updatedAt: r.updated_at,
         stars: r.stargazers_count,
         topics: r.topics ?? [],
-        primaryLanguage: primary,
-        languages: snap?.languages ?? (primary ? { [primary]: 1 } : {}),
-        languagePercentages:
-          snap && snap.languagePercentages.length > 0
-            ? snap.languagePercentages
-            : primary
-              ? [{ language: primary, percentage: 100, color: LANGUAGE_COLORS[primary] ?? '#8b93a7' }]
-              : [],
-        image: `https://opengraph.githubassets.com/1/${USERNAME}/${r.name}`,
+        primaryLanguage: r.language,
+        languages,
+        languagePercentages: toLanguageShares(languages),
+        image: '',
       };
     })
     .sort((a, b) => new Date(b.pushedAt).getTime() - new Date(a.pushedAt).getTime());

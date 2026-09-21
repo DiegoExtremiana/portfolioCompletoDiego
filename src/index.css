@@ -2,10 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ============================================================
-   Design tokens — RGB channel triplets so Tailwind's
-   `rgb(var(--x) / <alpha-value>)` opacity modifiers work.
-   ============================================================ */
+/* Colors are space-separated RGB channels so Tailwind's opacity modifiers keep working. */
 :root,
 .dark {
   --bg: 7 7 11;
@@ -16,13 +13,17 @@
   --muted: 162 168 184;
   --faint: 122 128 146;
   --accent: 139 123 255;
+  --accent-strong: 108 92 240;
   --accent-soft: 185 176 255;
   --accent2: 52 224 196;
   --crystal: 34 36 47;
-  /* 3D scene: metallic, accent-lit crystal on a dark field */
+  --type-work: 45 212 191;
+  --type-education: 139 123 255;
+  --type-certification: 245 166 35;
   --scene-ambient: 0.35;
   --scene-point: 40;
   --scene-metal: 0.55;
+  --scene-veil: 0;
   color-scheme: dark;
 }
 
@@ -35,19 +36,20 @@
   --muted: 86 93 112;
   --faint: 100 107 126;
   --accent: 99 84 246;
+  --accent-strong: 99 84 246;
   --accent-soft: 75 63 214;
   --accent2: 13 118 108;
   --crystal: 214 217 238;
-  /* 3D scene: pale diffuse glass, white-lit — never darkens text over it */
+  --type-work: 15 118 110;
+  --type-education: 79 70 229;
+  --type-certification: 146 64 14;
   --scene-ambient: 0.9;
   --scene-point: 16;
   --scene-metal: 0.15;
+  --scene-veil: 0.45;
   color-scheme: light;
 }
 
-/* ============================================================
-   Base
-   ============================================================ */
 @layer base {
   * {
     border-color: rgb(var(--border));
@@ -85,7 +87,6 @@
     scroll-margin-top: 5.5rem;
   }
 
-  /* Accessible focus ring */
   :focus-visible {
     outline: 2px solid rgb(var(--accent));
     outline-offset: 3px;
@@ -97,7 +98,6 @@
     color: rgb(var(--content));
   }
 
-  /* Subtle, theme-aware scrollbar */
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -115,9 +115,6 @@
   }
 }
 
-/* ============================================================
-   Components
-   ============================================================ */
 @layer components {
   .container-wide {
     @apply mx-auto w-full max-w-content px-5 sm:px-8;
@@ -135,19 +132,17 @@
     @apply text-base leading-relaxed text-muted sm:text-lg;
   }
 
-  /* Buttons */
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold
       transition-all duration-300 ease-smooth focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60;
   }
   .btn-primary {
-    @apply btn bg-accent text-white shadow-glow hover:-translate-y-0.5 hover:brightness-110;
+    @apply btn bg-accent-strong text-white shadow-glow hover:-translate-y-0.5 hover:brightness-110;
   }
   .btn-ghost {
     @apply btn border border-border bg-surface/60 text-content backdrop-blur hover:border-accent/60 hover:bg-surface;
   }
 
-  /* Surfaces */
   .card {
     @apply rounded-2xl border border-border bg-surface/70 backdrop-blur-sm transition-all duration-300 ease-smooth;
   }
@@ -159,11 +154,6 @@
     @apply inline-flex items-center rounded-full border border-border bg-surface-2/70 px-3 py-1 text-xs font-medium text-muted;
   }
 
-  .link-underline {
-    @apply relative text-content transition-colors hover:text-accent;
-  }
-
-  /* Scroll-reveal primitive (used by Reveal.tsx) */
   .reveal {
     opacity: 0;
     transform: translateY(24px);
@@ -177,9 +167,6 @@
   }
 }
 
-/* ============================================================
-   Motion preferences
-   ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

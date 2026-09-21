@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FiExternalLink, FiGithub, FiStar } from 'react-icons/fi';
+import { FiCode, FiExternalLink, FiGithub, FiStar } from 'react-icons/fi';
 import type { Repo } from '../types';
 import { formatMonthYear } from '../lib/format';
 
@@ -9,25 +9,29 @@ export function ProjectCard({ repo }: { repo: Repo }) {
   const description = repo.description?.trim() || `Proyecto de ${repo.primaryLanguage ?? 'código'}.`;
 
   return (
-    <article className="card card-hover group flex flex-col overflow-hidden">
+    <article className="card card-hover group flex h-full flex-col overflow-hidden">
       <div className="relative aspect-[16/9] overflow-hidden border-b border-border bg-surface-2">
         {repo.image && !imgError ? (
           <img
             src={repo.image}
             alt={`Vista previa de ${repo.title}`}
+            width={960}
+            height={540}
             loading="lazy"
+            decoding="async"
             onError={() => setImgError(true)}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
           <div
-            className="grid h-full w-full place-items-center font-display text-4xl font-bold text-accent/70"
+            className="grid h-full w-full place-items-center text-accent/60"
             style={{
               background:
                 'radial-gradient(120% 120% at 30% 20%, rgb(var(--accent)/0.18), transparent 60%), rgb(var(--surface-2))',
             }}
+            aria-hidden="true"
           >
-            {repo.title.charAt(0)}
+            <FiCode size={44} />
           </div>
         )}
         {repo.stars > 0 && (
@@ -41,9 +45,11 @@ export function ProjectCard({ repo }: { repo: Repo }) {
       <div className="flex flex-1 flex-col p-5">
         <div className="mb-2 flex items-start justify-between gap-3">
           <h3 className="font-display text-lg font-bold leading-tight">{repo.title}</h3>
-          <time className="mt-1 flex-shrink-0 text-xs text-faint">
-            {formatMonthYear(repo.pushedAt.slice(0, 7))}
-          </time>
+          {repo.pushedAt && (
+            <time className="mt-1 flex-shrink-0 text-xs text-faint">
+              {formatMonthYear(repo.pushedAt.slice(0, 7))}
+            </time>
+          )}
         </div>
 
         <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-muted">{description}</p>
@@ -63,29 +69,33 @@ export function ProjectCard({ repo }: { repo: Repo }) {
           </div>
         )}
 
-        <div className="mt-auto flex items-center gap-2 pt-1">
-          {repo.demoUrl && (
-            <a
-              href={repo.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary flex-1 !py-2 text-xs"
-            >
-              Ver demo
-              <FiExternalLink size={14} />
-            </a>
-          )}
-          <a
-            href={repo.htmlUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`btn-ghost !py-2 text-xs ${repo.demoUrl ? '' : 'flex-1'}`}
-            aria-label={`Código de ${repo.title} en GitHub`}
-          >
-            <FiGithub size={14} />
-            {repo.demoUrl ? '' : 'Ver código'}
-          </a>
-        </div>
+        {(repo.demoUrl || repo.htmlUrl) && (
+          <div className="mt-auto flex items-center gap-2 pt-1">
+            {repo.demoUrl && (
+              <a
+                href={repo.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary flex-1 !py-2 text-xs"
+              >
+                Ver demo
+                <FiExternalLink size={14} />
+              </a>
+            )}
+            {repo.htmlUrl && (
+              <a
+                href={repo.htmlUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`btn-ghost !py-2 text-xs ${repo.demoUrl ? '' : 'flex-1'}`}
+                aria-label={`Código de ${repo.title} en GitHub`}
+              >
+                <FiGithub size={14} />
+                {repo.demoUrl ? '' : 'Ver código'}
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </article>
   );

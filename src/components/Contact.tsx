@@ -1,6 +1,5 @@
 import { useState, type FormEvent } from 'react';
 import { FiGithub, FiLinkedin, FiMail, FiMapPin, FiSend } from 'react-icons/fi';
-import { FaWhatsapp } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
 import { SectionHeading } from './SectionHeading';
 import { Reveal } from './Reveal';
@@ -8,7 +7,6 @@ import { CONTACT_LINKS, EMAIL, PROFILE } from '../data/content';
 
 const ICONS: Record<string, IconType> = {
   email: FiMail,
-  whatsapp: FaWhatsapp,
   linkedin: FiLinkedin,
   github: FiGithub,
 };
@@ -57,7 +55,7 @@ export function Contact() {
       setErrors(validation);
       return;
     }
-    if (form.company) return; // honeypot tripped — silently ignore bots
+    if (form.company) return;
 
     setStatus('sending');
     try {
@@ -70,7 +68,6 @@ export function Contact() {
         setStatus('success');
         setForm(EMPTY);
       } else if (res.status === 503) {
-        // Backend not configured → open the visitor's mail client instead.
         setStatus('fallback');
         window.location.href = mailtoFallback(form);
       } else {
@@ -171,7 +168,6 @@ export function Contact() {
               {errors.message && <p className="mt-1 text-xs text-red-400">{errors.message}</p>}
             </div>
 
-            {/* Honeypot: hidden from users, catches bots. */}
             <input
               type="text"
               tabIndex={-1}

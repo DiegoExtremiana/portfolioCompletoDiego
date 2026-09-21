@@ -16,7 +16,7 @@ export function useTheme() {
     try {
       localStorage.setItem('theme', theme);
     } catch {
-      /* ignore storage errors (private mode) */
+      /* storage unavailable */
     }
   }, [theme]);
 

@@ -1,5 +1,5 @@
 import { FiArrowUp, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
-import { EMAIL, NAV_LINKS, PROFILE } from '../data/content';
+import { EMAIL, GITHUB_URL, LINKEDIN_URL, NAV_LINKS, PROFILE } from '../data/content';
 import { scrollToId } from '../lib/format';
 
 export function Footer() {
@@ -14,7 +14,7 @@ export function Footer() {
               onClick={() => scrollToId('inicio')}
               className="flex items-center gap-2.5 font-display text-lg font-bold"
             >
-              <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent text-white">
+              <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent-strong text-white">
                 DE
               </span>
               {PROFILE.name}
@@ -36,7 +36,7 @@ export function Footer() {
 
           <div className="flex items-center gap-2">
             <a
-              href="https://github.com/DiegoExtremiana"
+              href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -45,7 +45,7 @@ export function Footer() {
               <FiGithub size={18} />
             </a>
             <a
-              href="https://www.linkedin.com/in/diego-e-b08910198/"
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -65,16 +65,13 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 text-sm text-faint sm:flex-row">
           <p>© {year} {PROFILE.name}. Todos los derechos reservados.</p>
-          <div className="flex items-center gap-4">
-            {/* <span>Hecho con React, TypeScript y Vite</span> */}
-            <button
-              onClick={() => scrollToId('inicio')}
-              className="inline-flex items-center gap-1 transition-colors hover:text-content"
-            >
-              Arriba
-              <FiArrowUp size={14} />
-            </button>
-          </div>
+          <button
+            onClick={() => scrollToId('inicio')}
+            className="inline-flex items-center gap-1 transition-colors hover:text-content"
+          >
+            Arriba
+            <FiArrowUp size={14} />
+          </button>
         </div>
       </div>
     </footer>

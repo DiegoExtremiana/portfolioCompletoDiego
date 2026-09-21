@@ -42,7 +42,7 @@ export function Header({ theme, onToggleTheme }: HeaderProps) {
           onClick={() => go('inicio')}
           className="group flex items-center gap-2.5 font-display text-base font-bold"
         >
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent text-white shadow-glow transition-transform group-hover:scale-105">
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-accent-strong text-white shadow-glow transition-transform group-hover:scale-105">
             DE
           </span>
           <span className="hidden sm:inline">Diego Extremiana</span>

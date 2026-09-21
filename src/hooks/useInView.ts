@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 
-/** Returns a ref and whether the element has entered the viewport (once). */
 export function useInView<T extends Element>(options?: IntersectionObserverInit) {
   const ref = useRef<T>(null);
   const [inView, setInView] = useState(false);
@@ -19,7 +18,6 @@ export function useInView<T extends Element>(options?: IntersectionObserverInit)
     );
     observer.observe(el);
     return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return [ref, inView] as const;

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-/** Tracks which section is centered in the viewport for nav highlighting. */
 export function useActiveSection(ids: readonly string[]): string {
   const [active, setActive] = useState(ids[0] ?? '');
   const key = ids.join(',');
@@ -20,7 +19,6 @@ export function useActiveSection(ids: readonly string[]): string {
       if (el) observer.observe(el);
     }
     return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
 
   return active;

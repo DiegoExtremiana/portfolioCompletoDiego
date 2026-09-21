@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-13T12:49:27.139Z",
+  "generatedAt": "2026-09-21T15:54:58.235Z",
   "ok": true,
   "user": {
     "login": "DiegoExtremiana",
@@ -8,55 +8,10 @@
     "avatarUrl": "https://avatars.githubusercontent.com/u/98778132?v=4",
     "htmlUrl": "https://github.com/DiegoExtremiana",
     "followers": 2,
-    "publicRepos": 7,
+    "publicRepos": 10,
     "location": "La Rioja, Spain"
   },
   "repos": [
-    {
-      "id": 1293597552,
-      "name": "cafesDiego",
-      "title": "Cafes Diego",
-      "description": null,
-      "htmlUrl": "https://github.com/DiegoExtremiana/cafesDiego",
-      "homepage": null,
-      "hasPages": true,
-      "demoUrl": "https://diegoextremiana.github.io/cafesDiego/",
-      "pushedAt": "2026-07-13T08:14:35Z",
-      "createdAt": "2026-07-08T12:51:13Z",
-      "updatedAt": "2026-07-13T08:15:03Z",
-      "stars": 0,
-      "topics": [],
-      "primaryLanguage": "TypeScript",
-      "languages": {
-        "TypeScript": 324043,
-        "PLpgSQL": 31385,
-        "CSS": 2209,
-        "HTML": 478
-      },
-      "languagePercentages": [
-        {
-          "language": "TypeScript",
-          "percentage": 90.5,
-          "color": "#3178c6"
-        },
-        {
-          "language": "PLpgSQL",
-          "percentage": 8.8,
-          "color": "#336790"
-        },
-        {
-          "language": "CSS",
-          "percentage": 0.6,
-          "color": "#563d7c"
-        },
-        {
-          "language": "HTML",
-          "percentage": 0.1,
-          "color": "#e34c26"
-        }
-      ],
-      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/cafesDiego"
-    },
     {
       "id": 1138287238,
       "name": "CurriculumDigital",
@@ -66,35 +21,260 @@
       "homepage": null,
       "hasPages": true,
       "demoUrl": "https://diegoextremiana.github.io/CurriculumDigital/",
-      "pushedAt": "2026-01-21T11:32:13Z",
+      "pushedAt": "2026-09-19T22:03:27Z",
       "createdAt": "2026-01-20T13:34:12Z",
-      "updatedAt": "2026-01-21T11:32:16Z",
+      "updatedAt": "2026-09-19T22:03:31Z",
       "stars": 0,
       "topics": [],
-      "primaryLanguage": "HTML",
+      "primaryLanguage": "JavaScript",
       "languages": {
-        "HTML": 8982,
-        "CSS": 5289,
-        "JavaScript": 510
+        "JavaScript": 27668,
+        "CSS": 6679,
+        "HTML": 1585
       },
       "languagePercentages": [
         {
-          "language": "HTML",
-          "percentage": 60.8,
-          "color": "#e34c26"
+          "language": "JavaScript",
+          "percentage": 77,
+          "color": "#f1e05a"
         },
         {
           "language": "CSS",
-          "percentage": 35.8,
+          "percentage": 18.6,
+          "color": "#563d7c"
+        },
+        {
+          "language": "HTML",
+          "percentage": 4.4,
+          "color": "#e34c26"
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": 979345921,
+      "name": "listaTareas_JQuery",
+      "title": "Lista Tareas JQuery",
+      "description": "Una lista de tareas hecha con JQuery",
+      "htmlUrl": "https://github.com/DiegoExtremiana/listaTareas_JQuery",
+      "homepage": null,
+      "hasPages": true,
+      "demoUrl": "https://diegoextremiana.github.io/listaTareas_JQuery/",
+      "pushedAt": "2026-08-25T12:46:03Z",
+      "createdAt": "2025-05-07T11:24:05Z",
+      "updatedAt": "2026-08-25T12:53:29Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "CSS",
+      "languages": {
+        "CSS": 12389,
+        "JavaScript": 8977,
+        "HTML": 3760
+      },
+      "languagePercentages": [
+        {
+          "language": "CSS",
+          "percentage": 49.3,
           "color": "#563d7c"
         },
         {
           "language": "JavaScript",
-          "percentage": 3.5,
+          "percentage": 35.7,
+          "color": "#f1e05a"
+        },
+        {
+          "language": "HTML",
+          "percentage": 15,
+          "color": "#e34c26"
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": 902838745,
+      "name": "piedraPapelTijera",
+      "title": "Piedra Papel Tijera",
+      "description": null,
+      "htmlUrl": "https://github.com/DiegoExtremiana/piedraPapelTijera",
+      "homepage": null,
+      "hasPages": true,
+      "demoUrl": "https://diegoextremiana.github.io/piedraPapelTijera/",
+      "pushedAt": "2026-08-25T11:31:36Z",
+      "createdAt": "2024-12-13T11:23:38Z",
+      "updatedAt": "2026-08-25T11:34:48Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "JavaScript",
+      "languages": {
+        "JavaScript": 16463,
+        "CSS": 12170,
+        "HTML": 2825
+      },
+      "languagePercentages": [
+        {
+          "language": "JavaScript",
+          "percentage": 52.3,
+          "color": "#f1e05a"
+        },
+        {
+          "language": "CSS",
+          "percentage": 38.7,
+          "color": "#563d7c"
+        },
+        {
+          "language": "HTML",
+          "percentage": 9,
+          "color": "#e34c26"
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": 1293597552,
+      "name": "cafesDiego",
+      "title": "Cafes Diego",
+      "description": null,
+      "htmlUrl": "https://github.com/DiegoExtremiana/cafesDiego",
+      "homepage": null,
+      "hasPages": true,
+      "demoUrl": "https://diegoextremiana.github.io/cafesDiego/",
+      "pushedAt": "2026-08-05T07:23:18Z",
+      "createdAt": "2026-07-08T12:51:13Z",
+      "updatedAt": "2026-08-05T07:24:07Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "TypeScript",
+      "languages": {
+        "TypeScript": 390365,
+        "PLpgSQL": 55231,
+        "CSS": 2209,
+        "JavaScript": 1560,
+        "HTML": 1268
+      },
+      "languagePercentages": [
+        {
+          "language": "TypeScript",
+          "percentage": 86.6,
+          "color": "#3178c6"
+        },
+        {
+          "language": "PLpgSQL",
+          "percentage": 12.3,
+          "color": "#336790"
+        },
+        {
+          "language": "CSS",
+          "percentage": 0.5,
+          "color": "#563d7c"
+        },
+        {
+          "language": "JavaScript",
+          "percentage": 0.3,
+          "color": "#f1e05a"
+        },
+        {
+          "language": "HTML",
+          "percentage": 0.3,
+          "color": "#e34c26"
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": 1308457380,
+      "name": "Salimos-",
+      "title": "Salimos",
+      "description": null,
+      "htmlUrl": "https://github.com/DiegoExtremiana/Salimos-",
+      "homepage": null,
+      "hasPages": true,
+      "demoUrl": "https://diegoextremiana.github.io/Salimos-/",
+      "pushedAt": "2026-07-27T13:02:38Z",
+      "createdAt": "2026-07-22T06:19:13Z",
+      "updatedAt": "2026-07-27T13:02:49Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "JavaScript",
+      "languages": {
+        "JavaScript": 84719,
+        "CSS": 55730,
+        "PLpgSQL": 17931,
+        "HTML": 15560
+      },
+      "languagePercentages": [
+        {
+          "language": "JavaScript",
+          "percentage": 48.7,
+          "color": "#f1e05a"
+        },
+        {
+          "language": "CSS",
+          "percentage": 32,
+          "color": "#563d7c"
+        },
+        {
+          "language": "PLpgSQL",
+          "percentage": 10.3,
+          "color": "#336790"
+        },
+        {
+          "language": "HTML",
+          "percentage": 8.9,
+          "color": "#e34c26"
+        }
+      ],
+      "image": ""
+    },
+    {
+      "id": 1312700652,
+      "name": "instalaciones-app",
+      "title": "Instalaciones App",
+      "description": null,
+      "htmlUrl": "https://github.com/DiegoExtremiana/instalaciones-app",
+      "homepage": null,
+      "hasPages": false,
+      "demoUrl": null,
+      "pushedAt": "2026-07-26T10:26:03Z",
+      "createdAt": "2026-07-26T10:25:57Z",
+      "updatedAt": "2026-07-26T10:26:59Z",
+      "stars": 0,
+      "topics": [],
+      "primaryLanguage": "TypeScript",
+      "languages": {
+        "TypeScript": 15245,
+        "HTML": 8538,
+        "CSS": 1603,
+        "SCSS": 1179,
+        "JavaScript": 1004
+      },
+      "languagePercentages": [
+        {
+          "language": "TypeScript",
+          "percentage": 55.3,
+          "color": "#3178c6"
+        },
+        {
+          "language": "HTML",
+          "percentage": 31,
+          "color": "#e34c26"
+        },
+        {
+          "language": "CSS",
+          "percentage": 5.8,
+          "color": "#563d7c"
+        },
+        {
+          "language": "SCSS",
+          "percentage": 4.3,
+          "color": "#c6538c"
+        },
+        {
+          "language": "JavaScript",
+          "percentage": 3.6,
           "color": "#f1e05a"
         }
       ],
-      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/CurriculumDigital"
+      "image": ""
     },
     {
       "id": 1018502794,
@@ -133,7 +313,7 @@
           "color": "#e34c26"
         }
       ],
-      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/3enRaya"
+      "image": ""
     },
     {
       "id": 894020984,
@@ -172,7 +352,7 @@
           "color": "#e34c26"
         }
       ],
-      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/cuentaTiempo"
+      "image": ""
     },
     {
       "id": 956508768,
@@ -211,112 +391,39 @@
           "color": "#e34c26"
         }
       ],
-      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/generar6pokemons"
-    },
-    {
-      "id": 979345921,
-      "name": "listaTareas_JQuery",
-      "title": "Lista Tareas JQuery",
-      "description": "Una lista de tareas hecha con JQuery",
-      "htmlUrl": "https://github.com/DiegoExtremiana/listaTareas_JQuery",
-      "homepage": null,
-      "hasPages": true,
-      "demoUrl": "https://diegoextremiana.github.io/listaTareas_JQuery/",
-      "pushedAt": "2025-05-07T11:27:01Z",
-      "createdAt": "2025-05-07T11:24:05Z",
-      "updatedAt": "2025-05-07T11:27:04Z",
-      "stars": 0,
-      "topics": [],
-      "primaryLanguage": "JavaScript",
-      "languages": {
-        "JavaScript": 5067,
-        "CSS": 4030,
-        "HTML": 1449
-      },
-      "languagePercentages": [
-        {
-          "language": "JavaScript",
-          "percentage": 48,
-          "color": "#f1e05a"
-        },
-        {
-          "language": "CSS",
-          "percentage": 38.2,
-          "color": "#563d7c"
-        },
-        {
-          "language": "HTML",
-          "percentage": 13.7,
-          "color": "#e34c26"
-        }
-      ],
-      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/listaTareas_JQuery"
-    },
-    {
-      "id": 902838745,
-      "name": "piedraPapelTijera",
-      "title": "Piedra Papel Tijera",
-      "description": null,
-      "htmlUrl": "https://github.com/DiegoExtremiana/piedraPapelTijera",
-      "homepage": null,
-      "hasPages": true,
-      "demoUrl": "https://diegoextremiana.github.io/piedraPapelTijera/",
-      "pushedAt": "2024-12-13T11:55:24Z",
-      "createdAt": "2024-12-13T11:23:38Z",
-      "updatedAt": "2024-12-13T11:55:28Z",
-      "stars": 0,
-      "topics": [],
-      "primaryLanguage": "CSS",
-      "languages": {
-        "CSS": 3049,
-        "JavaScript": 2518,
-        "HTML": 1083
-      },
-      "languagePercentages": [
-        {
-          "language": "CSS",
-          "percentage": 45.8,
-          "color": "#563d7c"
-        },
-        {
-          "language": "JavaScript",
-          "percentage": 37.9,
-          "color": "#f1e05a"
-        },
-        {
-          "language": "HTML",
-          "percentage": 16.3,
-          "color": "#e34c26"
-        }
-      ],
-      "image": "https://opengraph.githubassets.com/1/DiegoExtremiana/piedraPapelTijera"
+      "image": ""
     }
   ],
   "languagePercentages": [
     {
       "language": "TypeScript",
-      "percentage": 76.2,
+      "percentage": 52,
       "color": "#3178c6"
     },
     {
-      "language": "PLpgSQL",
-      "percentage": 7.4,
-      "color": "#336790"
-    },
-    {
       "language": "JavaScript",
-      "percentage": 7,
+      "percentage": 20.8,
       "color": "#f1e05a"
     },
     {
       "language": "CSS",
-      "percentage": 5.9,
+      "percentage": 13,
       "color": "#563d7c"
     },
     {
+      "language": "PLpgSQL",
+      "percentage": 9.4,
+      "color": "#336790"
+    },
+    {
       "language": "HTML",
-      "percentage": 3.6,
+      "percentage": 4.7,
       "color": "#e34c26"
+    },
+    {
+      "language": "SCSS",
+      "percentage": 0.2,
+      "color": "#c6538c"
     }
   ]
 }

@@ -3,7 +3,7 @@ const MONTHS = [
   'jul.', 'ago.', 'sep.', 'oct.', 'nov.', 'dic.',
 ];
 
-/** 'YYYY-MM' → 'feb. 2021'; 'YYYY' → '2021'; 'present' → 'Actualidad'. */
+/** 'YYYY-MM' becomes 'feb. 2021', 'YYYY' stays '2021' and 'present' becomes 'Actualidad'. */
 export function formatMonthYear(value: string): string {
   if (value === 'present') return 'Actualidad';
   const [year, month] = value.split('-');
@@ -12,7 +12,7 @@ export function formatMonthYear(value: string): string {
 }
 
 export function formatRange(start: string, end?: string): string {
-  return end ? `${formatMonthYear(start)} — ${formatMonthYear(end)}` : formatMonthYear(start);
+  return end ? `${formatMonthYear(start)} – ${formatMonthYear(end)}` : formatMonthYear(start);
 }
 
 /** Numeric key for chronological sorting; 'present' sorts last. */

@@ -1,13 +1,4 @@
-/**
- * Three.js scroll-driven 3D background.
- *
- * A flat-shaded icosahedron ("crystal") tumbles as a pure function of scroll
- * progress (0 → 1): scrolling down rolls it forward, scrolling up reverses the
- * exact same motion. Two accent-colored lights give it a premium two-tone rim.
- *
- * Loaded lazily (see Background.tsx) so Three.js stays out of the initial
- * bundle. Caps DPR, pauses when the tab is hidden, and honors reduced motion.
- */
+// Loaded lazily from Background.tsx so Three.js stays out of the main bundle.
 import {
   AmbientLight,
   Color,
@@ -33,11 +24,8 @@ export interface SceneColors {
   accent: RGB;
   accent2: RGB;
   crystal: RGB;
-  /** Ambient (white) light intensity — high in light mode keeps facets pale. */
   ambient: number;
-  /** Accent point-light intensity — low in light mode avoids saturated facets. */
   pointIntensity: number;
-  /** Crystal metalness — low in light mode reads as diffuse glass, not mirror. */
   metalness: number;
 }
 
@@ -84,7 +72,7 @@ export class SceneBackground {
 
     this.camera.position.set(0, 0, 6.5);
 
-    const geometry = new IcosahedronGeometry(2.35, 0); // detail 0 → 20 facets
+    const geometry = new IcosahedronGeometry(2.35, 0);
     const material = new MeshStandardMaterial({
       color: new Color(0x22242f),
       metalness: 0.55,
@@ -138,7 +126,6 @@ export class SceneBackground {
     }
   }
 
-  /** target: normalized scroll progress 0..1 */
   setScroll(target: number) {
     this.target = Math.min(1, Math.max(0, target));
     if (!this.motion) {
@@ -156,7 +143,6 @@ export class SceneBackground {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, cap));
     renderer.setSize(w, h, false);
     this.camera.aspect = w / h;
-    // Pull the crystal back a touch on narrow/portrait viewports so it stays framed.
     this.camera.position.z = w < 768 ? 8 : 6.5;
     this.camera.updateProjectionMatrix();
     this.render();
@@ -164,7 +150,7 @@ export class SceneBackground {
 
   private render() {
     if (!this.renderer || !this.mesh) return;
-    // Rotation is a pure function of scroll → scrolling up reverses it exactly.
+    // Rotation depends only on scroll progress, so scrolling back up reverses it.
     this.group.rotation.x = 0.4 + this.scroll * TWO_PI * 1.1;
     this.group.rotation.y = 0.2 + this.scroll * TWO_PI * 1.6;
     this.group.position.y = Math.sin(this.scroll * Math.PI) * 0.25;

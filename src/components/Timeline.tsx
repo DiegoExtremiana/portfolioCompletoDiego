@@ -10,13 +10,13 @@ import type { TimelineType } from '../types';
 interface TypeMeta {
   label: string;
   icon: IconType;
-  color: string;
+  rgb: string;
 }
 
 const TYPE_META: Record<TimelineType, TypeMeta> = {
-  work: { label: 'Experiencia', icon: FiBriefcase, color: '#2dd4bf' },
-  education: { label: 'Formación', icon: FiBookOpen, color: '#8b7bff' },
-  certification: { label: 'Certificación', icon: FiAward, color: '#f5a623' },
+  work: { label: 'Experiencia', icon: FiBriefcase, rgb: 'var(--type-work)' },
+  education: { label: 'Formación', icon: FiBookOpen, rgb: 'var(--type-education)' },
+  certification: { label: 'Certificación', icon: FiAward, rgb: 'var(--type-certification)' },
 };
 
 type Filter = 'all' | TimelineType;
@@ -41,7 +41,7 @@ export function Timeline() {
       <SectionHeading
         eyebrow="Trayectoria"
         title="Experiencia y formación"
-        description="Un recorrido por mi experiencia profesional, mis estudios y las certificaciones que han marcado el camino."
+        description="Experiencia profesional, estudios y certificaciones."
       />
 
       <Reveal className="mb-10 flex flex-wrap gap-2">
@@ -52,7 +52,7 @@ export function Timeline() {
             aria-pressed={filter === f.id}
             className={`rounded-full border px-4 py-1.5 text-sm font-medium transition-colors ${
               filter === f.id
-                ? 'border-accent bg-accent text-white'
+                ? 'border-accent-strong bg-accent-strong text-white'
                 : 'border-border bg-surface/60 text-muted hover:text-content'
             }`}
           >
@@ -62,7 +62,6 @@ export function Timeline() {
       </Reveal>
 
       <ol className="relative">
-        {/* Spine */}
         <span
           className="absolute bottom-2 top-2 left-4 w-px bg-gradient-to-b from-accent/60 via-border to-transparent lg:left-1/2 lg:-translate-x-1/2"
           aria-hidden="true"
@@ -77,10 +76,9 @@ export function Timeline() {
               key={event.id}
               className={`relative mb-8 lg:mb-4 lg:flex ${leftSide ? 'lg:justify-start' : 'lg:justify-end'}`}
             >
-              {/* Dot */}
               <span
                 className="absolute left-4 top-6 z-10 grid h-8 w-8 -translate-x-1/2 place-items-center rounded-full border border-border bg-surface lg:left-1/2"
-                style={{ color: meta.color }}
+                style={{ color: `rgb(${meta.rgb})` }}
                 aria-hidden="true"
               >
                 <Icon size={15} />
@@ -94,7 +92,7 @@ export function Timeline() {
                   <div className="mb-2 flex items-center justify-between gap-3">
                     <span
                       className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold"
-                      style={{ color: meta.color, backgroundColor: `${meta.color}1a` }}
+                      style={{ color: `rgb(${meta.rgb})`, backgroundColor: `rgb(${meta.rgb} / 0.1)` }}
                     >
                       {meta.label}
                     </span>

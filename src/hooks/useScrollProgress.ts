@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 
-/** Page scroll progress from 0 (top) to 1 (bottom), rAF-throttled. */
 export function useScrollProgress(): number {
   const [progress, setProgress] = useState(0);
 

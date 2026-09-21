@@ -13,6 +13,7 @@ export default {
         muted: 'rgb(var(--muted) / <alpha-value>)',
         faint: 'rgb(var(--faint) / <alpha-value>)',
         accent: 'rgb(var(--accent) / <alpha-value>)',
+        'accent-strong': 'rgb(var(--accent-strong) / <alpha-value>)',
         'accent-soft': 'rgb(var(--accent-soft) / <alpha-value>)',
         accent2: 'rgb(var(--accent2) / <alpha-value>)',
       },
@@ -31,9 +32,6 @@ export default {
         'fade-up': {
           from: { opacity: '0', transform: 'translateY(16px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
-        },
-        shimmer: {
-          '100%': { transform: 'translateX(100%)' },
         },
         float: {
           '0%, 100%': { transform: 'translateY(0)' },

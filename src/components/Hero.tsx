@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
 import { FiArrowDown, FiArrowUpRight, FiGithub, FiLinkedin } from 'react-icons/fi';
-import { PROFILE } from '../data/content';
-import { github, getLanguageChart, getRepos } from '../data/github';
+import { GITHUB_URL, LINKEDIN_URL, PROFILE } from '../data/content';
+import { github, getLanguageNames } from '../data/github';
+import { useGithubData } from '../hooks/useGithubData';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 import { scrollToId } from '../lib/format';
-
-const STATS = [
-  { value: `${getRepos().length}`, label: 'Proyectos públicos' },
-  { value: `${getLanguageChart().length}+`, label: 'Tecnologías' },
-  { value: '2021', label: 'Desde' },
-];
 
 export function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [imgError, setImgError] = useState(false);
   const reduced = usePrefersReducedMotion();
+  const { repos, languages } = useGithubData();
+
+  const stats = [
+    { value: `${repos.length}`, label: 'Proyectos' },
+    { value: `${getLanguageNames(languages).length}`, label: 'Tecnologías' },
+    { value: '2021', label: 'Desde' },
+  ];
 
   useEffect(() => {
     if (reduced) return;
@@ -61,7 +63,7 @@ export function Hero() {
             </button>
             <div className="ml-1 flex items-center gap-1">
               <a
-                href={github.user?.htmlUrl ?? 'https://github.com/DiegoExtremiana'}
+                href={github.user?.htmlUrl ?? GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
@@ -70,7 +72,7 @@ export function Hero() {
                 <FiGithub size={18} />
               </a>
               <a
-                href="https://www.linkedin.com/in/diego-e-b08910198/"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -82,11 +84,10 @@ export function Hero() {
           </div>
 
           <dl className="mt-12 grid max-w-md grid-cols-3 gap-4">
-            {STATS.map((stat) => (
-              <div key={stat.label} className="border-l border-border pl-4">
-                <dt className="sr-only">{stat.label}</dt>
+            {stats.map((stat) => (
+              <div key={stat.label} className="flex flex-col-reverse border-l border-border pl-4">
+                <dt className="mt-1 text-xs text-faint">{stat.label}</dt>
                 <dd className="font-display text-2xl font-bold sm:text-3xl">{stat.value}</dd>
-                <p className="mt-1 text-xs text-faint">{stat.label}</p>
               </div>
             ))}
           </dl>
