@@ -13,6 +13,7 @@ const SCREENSHOTS = new Set([
   'listatareas_jquery',
   'piedrapapeltijera',
   'generar6pokemons',
+  'norla',
 ]);
 
 const OVERRIDES: Record<string, Partial<Pick<Repo, 'title' | 'description'>>> = {
@@ -20,6 +21,11 @@ const OVERRIDES: Record<string, Partial<Pick<Repo, 'title' | 'description'>>> = 
     title: 'Contador de Cafés',
     description:
       'Registro y análisis del consumo de café en la jornada laboral, con TypeScript y Supabase',
+  },
+  norla: {
+    title: 'N’Orla',
+    description:
+      'Web narrativa de una herramienta para limpiar playas de anidación, con animaciones de scroll en JavaScript nativo',
   },
   '3enraya': {
     title: '3 en Raya',
