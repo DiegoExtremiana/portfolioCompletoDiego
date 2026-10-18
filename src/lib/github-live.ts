@@ -105,7 +105,7 @@ export async function fetchLiveRepos(): Promise<Repo[] | null> {
 
   const resolved = await Promise.all(
     raw
-      .filter((r) => !r.fork && !r.archived && !r.private && !EXCLUDE.has(r.name.toLowerCase()))
+      .filter((r) => !r.fork && !r.archived && !r.private && !EXCLUDE.has(r.name.toLowerCase()) && !r.name.toLowerCase().startsWith('streamclips') && !(r.topics ?? []).includes('streamclips'))
       .map(async (r) => {
         const pushedAt = r.pushed_at ?? r.created_at;
         const prev = known.get(r.id);

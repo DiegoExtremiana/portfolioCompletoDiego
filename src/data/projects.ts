@@ -103,8 +103,18 @@ const MANUAL_REPOS: Repo[] = [
 ];
 
 // GitHub repos worth showing; the tech stack is computed from these too.
+// StreamClips y todo lo relacionado (streamclips, streamclips-motor, streamclips-nube...) no se enseña nunca,
+// ni desde la captura de la compilación, ni desde GitHub en vivo, ni desde la caché del navegador.
+const HIDDEN_PREFIXES = ['streamclips'];
+const HIDDEN_TOPIC = 'streamclips';
+
 export function visibleRepos(repos: Repo[]): Repo[] {
-  return repos.filter((r) => !HIDDEN_REPOS.has(r.name.toLowerCase()));
+  return repos.filter((r) => {
+    const name = r.name.toLowerCase();
+    if (HIDDEN_REPOS.has(name)) return false;
+    if (HIDDEN_PREFIXES.some((p) => name.startsWith(p))) return false;
+    return !(r.topics ?? []).some((t) => t.toLowerCase() === HIDDEN_TOPIC);
+  });
 }
 
 export function curateRepos(repos: Repo[]): Repo[] {

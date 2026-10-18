@@ -4,7 +4,7 @@ import { aggregateLanguages, github } from '../data/github';
 import { curateRepos, visibleRepos } from '../data/projects';
 import { fetchLiveRepos } from '../lib/github-live';
 
-const CACHE_KEY = 'gh-repos-v2';
+const CACHE_KEY = 'gh-repos-v3';
 const LEGACY_CACHE_KEY = 'gh-repos-v1';
 
 interface Cache {
