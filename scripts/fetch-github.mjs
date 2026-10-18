@@ -20,6 +20,19 @@ const EXCLUDE = new Set(
     .filter(Boolean),
 );
 
+// StreamClips (el programa de clips de Twitch) y todo lo que va con él (el motor de la nube, etc.) no se muestran
+// en el portafolio: se descarta cualquier repositorio cuyo nombre empiece por estos prefijos o que lleve el tema «streamclips».
+const EXCLUDE_PREFIXES = (process.env.GITHUB_EXCLUDE_PREFIXES || 'streamclips')
+  .split(',')
+  .map((s) => s.trim().toLowerCase())
+  .filter(Boolean);
+const EXCLUDE_TOPIC = 'streamclips';
+
+const isHidden = (r) =>
+  EXCLUDE.has(r.name.toLowerCase()) ||
+  EXCLUDE_PREFIXES.some((p) => r.name.toLowerCase().startsWith(p)) ||
+  (r.topics || []).some((t) => String(t).toLowerCase() === EXCLUDE_TOPIC);
+
 const LANGUAGE_COLORS = {
   JavaScript: '#f1e05a',
   TypeScript: '#3178c6',
@@ -92,9 +105,7 @@ async function main() {
     gh(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=pushed&type=owner`),
   ]);
 
-  const repos = reposRaw
-    .filter((r) => !r.fork && !r.archived && !r.private)
-    .filter((r) => !EXCLUDE.has(r.name.toLowerCase()));
+  const repos = reposRaw.filter((r) => !r.fork && !r.archived && !r.private).filter((r) => !isHidden(r));
 
   const withLangs = await Promise.all(
     repos.map(async (r) => {
